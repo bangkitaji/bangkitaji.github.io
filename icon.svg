@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131A26"/>
+      <stop offset="100%" stop-color="#0B0F17"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="50%" stop-color="#C72027"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#C72027" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded rect -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="108" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="4"/>
+
+  <!-- Whoosh Aerodynamic Train Nose Icon -->
+  <g transform="translate(64, 96)" filter="url(#glow)">
+    <!-- Aerodynamic body -->
+    <path d="M40 160 C40 70 140 20 240 20 H340 C362 20 380 38 380 60 V260 C380 282 362 300 340 300 H240 C140 300 40 250 40 160 Z" fill="url(#redGrad)"/>
+    
+    <!-- Sleek Cockpit Windshield -->
+    <path d="M300 60 H200 C150 60 100 90 90 140 C120 120 180 100 250 100 H300 C311 100 320 91 320 80 V80 C320 69 311 60 300 60 Z" fill="url(#silverGrad)" opacity="0.95"/>
+    
+    <!-- Aerodynamic Speed Stripes -->
+    <path d="M120 180 C180 170 260 170 380 175 V205 C260 200 170 200 105 210 Z" fill="#FFFFFF" opacity="0.85"/>
+    <path d="M150 225 C200 220 270 220 380 225 V240 C270 235 190 235 140 242 Z" fill="#D4AF37" opacity="0.9"/>
+    
+    <!-- High-speed Headlight -->
+    <circle cx="95" cy="170" r="14" fill="#FFFFFF"/>
+    <circle cx="95" cy="170" r="22" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.5"/>
+
+    <!-- Track Rails -->
+    <line x1="20" y1="315" x2="380" y2="315" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+    <line x1="60" y1="315" x2="40" y2="335" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+    <line x1="140" y1="315" x2="120" y2="335" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+    <line x1="220" y1="315" x2="200" y2="335" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+    <line x1="300" y1="315" x2="280" y2="335" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+    <line x1="380" y1="315" x2="360" y2="335" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

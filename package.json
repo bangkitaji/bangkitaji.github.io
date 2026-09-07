@@ -1,0 +1,22 @@
+{
+  "name": "whoosh-seat-manifest",
+  "version": "1.0.0",
+  "description": "Visualizer Layout Kursi Kosong Kereta Cepat Whoosh berbasis Manifest Harian",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "whoosh",
+    "kcic",
+    "seat-layout",
+    "manifest",
+    "high-speed-train"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,385 @@
+﻿BOOKING CODE;TICKET NUMBER;PASSENGER TYPE;TRIP DATE;TRAIN CODE;STAMFFORM CODE;CLASS;SEAT;ROUTE
+GA51535493;9061946;Full price ticket;04/09/2026;G1043;01;First Class;001A;Halim—Padalarang
+GA51535493;9061947;Full price ticket;04/09/2026;G1043;01;First Class;001C;Halim—Padalarang
+GA71593528;9052815;Full price ticket;04/09/2026;G1043;01;First Class;002A;Halim—Padalarang
+GA71593528;9052816;Full price ticket;04/09/2026;G1043;01;First Class;002C;Halim—Padalarang
+GA51035597;9054969;Full price ticket;04/09/2026;G1043;01;First Class;003A;Halim—Padalarang
+GA51035597;9054970;Full price ticket;04/09/2026;G1043;01;First Class;003C;Halim—Padalarang
+GA53514113;9218613;Full price ticket;04/09/2026;G1043;01;First Class;003F;Halim—Padalarang
+GA53558110;9028968;Full price ticket;04/09/2026;G1043;01;Business Class;004C;Halim—Padalarang
+GA53558110;9028969;Full price ticket;04/09/2026;G1043;01;Business Class;004D;Halim—Padalarang
+GA53558110;9028967;Full price ticket;04/09/2026;G1043;01;Business Class;004F;Halim—Padalarang
+GA63019541;9188188;Full price ticket;04/09/2026;G1043;01;Business Class;005D;Halim—Padalarang
+GA63019541;9188189;Full price ticket;04/09/2026;G1043;01;Business Class;005F;Halim—Padalarang
+GA53661251;9228521;Full price ticket;04/09/2026;G1043;01;Business Class;006A;Halim—Padalarang
+GA23533211;9218646;Full price ticket;04/09/2026;G1043;01;Business Class;006D;Halim—Padalarang
+GA23533211;9218647;Full price ticket;04/09/2026;G1043;01;Business Class;006F;Halim—Padalarang
+GA23533211;9218648;Full price ticket;04/09/2026;G1043;01;Business Class;007D;Halim—Padalarang
+GA23533211;9218649;Full price ticket;04/09/2026;G1043;01;Business Class;007F;Halim—Padalarang
+GA53515162;9210209;Full price ticket;04/09/2026;G1043;01;Business Class;008A;Halim—Padalarang
+GA13559140;9231983;Full price ticket;04/09/2026;G1043;01;Business Class;008C;Halim—Padalarang
+GA23533211;9218650;Full price ticket;04/09/2026;G1043;01;Business Class;008D;Halim—Padalarang
+GA11553330;9218700;Full price ticket;04/09/2026;G1043;01;Business Class;008F;Halim—Padalarang
+GA11553330;9218701;Full price ticket;04/09/2026;G1043;01;Business Class;009D;Halim—Padalarang
+GA11553330;9218702;Full price ticket;04/09/2026;G1043;01;Business Class;009F;Halim—Padalarang
+GA53509151;9232089;Full price ticket;04/09/2026;G1043;01;Business Class;010C;Halim—Padalarang
+GA49785135;9231926;Full price ticket;04/09/2026;G1043;01;Business Class;010D;Halim—Padalarang
+GA11553330;9218703;Full price ticket;04/09/2026;G1043;01;Business Class;010F;Halim—Padalarang
+GA17648553;9054954;Full price ticket;04/09/2026;G1043;01;Business Class;005A;Halim—Tegalluar
+GA17648553;9054955;Full price ticket;04/09/2026;G1043;01;Business Class;005C;Halim—Tegalluar
+GA17648553;9054956;Full price ticket;04/09/2026;G1043;01;Business Class;007A;Halim—Tegalluar
+GA17648553;9054957;Full price ticket;04/09/2026;G1043;01;Business Class;007C;Halim—Tegalluar
+GA17648553;9054958;Full price ticket;04/09/2026;G1043;01;Business Class;009A;Halim—Tegalluar
+GA35361587;9231697;Full price ticket;04/09/2026;G1043;01;Business Class;010A;Halim—Tegalluar
+GA83056551;9028970;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;001F;Halim—Padalarang
+GA51435287;9231861;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;003A;Halim—Padalarang
+GA65302915;9054966;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;003B;Halim—Padalarang
+GA53565161;9054183;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;003D;Halim—Padalarang
+GA53565161;9054184;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;003F;Halim—Padalarang
+GA48175533;9231718;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;004D;Halim—Padalarang
+GA13657551;9228608;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;004F;Halim—Padalarang
+GA35314915;9232106;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;005D;Halim—Padalarang
+GA14498553;9231916;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;005F;Halim—Padalarang
+GA19466553;9230912;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;007F;Halim—Padalarang
+GA19557331;9231989;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;008A;Halim—Padalarang
+GA51535592;9232040;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;008B;Halim—Padalarang
+GA79519345;9072395;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;009A;Halim—Padalarang
+GA51735491;9052813;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;009D;Halim—Padalarang
+GA51735491;9052814;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;009F;Halim—Padalarang
+GA91593562;9052819;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;010D;Halim—Padalarang
+GA31502955;9093331;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;010F;Halim—Padalarang
+GA91593562;9052820;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;011A;Halim—Padalarang
+GA91593562;9052821;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;011B;Halim—Padalarang
+GA91593562;9052822;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;011C;Halim—Padalarang
+GA19195533;9339312;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;011D;Halim—Padalarang
+GA19195533;9339313;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;011F;Halim—Padalarang
+GA19215153;9072392;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;014A;Halim—Padalarang
+GA19215153;9072393;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;014B;Halim—Padalarang
+GA88518382;9217428;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;014F;Halim—Padalarang
+GA13551029;9232020;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;015A;Halim—Padalarang
+GA88518382;9217429;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;015D;Halim—Padalarang
+GA88518382;9217430;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;015F;Halim—Padalarang
+GA88518382;9217431;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;016D;Halim—Padalarang
+GA25328812;9217388;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;016F;Halim—Padalarang
+GA93514551;9411686;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;017A;Halim—Padalarang
+GA93514551;9411687;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;017B;Halim—Padalarang
+GA93514551;9411688;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;017C;Halim—Padalarang
+GA25328812;9217389;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;017D;Halim—Padalarang
+GA25328812;9217390;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;017F;Halim—Padalarang
+GA03539561;9411691;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;018A;Halim—Padalarang
+GA03539561;9411692;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;018B;Halim—Padalarang
+GA03539561;9411693;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;018C;Halim—Padalarang
+GA25328812;9217391;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;018D;Halim—Padalarang
+GA25328812;9217392;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;018F;Halim—Padalarang
+GA75515013;9054178;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;002A;Halim—Tegalluar
+GA75515013;9054179;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;002B;Halim—Tegalluar
+GA75515013;9054180;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;002C;Halim—Tegalluar
+GA75515013;9054181;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;002D;Halim—Tegalluar
+GA75515013;9054182;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;002F;Halim—Tegalluar
+GA51335684;9231726;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;004A;Halim—Tegalluar
+GA53229251;9232041;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;005A;Halim—Tegalluar
+GA53229251;9232042;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;006A;Halim—Tegalluar
+GA31511955;9339311;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;006F;Halim—Tegalluar
+GA18598053;9152673;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;007A;Halim—Tegalluar
+GA51539189;9061945;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;008F;Halim—Tegalluar
+GA51235847;9049021;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;012A;Halim—Tegalluar
+GA51235847;9049022;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;012B;Halim—Tegalluar
+GA91583590;9093326;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;012F;Halim—Tegalluar
+GA16919553;9339314;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;013A;Halim—Tegalluar
+GA35751593;9012213;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;013D;Halim—Tegalluar
+GA33881546;9092735;Gold Silver;04/09/2026;G1043;02;Premium Economy Class;013F;Halim—Tegalluar
+GA51539675;9411694;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;014D;Halim—Tegalluar
+GA18719553;9206063;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;010A;Karawang—Padalarang
+GA18719553;9206064;Full price ticket;04/09/2026;G1043;02;Premium Economy Class;010B;Karawang—Padalarang
+GA15343915;9012204;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;004F;Halim—Karawang
+GA13518581;9231847;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;006A;Halim—Karawang
+GA53508551;9231755;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;006F;Halim—Karawang
+GA33508571;9054961;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;010F;Halim—Karawang
+GA83137551;9231823;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;017D;Halim—Karawang
+GA33377141;9172084;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;001D;Halim—Padalarang
+GA33377141;9172085;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;001F;Halim—Padalarang
+GA35331599;9232133;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;002A;Halim—Padalarang
+GA91583572;9231908;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;002C;Halim—Padalarang
+GA33377141;9172086;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;002D;Halim—Padalarang
+GA33377141;9172087;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;002F;Halim—Padalarang
+GA93811551;9232049;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;004B;Halim—Padalarang
+GA93811551;9232050;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;004C;Halim—Padalarang
+GA59779513;9231517;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;005F;Halim—Padalarang
+GA91453555;9232165;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;006C;Halim—Padalarang
+GA91923355;9232039;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;007A;Halim—Padalarang
+GA43519541;9232120;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;007C;Halim—Padalarang
+GA05371915;9232017;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;008F;Halim—Padalarang
+GA63526551;9230913;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;009F;Halim—Padalarang
+GA93073551;9411680;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;010C;Halim—Padalarang
+GA51735392;9044889;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;011A;Halim—Padalarang
+GA41783653;9240858;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;011F;Halim—Padalarang
+GA51593539;9239396;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;012A;Halim—Padalarang
+GA51035696;9049711;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;012C;Halim—Padalarang
+GA51135974;9231285;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;012F;Halim—Padalarang
+GA21593578;9044896;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;013A;Halim—Padalarang
+GA51135974;9231286;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;013D;Halim—Padalarang
+GA51135974;9231287;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;013F;Halim—Padalarang
+GA81593536;9239397;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;014C;Halim—Padalarang
+GA93280551;9231954;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;015A;Halim—Padalarang
+GA93280551;9231955;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;015B;Halim—Padalarang
+GA35551595;9093341;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;015C;Halim—Padalarang
+GA41537696;9226590;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;015D;Halim—Padalarang
+GA41537696;9226591;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;015F;Halim—Padalarang
+GA91803754;9231880;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;016A;Halim—Padalarang
+GA43529531;9232229;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;016C;Halim—Padalarang
+GA18269553;9093344;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;016D;Halim—Padalarang
+GA19559131;9231982;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;016F;Halim—Padalarang
+GA51635591;9231998;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;017A;Halim—Padalarang
+GA88155513;9231853;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;018A;Halim—Padalarang
+GA35281595;9012202;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;018C;Halim—Padalarang
+GA13552028;9231830;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;018D;Halim—Padalarang
+GA13552028;9231827;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;018F;Halim—Padalarang
+GA81473455;9044883;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;001A;Halim—Tegalluar
+GA81473455;9044884;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;001B;Halim—Tegalluar
+GA13559122;9012199;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;003A;Halim—Tegalluar
+GA66795135;9339321;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;003B;Halim—Tegalluar
+GA65691953;9339322;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;003C;Halim—Tegalluar
+GA65961953;9012210;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;004A;Halim—Tegalluar
+GA23509571;9239406;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;004D;Halim—Tegalluar
+GA19552732;9049020;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;005A;Halim—Tegalluar
+GA35691590;9012207;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;005C;Halim—Tegalluar
+GA63538511;9339284;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;007F;Halim—Tegalluar
+GA51435692;9093333;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;008A;Halim—Tegalluar
+GA93190551;9231971;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;009A;Halim—Tegalluar
+GA14669553;9093345;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;009D;Halim—Tegalluar
+GA89517355;9093343;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;010A;Halim—Tegalluar
+GA77595135;9411697;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;011C;Halim—Tegalluar
+GA19185543;9411675;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;014A;Halim—Tegalluar
+GA51539765;9061949;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;014F;Halim—Tegalluar
+GA41539883;9205794;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;004F;Karawang—Padalarang
+GA12525413;9047619;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;006A;Karawang—Padalarang
+GA35271596;9047618;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;017C;Karawang—Padalarang
+GA13550149;9152974;Gold Silver;04/09/2026;G1043;03;Premium Economy Class;003F;Karawang—Tegalluar
+GA51539396;9010962;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;006F;Karawang—Tegalluar
+GA35821586;9206053;Full price ticket;04/09/2026;G1043;03;Premium Economy Class;017F;Karawang—Tegalluar
+GA43559101;9232102;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;007F;Halim—Karawang
+GA58155543;9231750;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;001A;Halim—Padalarang
+GA51335495;9052818;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;001C;Halim—Padalarang
+GA31520865;9231515;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;001D;Halim—Padalarang
+GA71593555;9054968;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;001F;Halim—Padalarang
+GA31506825;9231784;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;002B;Halim—Padalarang
+GA19439553;9093337;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;002D;Halim—Padalarang
+GA31504935;9232105;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;003A;Halim—Padalarang
+GA19551832;9232052;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;003C;Halim—Padalarang
+GA79518355;9012206;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;004C;Halim—Padalarang
+GA17415153;9231226;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;005A;Halim—Padalarang
+GA17415153;9231227;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;005B;Halim—Padalarang
+GA49135563;9054967;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;005D;Halim—Padalarang
+GA83317551;9231831;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;005F;Halim—Padalarang
+GA19553731;9232002;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;006A;Halim—Padalarang
+GA35711597;9012215;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;008D;Halim—Padalarang
+GA75310915;9231940;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;008F;Halim—Padalarang
+GA93795135;9411684;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;009A;Halim—Padalarang
+GA35261588;9231635;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;009F;Halim—Padalarang
+GA85861853;9231881;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;010A;Halim—Padalarang
+GA85861853;9231882;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;010B;Halim—Padalarang
+GA85861853;9231883;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;010C;Halim—Padalarang
+GA85861853;9231884;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;010D;Halim—Padalarang
+GA85861853;9231885;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;010F;Halim—Padalarang
+GA39155553;9411682;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;011C;Halim—Padalarang
+GA51538766;9231832;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;011F;Halim—Padalarang
+GA68516395;9231933;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;012A;Halim—Padalarang
+GA68516395;9231934;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;012B;Halim—Padalarang
+GA55321915;9231987;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;012F;Halim—Padalarang
+GA23549531;9028966;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;013A;Halim—Padalarang
+GA51435197;9411695;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;013D;Halim—Padalarang
+GA35941574;9049025;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;014B;Halim—Padalarang
+GA35941574;9049024;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;014C;Halim—Padalarang
+GA35941574;9049023;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;014D;Halim—Padalarang
+GA35911586;9093325;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;014F;Halim—Padalarang
+GA51539639;9339319;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;015D;Halim—Padalarang
+GA31355355;9089253;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;015F;Halim—Padalarang
+GA69518365;9239404;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;016B;Halim—Padalarang
+GA03599501;9231942;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;016C;Halim—Padalarang
+GA73039551;9231452;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;016D;Halim—Padalarang
+GA73039551;9231453;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;016F;Halim—Padalarang
+GA93721551;9411676;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;002A;Halim—Tegalluar
+GA13530518;9222087;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;002F;Halim—Tegalluar
+GA18377553;9231380;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;003D;Halim—Tegalluar
+GA18377553;9231381;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;003F;Halim—Tegalluar
+GA49195503;9411685;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;004A;Halim—Tegalluar
+GA18377553;9231382;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;004D;Halim—Tegalluar
+GA18377553;9231383;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;004F;Halim—Tegalluar
+GA12698553;9231927;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;006F;Halim—Tegalluar
+GA93910551;9339309;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;008A;Halim—Tegalluar
+GA93082551;9411678;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;014A;Halim—Tegalluar
+GA41414352;9337706;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;015A;Halim—Tegalluar
+GA91593175;9212490;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;015C;Halim—Tegalluar
+GA46615113;9047346;Gold Silver;04/09/2026;G1043;04;Premium Economy Class;013F;Karawang—Padalarang
+GA17378553;9206050;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;007A;Karawang—Tegalluar
+GA85771853;9206054;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;007F;Karawang—Tegalluar
+GA39145563;9206075;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;011A;Karawang—Tegalluar
+GA39145563;9206076;Full price ticket;04/09/2026;G1043;04;Premium Economy Class;011B;Karawang—Tegalluar
+GA18315153;9231664;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;008A;Halim—Karawang
+GA25185130;9231510;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;009B;Halim—Karawang
+GA39975135;9231503;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;009F;Halim—Karawang
+GA59135553;9232170;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;011A;Halim—Karawang
+GA59135553;9232171;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;011B;Halim—Karawang
+GA15325915;9232157;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;011F;Halim—Karawang
+GA31383955;9229603;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;012F;Halim—Karawang
+GA93462103;9091339;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;001A;Halim—Padalarang
+GA15362815;9231626;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;001D;Halim—Padalarang
+GA91713655;9093330;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;001F;Halim—Padalarang
+GA03579521;9232061;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;002A;Halim—Padalarang
+GA19553533;9232083;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;002C;Halim—Padalarang
+GA93622551;9232043;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;002F;Halim—Padalarang
+GA19555135;9232151;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;004A;Halim—Padalarang
+GA61593538;9044890;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;004B;Halim—Padalarang
+GA15334915;9232109;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;004D;Halim—Padalarang
+GA35791571;9231756;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;004F;Halim—Padalarang
+GA93352551;9093332;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;005A;Halim—Padalarang
+GA48885135;9231887;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;005D;Halim—Padalarang
+GA48885135;9231888;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;005F;Halim—Padalarang
+GA51734483;9226929;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;006A;Halim—Padalarang
+GA51734483;9226930;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;006B;Halim—Padalarang
+GA51734483;9226931;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;006C;Halim—Padalarang
+GA85681853;9231915;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;006D;Halim—Padalarang
+GA53019551;9012200;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;006F;Halim—Padalarang
+GA93361551;9231994;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;008F;Halim—Padalarang
+GA59115573;9411690;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;009A;Halim—Padalarang
+GA83955189;9231939;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;012B;Halim—Padalarang
+GA35451596;9012205;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;013C;Halim—Padalarang
+GA98145513;9231914;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;013D;Halim—Padalarang
+GA91233955;9232169;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;013F;Halim—Padalarang
+GA35391584;9231666;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;014A;Halim—Padalarang
+GA35391584;9231667;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;014C;Halim—Padalarang
+GA35391584;9231668;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;014D;Halim—Padalarang
+GA35391584;9231669;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;015A;Halim—Padalarang
+GA45314815;9231693;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;015B;Halim—Padalarang
+GA35391584;9231670;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;015C;Halim—Padalarang
+GA51735950;9230180;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;015D;Halim—Padalarang
+GA51735950;9230181;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;015F;Halim—Padalarang
+GA51035993;9232113;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;001C;Halim—Tegalluar
+GA31521855;9231566;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;002D;Halim—Tegalluar
+GA31533735;9231200;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;003A;Halim—Tegalluar
+GA99519325;9232068;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;003D;Halim—Tegalluar
+GA43542163;9224069;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;003F;Halim—Tegalluar
+GA24312354;9224037;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;007A;Halim—Tegalluar
+GA24312354;9224038;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;007B;Halim—Tegalluar
+GA24312354;9224039;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;007C;Halim—Tegalluar
+GA40528013;9203189;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;007F;Halim—Tegalluar
+GA29125593;9072394;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;010A;Halim—Tegalluar
+GA39661409;9134980;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;013A;Halim—Tegalluar
+GA51635393;9411681;Gold Silver;04/09/2026;G1043;05;Premium Economy Class;014F;Halim—Tegalluar
+GA18554434;9206030;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;009B;Karawang—Padalarang
+GA61093855;9205979;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;009F;Karawang—Tegalluar
+GA93820551;9010961;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;010F;Karawang—Tegalluar
+GA35861537;9047615;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;011A;Karawang—Tegalluar
+GA35861537;9047616;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;011B;Karawang—Tegalluar
+GA51935615;9205842;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;011F;Karawang—Tegalluar
+GA19557430;9206060;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;012F;Karawang—Tegalluar
+GA35931539;9546238;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;005D;Padalarang—Tegalluar
+GA35931539;9546239;Full price ticket;04/09/2026;G1043;05;Premium Economy Class;005F;Padalarang—Tegalluar
+GA19428334;9239398;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;005F;Halim—Karawang
+GA45230170;9231999;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;001A;Halim—Padalarang
+GA31530945;9231945;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;001D;Halim—Padalarang
+GA91853155;9411689;Gold Silver;04/09/2026;G1043;06;Premium Economy Class;002A;Halim—Padalarang
+GA05377315;9239402;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;002B;Halim—Padalarang
+GA05377315;9239401;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;002C;Halim—Padalarang
+GA09155583;9231968;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;002F;Halim—Padalarang
+GA31522935;9232028;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;003A;Halim—Padalarang
+GA13530248;9222229;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;003F;Halim—Padalarang
+GA17541736;9226592;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;004A;Halim—Padalarang
+GA81593155;9231905;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;004F;Halim—Padalarang
+GA73509521;9232059;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;006C;Halim—Padalarang
+GA91613755;9232001;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;006D;Halim—Padalarang
+GA31512945;9232025;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;006F;Halim—Padalarang
+GA73519511;9232003;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;007A;Halim—Padalarang
+GA51435296;9232264;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;007D;Halim—Padalarang
+GA19552831;9232018;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;007F;Halim—Padalarang
+GA16649553;9232135;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;008A;Halim—Padalarang
+GA33569501;9231949;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;009A;Halim—Padalarang
+GA33569501;9231950;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;009B;Halim—Padalarang
+GA35171597;9232005;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;010D;Halim—Padalarang
+GA35171597;9232006;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;010F;Halim—Padalarang
+GA96585135;9231805;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;011D;Halim—Padalarang
+GA96585135;9231806;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;011F;Halim—Padalarang
+GA19550734;9232125;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;012A;Halim—Padalarang
+GA91273555;9093349;Gold Silver;04/09/2026;G1043;06;Premium Economy Class;012C;Halim—Padalarang
+GA55373215;9339315;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;012F;Halim—Padalarang
+GA31521945;9231991;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;014A;Halim—Padalarang
+GA93541551;9232035;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;015A;Halim—Padalarang
+GA12788553;9231894;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;015F;Halim—Padalarang
+GA59155533;9232161;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;016A;Halim—Padalarang
+GA35341598;9232115;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;016D;Halim—Padalarang
+GA35341598;9232116;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;016F;Halim—Padalarang
+GA57881835;9231960;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;017A;Halim—Padalarang
+GA57881835;9231961;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;017C;Halim—Padalarang
+GA73529501;9231981;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;017F;Halim—Padalarang
+GA33547123;9226421;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;018D;Halim—Padalarang
+GA63508361;9222368;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;018F;Halim—Padalarang
+GA19551436;9232202;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;001F;Halim—Tegalluar
+GA51235496;9012209;Gold Silver;04/09/2026;G1043;06;Premium Economy Class;006A;Halim—Tegalluar
+GA18553732;9231631;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;008F;Halim—Tegalluar
+GA95110350;9231972;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;009F;Halim—Tegalluar
+GA45891953;9232146;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;010A;Halim—Tegalluar
+GA91943155;9232107;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;010C;Halim—Tegalluar
+GA19315053;9232062;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;011A;Halim—Tegalluar
+GA35441597;9093340;Gold Silver;04/09/2026;G1043;06;Premium Economy Class;013A;Halim—Tegalluar
+GA93271551;9231992;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;013F;Halim—Tegalluar
+GA18449553;9232123;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;014F;Halim—Tegalluar
+GA19534237;9205566;Full price ticket;04/09/2026;G1043;06;Premium Economy Class;005A;Karawang—Tegalluar
+GA93509501;9047617;Gold Silver;04/09/2026;G1043;06;Premium Economy Class;005F;Karawang—Tegalluar
+GA51538595;9231775;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;002F;Halim—Karawang
+GA51539486;9232160;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;001F;Halim—Padalarang
+GA53149151;9232098;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;004F;Halim—Padalarang
+GA51935192;9232022;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;005A;Halim—Padalarang
+GA51935192;9232023;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;005B;Halim—Padalarang
+GA51935192;9232024;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;005C;Halim—Padalarang
+GA68517385;9231879;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;005F;Halim—Padalarang
+GA68685135;9052799;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;006A;Halim—Padalarang
+GA68685135;9052800;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;006B;Halim—Padalarang
+GA68685135;9052801;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;006C;Halim—Padalarang
+GA68685135;9052802;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;006D;Halim—Padalarang
+GA68685135;9052803;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;006F;Halim—Padalarang
+GA51538919;9052804;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;007D;Halim—Padalarang
+GA51538919;9052805;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;007F;Halim—Padalarang
+GA51539459;9232122;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;008D;Halim—Padalarang
+GA93604551;9232134;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;008F;Halim—Padalarang
+GA35323915;9049706;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;009D;Halim—Padalarang
+GA35323915;9049707;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;009F;Halim—Padalarang
+GA21583855;9239400;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;010F;Halim—Padalarang
+GA25324915;9093339;Gold Silver;04/09/2026;G1043;07;Premium Economy Class;011A;Halim—Padalarang
+GA91153855;9044891;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;012A;Halim—Padalarang
+GA91153855;9044892;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;012B;Halim—Padalarang
+GA91153855;9044893;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;012C;Halim—Padalarang
+GA91153855;9044894;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;012D;Halim—Padalarang
+GA91153855;9044895;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;012F;Halim—Padalarang
+GA39115593;9052817;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;013F;Halim—Padalarang
+GA53059151;9232149;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;014F;Halim—Padalarang
+GA51539576;9232176;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;015A;Halim—Padalarang
+GA51539576;9232177;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;015B;Halim—Padalarang
+GA23559103;9232037;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;015F;Halim—Padalarang
+GA51635294;9232114;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;016F;Halim—Padalarang
+GA31523925;9232077;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;018F;Halim—Padalarang
+GA18555631;9231578;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;001A;Halim—Tegalluar
+GA91903555;9231947;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;002A;Halim—Tegalluar
+GA91903555;9231948;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;003A;Halim—Tegalluar
+GA17369553;9239403;Gold Silver;04/09/2026;G1043;07;Premium Economy Class;004A;Halim—Tegalluar
+GA31541925;9232074;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;007A;Halim—Tegalluar
+GA59519365;9061948;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;008A;Halim—Tegalluar
+GA19593453;9339316;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;009A;Halim—Tegalluar
+GA96190533;9231443;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;011F;Halim—Tegalluar
+GA19553137;9093347;Gold Silver;04/09/2026;G1043;07;Premium Economy Class;014A;Halim—Tegalluar
+GA55891935;9232191;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;014C;Halim—Tegalluar
+GA51539693;9093346;Gold Silver;04/09/2026;G1043;07;Premium Economy Class;016A;Halim—Tegalluar
+GA83555411;9231733;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;017A;Halim—Tegalluar
+GA51835193;9232075;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;017F;Halim—Tegalluar
+GA93172551;9232026;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;018A;Halim—Tegalluar
+GA93172551;9232027;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;018C;Halim—Tegalluar
+GA12215853;9205863;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;003F;Karawang—Padalarang
+GA51539549;9206073;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;010A;Karawang—Padalarang
+GA18551239;9206056;Full price ticket;04/09/2026;G1043;07;Premium Economy Class;013A;Karawang—Padalarang
+GA71593546;9232140;Full price ticket;04/09/2026;G1043;08;First Class;001A;Halim—Padalarang
+GA71593546;9232141;Full price ticket;04/09/2026;G1043;08;First Class;001C;Halim—Padalarang
+GA71593546;9232142;Full price ticket;04/09/2026;G1043;08;First Class;002A;Halim—Padalarang
+GA71593546;9232143;Full price ticket;04/09/2026;G1043;08;First Class;002C;Halim—Padalarang
+GA71593546;9232144;Full price ticket;04/09/2026;G1043;08;First Class;003A;Halim—Padalarang
+GA53009651;9231951;Full price ticket;04/09/2026;G1043;08;Premium Economy Class;005F;Halim—Padalarang
+GA51234596;9239399;Full price ticket;04/09/2026;G1043;08;Premium Economy Class;007F;Halim—Padalarang
+GA93316551;9232199;Full price ticket;04/09/2026;G1043;08;Premium Economy Class;009F;Halim—Tegalluar

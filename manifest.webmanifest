@@ -1,0 +1,26 @@
+{
+  "name": "Whoosh Seat Manifest — Visualizer Kursi Kosong",
+  "short_name": "Whoosh Seats",
+  "description": "Visualizer layout kursi kosong Kereta Cepat Jakarta—Bandung (KCIC400AF) offline & standalone",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B0F17",
+  "theme_color": "#C72027",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["travel", "productivity", "utilities"]
+}

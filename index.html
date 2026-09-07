@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#C72027">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Whoosh Seats">
+  <title>Whoosh Seat Manifest — Visualizer Kursi Kosong Kereta Cepat</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+<script>navigator.serviceWorker.register("sw.js")</script> 
+<link rel="manifest" href="manifest.webmanifest" />  <script src="xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-logo">
+        <div class="train-bullet-icon">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <path d="M4 16C4 9.373 9.373 4 16 4h8a4 4 0 014 4v12a4 4 0 01-4 4h-8C9.373 24 4 18.627 4 16z" fill="#C72027"/>
+            <path d="M22 10H14c-3.314 0-6 2.686-6 6s2.686 6 6 6h8a2 2 0 002-2v-8a2 2 0 00-2-2z" fill="#FFFFFF" opacity="0.9"/>
+            <circle cx="11" cy="16" r="2" fill="#C72027"/>
+            <circle cx="21" cy="22" r="1.5" fill="#F8FAFC"/>
+            <circle cx="7" cy="22" r="1.5" fill="#F8FAFC"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">WHOOSH <span>SEAT VISUALIZER</span></span>
+          <span class="brand-subtitle">Kereta Cepat Jakarta—Bandung (KCIC400AF)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trip & Date Switcher -->
+    <div class="header-center">
+      <div class="trip-selector-container">
+        <div class="selector-item">
+          <label for="tripSelect" class="selector-label">Jadwal & Kereta:</label>
+          <div class="custom-select-wrapper">
+            <select id="tripSelect" class="trip-dropdown" aria-label="Pilih Jadwal Kereta">
+              <option value="">Memuat data...</option>
+            </select>
+          </div>
+        </div>
+        <div class="live-status-badge" id="liveStatusBadge">
+          <span class="pulsing-dot"></span>
+          <span id="tripSummaryBadge">G1043 • 04/09/2026</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Actions -->
+    <div class="header-right">
+      <button class="btn btn-secondary" id="btnExportExcel" title="Unduh daftar kursi kosong format Excel (.xlsx)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="8" y1="13" x2="16" y2="13"/>
+          <line x1="8" y1="17" x2="16" y2="17"/>
+        </svg>
+        <span>Export Excel (.xlsx)</span>
+      </button>
+      <button class="btn btn-secondary" id="btnExportEmpty" title="Unduh daftar kursi kosong format CSV">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        <span>Export CSV</span>
+      </button>
+      <button class="btn btn-primary" id="btnOpenUploadModal" title="Upload manifest harian baru">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+        </svg>
+        <span>Upload Manifest</span>
+      </button>
+      <button class="btn btn-danger" id="btnOpenFlushModal" title="Flush / Reset Database SQLite">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"/>
+        </svg>
+        <span>Flush DB</span>
+      </button>
+      <button class="btn btn-install" id="btnInstallPwa" style="display:none;" title="Pasang aplikasi di HP Android">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+          <line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+        <span>Pasang di HP</span>
+      </button>
+    </div>
+    <!-- Mobile Menu Toggle Button -->
+    <button class="btn-mobile-more" id="btnToggleMobileActions" aria-label="Menu Aksi Cepat" title="Menu Aksi">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+
+    <!-- KPI Metric Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card total">
+        <div class="kpi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="4"/>
+            <path d="M7 8h10M7 12h10M7 16h6"/>
+          </svg>
+        </div>
+        <div class="kpi-data">
+          <span class="kpi-label">Total Kapasitas Rangkaian</span>
+          <div class="kpi-value-row">
+            <span class="kpi-val" id="kpiTotalSeats">601</span>
+            <span class="kpi-unit">Kursi</span>
+          </div>
+          <span class="kpi-subtext" id="kpiConfigDetail">8 Gerbong (1st, Business, Premium)</span>
+        </div>
+      </div>
+
+      <div class="kpi-card available">
+        <div class="kpi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="kpi-data">
+          <span class="kpi-label">Kursi Kosong (Tersedia)</span>
+          <div class="kpi-value-row">
+            <span class="kpi-val text-success" id="kpiAvailableSeats">--</span>
+            <span class="kpi-unit" id="kpiAvailablePercent">--%</span>
+          </div>
+          <span class="kpi-subtext" id="kpiAvailableSub">Siap dipesan / dialokasikan</span>
+        </div>
+      </div>
+
+      <div class="kpi-card occupied">
+        <div class="kpi-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <path d="M20 8v6M23 11h-6"/>
+          </svg>
+        </div>
+        <div class="kpi-data">
+          <span class="kpi-label">Kursi Terisi (Booked)</span>
+          <div class="kpi-value-row">
+            <span class="kpi-val text-danger" id="kpiOccupiedSeats">--</span>
+            <span class="kpi-unit" id="kpiOccupancyRate">--%</span>
+          </div>
+          <span class="kpi-subtext" id="kpiOccupiedSub">Total tiket terbit: <strong id="kpiTotalTickets">--</strong></span>
+        </div>
+      </div>
+
+      <div class="kpi-card class-breakdown">
+        <div class="kpi-label">Okupansi Berdasarkan Kelas</div>
+        <div class="class-stat-bars">
+          <div class="class-stat-item">
+            <div class="class-info-row">
+              <span class="class-name first-class">First Class (2-1)</span>
+              <span class="class-ratio" id="statFirstClass">--/18</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill first" id="barFirstClass" style="width: 0%"></div></div>
+          </div>
+          <div class="class-stat-item">
+            <div class="class-info-row">
+              <span class="class-name business-class">Business Class (2-2)</span>
+              <span class="class-ratio" id="statBusinessClass">--/28</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill business" id="barBusinessClass" style="width: 0%"></div></div>
+          </div>
+          <div class="class-stat-item">
+            <div class="class-info-row">
+              <span class="class-name premium-class">Premium Economy (3-2)</span>
+              <span class="class-ratio" id="statPremiumClass">--/555</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill premium" id="barPremiumClass" style="width: 0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Train Consist Visualizer (8 Cars) -->
+    <section class="train-consist-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-title">Susunan Rangkaian Kereta Whoosh (8 Gerbong)</span>
+          <span class="section-desc">Pilih gerbong untuk melihat denah tata letak kursi secara mendalam</span>
+        </div>
+        <div class="train-direction-tag">
+          <span class="direction-arrow">◀</span>
+          <span>Arah Keberangkatan Menuju: <strong>Padalarang / Tegalluar</strong></span>
+        </div>
+      </div>
+
+      <!-- Train Cars Strip -->
+      <div class="train-strip-container" id="trainCarsContainer">
+        <!-- Generated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Controls & Filter Toolbar -->
+    <section class="toolbar-section">
+      <div class="toolbar-row">
+        <!-- Segment Filter -->
+        <div class="filter-group segment-filter">
+          <label class="filter-label" for="segmentSelect">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            Relasi / Segmen Perjalanan:
+          </label>
+          <select id="segmentSelect" class="styled-select" aria-label="Pilih Segmen Perjalanan">
+            <option value="ALL">⚡ Seluruh Perjalanan (Halim — Tegalluar)</option>
+            <option value="HLM-KRW">📍 Halim — Karawang</option>
+            <option value="HLM-PDL">📍 Halim — Padalarang</option>
+            <option value="HLM-TGL">📍 Halim — Tegalluar (Full Trip)</option>
+            <option value="KRW-PDL">📍 Karawang — Padalarang</option>
+            <option value="KRW-TGL">📍 Karawang — Tegalluar</option>
+            <option value="PDL-TGL">📍 Padalarang — Tegalluar</option>
+          </select>
+        </div>
+
+        <!-- Empty Only Toggle -->
+        <div class="filter-group toggle-group">
+          <label class="switch-control" for="toggleEmptyOnly">
+            <input type="checkbox" id="toggleEmptyOnly">
+            <span class="switch-slider"></span>
+            <span class="switch-label">Hanya Tampilkan Kursi Kosong</span>
+          </label>
+        </div>
+
+        <!-- Seat Position Filter -->
+        <div class="filter-group position-filter">
+          <label class="filter-label">Posisi Kursi:</label>
+          <div class="pill-buttons" id="positionFilterGroup">
+            <button class="pill-btn active" data-pos="ALL">Semua</button>
+            <button class="pill-btn" data-pos="WINDOW" title="Kursi jendela A & F">Jendela (A/F)</button>
+            <button class="pill-btn" data-pos="AISLE" title="Kursi lorong C & D">Lorong (C/D)</button>
+            <button class="pill-btn" data-pos="MIDDLE" title="Kursi tengah B (hanya Premium Economy)">Tengah (B)</button>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="filter-group search-group">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Cari No. Kursi, Kode Booking, Tiket..." autocomplete="off">
+            <button class="btn-clear-search" id="btnClearSearch" title="Reset pencarian" style="display:none;">&times;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend-row">
+        <div class="legend-item">
+          <span class="legend-box seat-sample available"></span>
+          <span>Kursi Kosong (Tersedia)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-box seat-sample occupied"></span>
+          <span>Kursi Terisi Penuh</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-box seat-sample partial"></span>
+          <span>Terisi Parsial (Tersedia di segmen tertentu)</span>
+        </div>
+        <div class="legend-divider"></div>
+        <div class="legend-item">
+          <span class="legend-pill class-first">First Class (2-1)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-pill class-business">Business Class (2-2)</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-pill class-premium">Premium Economy (3-2)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coach Seat Map Layout Area -->
+    <section class="seatmap-section">
+      <div class="coach-card-header">
+        <div class="coach-header-left">
+          <span class="active-car-badge" id="activeCarBadge">Gerbong 01</span>
+          <span class="active-car-title" id="activeCarTitle">First Class & Business Class</span>
+          <span class="active-car-specs" id="activeCarSpecs">37 Kursi Total</span>
+        </div>
+        <div class="coach-header-right">
+          <div class="car-occupancy-pill" id="carOccupancyPill">
+            <span>Terisi: <strong id="carOccupiedCount">0</strong></span>
+            <span class="dot-sep">•</span>
+            <span>Kosong: <strong id="carEmptyCount" class="text-success">0</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coach Body Container -->
+      <div class="coach-viewport">
+        <div class="coach-chassis" id="coachChassis">
+          <!-- Direction & Nose indicators -->
+          <div class="coach-front-end">
+            <div class="train-driver-cab" id="driverCabIndicator" style="display:none;">
+              <span>Ujung Rangkaian / Ruang Masinis</span>
+            </div>
+            <div class="chassis-amenity-bar">
+              <div class="amenity-item"><span class="amenity-icon">🚪</span> Pintu Masuk</div>
+              <div class="amenity-item"><span class="amenity-icon">🚻</span> Toilet</div>
+              <div class="amenity-item"><span class="amenity-icon">🧳</span> Bagasi Besar</div>
+              <div class="amenity-item direction-pill">
+                <span class="blink-arrow">◀</span> Arah Laju Kereta Menuju Bandung
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Seat Grid will be injected here -->
+          <div class="seat-grid-container" id="seatGridContainer">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Rear bulkhead -->
+          <div class="coach-rear-end">
+            <div class="chassis-amenity-bar">
+              <div class="amenity-item"><span class="amenity-icon">🚪</span> Pintu Keluar</div>
+              <div class="amenity-item"><span class="amenity-icon">🔌</span> Stopkontak 220V</div>
+              <div class="amenity-item" id="bistroIndicator" style="display:none;">
+                <span class="amenity-icon">☕</span> Restorasi / Bistro Bar Whoosh
+              </div>
+              <div class="amenity-item" id="wheelchairIndicator" style="display:none;">
+                <span class="amenity-icon">♿</span> Area Khusus Difabel / Kursi Roda
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Seat Detail Modal / Drawer -->
+  <div class="modal-backdrop" id="seatDetailBackdrop">
+    <div class="modal-card seat-detail-modal" id="seatDetailModal">
+      <div class="bottom-sheet-drag-handle"></div>
+      <button class="modal-close-btn" id="btnCloseDetailModal">&times;</button>
+      
+      <div class="modal-header">
+        <div class="seat-modal-badge" id="modalSeatBadge">001A</div>
+        <div class="seat-modal-title-wrap">
+          <h3 class="seat-modal-title" id="modalSeatTitle">Kursi 001A • Gerbong 01</h3>
+          <span class="seat-modal-class" id="modalSeatClass">First Class (2-1)</span>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Status Banner -->
+        <div class="seat-status-banner" id="modalStatusBanner">
+          <span class="status-icon" id="modalStatusIcon">🟢</span>
+          <div class="status-text-wrap">
+            <strong id="modalStatusTitle">Kursi Kosong (Tersedia)</strong>
+            <span id="modalStatusDesc">Kursi ini belum dipesan untuk seluruh ruas perjalanan.</span>
+          </div>
+        </div>
+
+        <!-- Station Segment Timeline -->
+        <div class="segment-timeline-container">
+          <h4 class="timeline-title">Status Keterisian per Ruas Stasiun:</h4>
+          <div class="segment-timeline" id="modalTimeline">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Passenger & Booking Details (if occupied) -->
+        <div class="passenger-details-section" id="modalPassengerSection" style="display:none;">
+          <h4 class="section-subheading">Informasi Penumpang / Tiket:</h4>
+          <div class="passenger-card-list" id="modalPassengerList">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCloseDetailFooter">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Manifest Modal -->
+  <div class="modal-backdrop" id="uploadModalBackdrop">
+    <div class="modal-card upload-modal" id="uploadModal">
+      <button class="modal-close-btn" id="btnCloseUploadModal">&times;</button>
+
+      <div class="modal-header">
+        <div class="modal-icon-header">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C72027" stroke-width="2">
+            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="modal-title">Upload Data Manifest Whoosh (Excel / CSV)</h3>
+          <p class="modal-subtitle">Unggah file Excel (.xlsx, .xls) atau CSV manifest harian untuk memperbarui data kursi ke database SQLite</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Drag & Drop Zone -->
+        <div class="dropzone" id="csvDropzone">
+          <input type="file" id="csvFileInput" accept=".xlsx,.xls,.csv,text/csv,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display:none;">
+          <div class="dropzone-content">
+            <svg class="dropzone-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+            </svg>
+            <p class="dropzone-main-text">Drag & drop file <strong>Excel (.xlsx, .xls)</strong> atau <strong>CSV</strong> di sini</p>
+            <p class="dropzone-sub-text">atau <button type="button" class="link-btn" id="btnBrowseFile">Pilih file dari komputer</button></p>
+            <span class="dropzone-format-hint">Mendukung Microsoft Excel (.xlsx, .xls) dan CSV (titik-koma / koma)</span>
+          </div>
+        </div>
+
+        <div id="fileInfoBadge" class="file-info-pill" style="display:none;"></div>
+
+        <div class="or-divider"><span>ATAU TEMPELKAN TEKS CSV</span></div>
+
+        <!-- Paste Textarea -->
+        <div class="paste-area-wrapper">
+          <textarea id="csvPasteTextarea" class="styled-textarea" placeholder="Tempelkan baris manifest Whoosh di sini... (Contoh: BOOKING CODE;TICKET NUMBER;...)" rows="5"></textarea>
+        </div>
+
+        <!-- Upload Status / Alert -->
+        <div class="alert-box" id="uploadAlert" style="display:none;"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCancelUpload">Batal</button>
+        <button class="btn btn-primary" id="btnSubmitUpload">
+          <span>Simpan & Perbarui Database</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flush Database Modal -->
+  <div class="modal-backdrop" id="flushModalBackdrop">
+    <div class="modal-card flush-modal" id="flushModal">
+      <button class="modal-close-btn" id="btnCloseFlushModal">&times;</button>
+
+      <div class="modal-header">
+        <div class="modal-icon-header danger">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="modal-title">Flush / Reset Database Whoosh</h3>
+          <p class="modal-subtitle">Pilih tindakan pembersihan data perjalanan dan manifest SQLite (whoosh.db)</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p class="flush-info-text">
+          Anda dapat mengosongkan seluruh tabel perjalanan kereta & manifest (0 data), atau me-reset kembali ke data bawaan <code>manifest_data.csv</code>.
+        </p>
+
+        <div class="flush-options-grid">
+          <div class="flush-option-card">
+            <div class="flush-opt-icon">🗑️</div>
+            <div class="flush-opt-content">
+              <h4>Kosongkan Total (0 Data)</h4>
+              <p>Menghapus seluruh trip dan manifest. Database bersih total untuk mulai upload data baru.</p>
+              <button class="btn btn-danger btn-block" id="btnConfirmFlushEmpty">
+                Kosongkan Total
+              </button>
+            </div>
+          </div>
+
+          <div class="flush-option-card">
+            <div class="flush-opt-icon">🔄</div>
+            <div class="flush-opt-content">
+              <h4>Reset ke Manifest Awal</h4>
+              <p>Menghapus data pengujian dan mengimpor ulang data asli dari <code>manifest_data.csv</code> (384 penumpang).</p>
+              <button class="btn btn-secondary btn-block" id="btnConfirmFlushReseed">
+                Reset ke Data Awal
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert-box" id="flushAlert" style="display:none;"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCancelFlush">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Actions Bottom Drawer Sheet -->
+  <div class="modal-backdrop" id="mobileActionsBackdrop">
+    <div class="modal-card mobile-actions-sheet" id="mobileActionsSheet">
+      <div class="bottom-sheet-drag-handle"></div>
+      <button class="modal-close-btn" id="btnCloseMobileActions">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Aksi & Pengaturan Whoosh</h3>
+        <span class="offline-indicator-badge" id="offlineIndicatorBadge">🟢 Standalone Offline Siap</span>
+      </div>
+      <div class="modal-body mobile-actions-grid">
+        <button class="mobile-action-btn primary" id="mBtnUpload">
+          <span class="m-act-icon">📤</span>
+          <div class="m-act-text">
+            <strong>Upload Manifest Baru</strong>
+            <span>Pilih file Excel (.xlsx, .xls) atau CSV dari HP</span>
+          </div>
+        </button>
+        <button class="mobile-action-btn success" id="mBtnExportExcel">
+          <span class="m-act-icon">📊</span>
+          <div class="m-act-text">
+            <strong>Export Excel (.xlsx)</strong>
+            <span>Unduh daftar kursi kosong format Excel</span>
+          </div>
+        </button>
+        <button class="mobile-action-btn info" id="mBtnExportCSV">
+          <span class="m-act-icon">📄</span>
+          <div class="m-act-text">
+            <strong>Export CSV</strong>
+            <span>Unduh daftar kursi kosong format CSV</span>
+          </div>
+        </button>
+        <button class="mobile-action-btn install" id="mBtnInstall" style="display:none;">
+          <span class="m-act-icon">📲</span>
+          <div class="m-act-text">
+            <strong>Pasang Aplikasi di HP (PWA)</strong>
+            <span>Tambahkan ke Layar Utama Android</span>
+          </div>
+        </button>
+        <button class="mobile-action-btn danger" id="mBtnFlush">
+          <span class="m-act-icon">🗑️</span>
+          <div class="m-act-text">
+            <strong>Flush / Reset Database</strong>
+            <span>Kosongkan atau muat ulang data bawaan</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar (Persistent) -->
+  <nav class="mobile-bottom-bar" id="mobileBottomBar">
+    <button class="bottom-nav-item active" id="bNavCars" title="Pilih Gerbong">
+      <span class="b-nav-icon">🚆</span>
+      <span class="b-nav-label">Gerbong</span>
+    </button>
+    <button class="bottom-nav-item" id="bNavFilter" title="Relasi / Segmen">
+      <span class="b-nav-icon">⚡</span>
+      <span class="b-nav-label">Filter Rute</span>
+    </button>
+    <button class="bottom-nav-item highlight" id="bNavUpload" title="Upload Manifest">
+      <span class="b-nav-icon">📤</span>
+      <span class="b-nav-label">Upload</span>
+    </button>
+    <button class="bottom-nav-item" id="bNavExport" title="Export Kursi">
+      <span class="b-nav-icon">📊</span>
+      <span class="b-nav-label">Export</span>
+    </button>
+    <button class="bottom-nav-item" id="bNavMore" title="Aksi Lainnya">
+      <span class="b-nav-icon">⚙️</span>
+      <span class="b-nav-label">Menu</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
