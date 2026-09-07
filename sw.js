@@ -3,7 +3,7 @@
  * Enables 100% Standalone Offline usage on Android devices
  */
 
-const CACHE_NAME = 'whoosh-seats-v1';
+const CACHE_NAME = 'whoosh-seats-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

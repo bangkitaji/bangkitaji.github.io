@@ -283,13 +283,9 @@ function importCSV(csvText) {
 function seedInitialData() {
   const seeded = db.prepare("SELECT value FROM settings WHERE key = 'initialized'").get();
   if (!seeded) {
-    const csvPath = path.join(__dirname, 'manifest_data.csv');
-    if (fs.existsSync(csvPath)) {
-      const content = fs.readFileSync(csvPath, 'utf-8');
-      const res = importCSV(content);
-      console.log(`[*] Manifest awal Whoosh berhasil diimport: ${res.trainCode} (${res.tripDate}) - ${res.totalRecords} penumpang.`);
-    }
+    // Default database dimulai dalam kondisi kosong (siap menerima upload manifest harian baru)
     db.prepare("INSERT OR REPLACE INTO settings (key, value) VALUES ('initialized', '1')").run();
+    console.log('[*] Database diinisialisasi dalam kondisi kosong.');
   }
 }
 

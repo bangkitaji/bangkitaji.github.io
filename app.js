@@ -595,33 +595,12 @@ async function fetchTrips() {
     return;
   }
 
-  // If completely empty on first launch on mobile: auto-seed from local manifest_data.csv!
-  try {
-    const csvRes = await fetch('manifest_data.csv');
-    if (csvRes.ok) {
-      const csvText = await csvRes.text();
-      const wb = XLSX.read(csvText, { type: 'string' });
-      const ws = wb.Sheets[wb.SheetNames[0]];
-      const rawRows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '', raw: false });
-      const { records } = parseWorksheetRows(rawRows);
-      if (records.length > 0) {
-        await WhooshLocalDB.saveTrip(records);
-        const seededTrips = await WhooshLocalDB.getTrips();
-        if (seededTrips.length > 0) {
-          populateTripSelector(seededTrips);
-          await loadManifest(seededTrips[0].id);
-          return;
-        }
-      }
-    }
-  } catch (_) {}
-
-  // Empty state
+  // Default: Database Kosong (siap untuk upload manifest baru)
   el.tripSelect.innerHTML = '<option value="">(Belum ada data manifest)</option>';
   state.currentTripId = null;
   state.trip = null;
   state.records = [];
-  el.tripSummaryBadge.textContent = 'Database Kosong';
+  if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
   processManifestData();
   renderAll();
 }
@@ -1418,6 +1397,10 @@ function getEmptySeatsData() {
 }
 
 function exportEmptySeatsCSV() {
+  if (!state.trip) {
+    showToast('Belum ada data manifest perjalanan. Silakan upload file manifest terlebih dahulu.', 'warning');
+    return;
+  }
   const { trainCode, tripDate, seg, rows } = getEmptySeatsData();
 
   if (rows.length <= 1) {
@@ -1440,6 +1423,10 @@ function exportEmptySeatsCSV() {
 }
 
 function exportEmptySeatsExcel() {
+  if (!state.trip) {
+    showToast('Belum ada data manifest perjalanan. Silakan upload file manifest terlebih dahulu.', 'warning');
+    return;
+  }
   const { trainCode, tripDate, seg, rows } = getEmptySeatsData();
 
   if (rows.length <= 1) {
