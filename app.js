@@ -234,7 +234,9 @@ const el = {
   bNavFilter: document.getElementById('bNavFilter'),
   bNavUpload: document.getElementById('bNavUpload'),
   bNavExport: document.getElementById('bNavExport'),
-  bNavMore: document.getElementById('bNavMore')
+  bNavMore: document.getElementById('bNavMore'),
+  emptyManifestBanner: document.getElementById('emptyManifestBanner'),
+  btnBannerUpload: document.getElementById('btnBannerUpload')
 };
 
 // ==========================================================================
@@ -576,16 +578,30 @@ async function fetchTrips() {
     el.offlineIndicatorBadge.style.color = isOnline ? '#34D399' : '#60A5FA';
   }
 
-  // If server had trips, sync into local DB as offline backup
-  if (isOnline && trips.length > 0) {
-    // Online mode
-    populateTripSelector(trips);
-    const latestTripId = trips[0].id;
-    await loadManifest(latestTripId);
-    return;
+  // When connected to server: server is the single source of truth
+  if (isOnline) {
+    if (trips.length > 0) {
+      // Server has trips: populate and load
+      populateTripSelector(trips);
+      const latestTripId = trips[0].id;
+      await loadManifest(latestTripId);
+      return;
+    } else {
+      // Server is ONLINE, but database has 0 trips (flushed / empty)
+      // Must wipe local IndexedDB so stale trips never linger
+      await WhooshLocalDB.flushAll();
+      populateTripSelector([]);
+      state.currentTripId = null;
+      state.trip = null;
+      state.records = [];
+      if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
+      processManifestData();
+      renderAll();
+      return;
+    }
   }
 
-  // Fallback to client-side IndexedDB
+  // Fallback to client-side IndexedDB ONLY if OFFLINE (!isOnline)
   const localTrips = await WhooshLocalDB.getTrips();
 
   if (localTrips && localTrips.length > 0) {
@@ -596,7 +612,7 @@ async function fetchTrips() {
   }
 
   // Default: Database Kosong (siap untuk upload manifest baru)
-  el.tripSelect.innerHTML = '<option value="">(Belum ada data manifest)</option>';
+  populateTripSelector([]);
   state.currentTripId = null;
   state.trip = null;
   state.records = [];
@@ -651,6 +667,10 @@ async function loadManifest(tripId) {
 
 function populateTripSelector(trips) {
   el.tripSelect.innerHTML = '';
+  if (!trips || trips.length === 0) {
+    el.tripSelect.innerHTML = '<option value="">(Belum ada data manifest)</option>';
+    return;
+  }
   trips.forEach(t => {
     const opt = document.createElement('option');
     opt.value = t.id;
@@ -666,6 +686,24 @@ function renderAll() {
 }
 
 function renderKPICards() {
+  if (!state.trip) {
+    if (el.kpiTotalSeats) el.kpiTotalSeats.textContent = '601';
+    if (el.kpiAvailableSeats) el.kpiAvailableSeats.textContent = '--';
+    if (el.kpiAvailablePercent) el.kpiAvailablePercent.textContent = '--%';
+    if (el.kpiAvailableSub) el.kpiAvailableSub.textContent = 'Belum ada data manifest';
+    if (el.kpiOccupiedSeats) el.kpiOccupiedSeats.textContent = '--';
+    if (el.kpiOccupancyRate) el.kpiOccupancyRate.textContent = '--%';
+    if (el.kpiOccupiedSub) el.kpiOccupiedSub.innerHTML = 'Silakan upload manifest harian';
+    if (el.kpiTotalTickets) el.kpiTotalTickets.textContent = '0';
+    if (el.statFirstClass) el.statFirstClass.textContent = '0/18';
+    if (el.barFirstClass) el.barFirstClass.style.width = '0%';
+    if (el.statBusinessClass) el.statBusinessClass.textContent = '0/28';
+    if (el.barBusinessClass) el.barBusinessClass.style.width = '0%';
+    if (el.statPremiumClass) el.statPremiumClass.textContent = '0/555';
+    if (el.barPremiumClass) el.barPremiumClass.style.width = '0%';
+    return;
+  }
+
   let totalSeats = 0;
   let fullyOccupied = 0;
   let partialOccupied = 0;
@@ -798,11 +836,11 @@ function renderTrainStrip() {
         </span>
       </div>
       <div class="car-occ-bar">
-        <div class="car-occ-fill ${occFillClass}" style="width: ${occPercent}%"></div>
+        <div class="car-occ-fill ${occFillClass}" style="width: ${state.trip ? occPercent : 0}%"></div>
       </div>
       <div class="car-strip-bottom">
-        <span>${occPercent}% Terisi</span>
-        <span class="car-empty-tag">${emptyInCar} Kosong</span>
+        <span>${state.trip ? `${occPercent}% Terisi` : '0% Terisi'}</span>
+        <span class="car-empty-tag">${state.trip ? `${emptyInCar} Kosong` : '--'}</span>
       </div>
     `;
 
@@ -845,8 +883,13 @@ function renderSeatGrid() {
   });
 
   el.activeCarSpecs.textContent = `${carTotal} Kursi Total`;
-  el.carOccupiedCount.textContent = carOccupied;
-  el.carEmptyCount.textContent = carEmpty;
+  el.carOccupiedCount.textContent = state.trip ? carOccupied : '0';
+  el.carEmptyCount.textContent = state.trip ? carEmpty : '--';
+
+  // Toggle empty manifest banner if present
+  if (el.emptyManifestBanner) {
+    el.emptyManifestBanner.style.display = state.trip ? 'none' : 'flex';
+  }
 
   // Clear and re-render grid
   el.seatGridContainer.innerHTML = '';
@@ -1316,10 +1359,18 @@ async function handleFlush(reseed = false) {
   btn.innerHTML = '<span>Memproses...</span>';
 
   try {
-    // 1. Clear local IndexedDB
+    // 1. Flush backend SQLite database if online (AWAIT this first)
+    try {
+      const serverFlushRes = await fetch(`/api/flush${reseed ? '?reseed=true' : ''}`, { method: 'POST' });
+      if (serverFlushRes.ok) {
+        console.log('[*] Database backend berhasil di-flush.');
+      }
+    } catch (_) {}
+
+    // 2. Clear client-side IndexedDB
     await WhooshLocalDB.flushAll();
 
-    // 2. If reseed requested, re-load default manifest
+    // 3. If reseed requested, re-load default manifest
     if (reseed) {
       try {
         const csvRes = await fetch('manifest_data.csv');
@@ -1336,10 +1387,16 @@ async function handleFlush(reseed = false) {
       } catch (_) {}
     }
 
-    // 3. Background server flush if online
-    try {
-      fetch(`/api/flush${reseed ? '?reseed=true' : ''}`, { method: 'POST' }).catch(() => {});
-    } catch (_) {}
+    // 4. Immediately clear in-memory state & re-render UI if emptying
+    if (!reseed) {
+      state.currentTripId = null;
+      state.trip = null;
+      state.records = [];
+      populateTripSelector([]);
+      if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
+      processManifestData();
+      renderAll();
+    }
 
     const successMsg = reseed 
       ? 'Database berhasil di-reset ke manifest bawaan (G1043 • 384 penumpang)!'
@@ -1353,7 +1410,7 @@ async function handleFlush(reseed = false) {
     setTimeout(async () => {
       closeFlushModal();
       await fetchTrips();
-    }, 800);
+    }, 400);
   } catch (err) {
     el.flushAlert.className = 'alert-box error';
     el.flushAlert.textContent = err.message || 'Gagal membersihkan database.';
@@ -1565,6 +1622,11 @@ function initEventListeners() {
 
     el.btnConfirmFlushEmpty.addEventListener('click', () => handleFlush(false));
     el.btnConfirmFlushReseed.addEventListener('click', () => handleFlush(true));
+  }
+
+  // Banner Upload Button
+  if (el.btnBannerUpload) {
+    el.btnBannerUpload.addEventListener('click', openUploadModal);
   }
 
   // Mobile Actions Bottom Sheet

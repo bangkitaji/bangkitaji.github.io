@@ -2026,3 +2026,68 @@ body {
   }
 }
 
+/* Empty Manifest Banner */
+.empty-manifest-banner {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  margin-bottom: 1rem;
+}
+
+.empty-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.empty-banner-icon {
+  font-size: 2rem;
+  background: rgba(199, 32, 39, 0.15);
+  border: 1px solid rgba(199, 32, 39, 0.3);
+  border-radius: 14px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.empty-banner-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.empty-banner-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #94A3B8;
+  line-height: 1.45;
+}
+
+@media (max-width: 768px) {
+  .empty-manifest-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.15rem;
+    gap: 1rem;
+  }
+  .empty-banner-content {
+    align-items: flex-start;
+  }
+  .empty-manifest-banner .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+

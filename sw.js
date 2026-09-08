@@ -3,7 +3,7 @@
  * Enables 100% Standalone Offline usage on Android devices
  */
 
-const CACHE_NAME = 'whoosh-seats-v2';
+const CACHE_NAME = 'whoosh-seats-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -52,25 +52,18 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first strategy for static resources
+  // Network-First strategy: fetch latest files, fallback to cache if offline
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        // Fetch in background to keep cache fresh
-        fetch(event.request).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
-          }
-        }).catch(() => {});
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
+    fetch(event.request)
+      .then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
         return networkResponse;
-      });
-    })
+      })
+      .catch(() => {
+        return caches.match(event.request);
+      })
   );
 });
