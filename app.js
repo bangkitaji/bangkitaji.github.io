@@ -235,7 +235,13 @@ const el = {
   bNavExport: document.getElementById('bNavExport'),
   bNavMore: document.getElementById('bNavMore'),
   emptyManifestBanner: document.getElementById('emptyManifestBanner'),
-  btnBannerUpload: document.getElementById('btnBannerUpload')
+  btnBannerUpload: document.getElementById('btnBannerUpload'),
+  trainDirectionTag: document.getElementById('trainDirectionTag'),
+  trainDirectionArrow: document.getElementById('trainDirectionArrow'),
+  trainDirectionText: document.getElementById('trainDirectionText'),
+  coachDirectionPill: document.getElementById('coachDirectionPill'),
+  coachDirectionArrow: document.getElementById('coachDirectionArrow'),
+  coachDirectionText: document.getElementById('coachDirectionText')
 };
 
 // ==========================================================================
@@ -267,13 +273,15 @@ function getRouteSegments(origin, destination) {
   const origIdx = STATIONS.findIndex(s => s.toLowerCase() === (origin || '').toLowerCase());
   const destIdx = STATIONS.findIndex(s => s.toLowerCase() === (destination || '').toLowerCase());
 
-  if (origIdx === -1 || destIdx === -1 || origIdx >= destIdx) {
+  if (origIdx === -1 || destIdx === -1 || origIdx === destIdx) {
     // Default to whole trip if unparseable
     return [0, 1, 2];
   }
 
+  const start = Math.min(origIdx, destIdx);
+  const end = Math.max(origIdx, destIdx);
   const occupied = [];
-  for (let i = origIdx; i < destIdx; i++) {
+  for (let i = start; i < end; i++) {
     occupied.push(i);
   }
   return occupied;
@@ -678,8 +686,101 @@ function populateTripSelector(trips) {
   });
 }
 
+function updateDirectionInfo() {
+  if (!el.trainDirectionText || !el.coachDirectionText) return;
+
+  if (!state.trip || !state.records || state.records.length === 0) {
+    el.trainDirectionText.textContent = '--';
+    el.coachDirectionText.textContent = 'Arah Laju Kereta: --';
+    if (el.trainDirectionArrow) {
+      el.trainDirectionArrow.textContent = '◀';
+      el.trainDirectionArrow.classList.remove('reverse');
+    }
+    if (el.coachDirectionArrow) {
+      el.coachDirectionArrow.textContent = '◀';
+      el.coachDirectionArrow.classList.remove('reverse');
+    }
+    return;
+  }
+
+  // Tally destinations and direction from manifest records
+  const destinationsSet = new Set();
+  const originsSet = new Set();
+  let countEastbound = 0; // towards Karawang/Padalarang/Tegalluar
+  let countWestbound = 0; // towards Halim
+
+  state.records.forEach(r => {
+    let orig = (r.origin || '').trim();
+    let dest = (r.destination || '').trim();
+
+    if ((!orig || !dest) && r.route) {
+      const parts = r.route.split(/[—–\-]+/);
+      if (parts.length >= 2) {
+        orig = orig || parts[0].trim();
+        dest = dest || parts[1].trim();
+      }
+    }
+
+    if (orig) originsSet.add(orig);
+    if (dest) destinationsSet.add(dest);
+
+    const origIdx = STATIONS.findIndex(s => s.toLowerCase() === orig.toLowerCase());
+    const destIdx = STATIONS.findIndex(s => s.toLowerCase() === dest.toLowerCase());
+    if (origIdx !== -1 && destIdx !== -1) {
+      if (destIdx > origIdx) countEastbound++;
+      else if (destIdx < origIdx) countWestbound++;
+    }
+  });
+
+  const isWestbound = countWestbound > countEastbound;
+
+  // Order stations according to travel direction
+  // STATIONS: ['Halim', 'Karawang', 'Padalarang', 'Tegalluar']
+  const destinations = Array.from(destinationsSet);
+  destinations.sort((a, b) => {
+    const idxA = STATIONS.findIndex(s => s.toLowerCase() === a.toLowerCase());
+    const idxB = STATIONS.findIndex(s => s.toLowerCase() === b.toLowerCase());
+    if (idxA !== -1 && idxB !== -1) {
+      return isWestbound ? (idxB - idxA) : (idxA - idxB);
+    }
+    return 0;
+  });
+
+  const destText = destinations.length > 0 ? destinations.join(' / ') : '--';
+
+  // Format trainDirectionText in consist header
+  el.trainDirectionText.textContent = destText;
+
+  // Format coachDirectionText
+  let coachDest = destText;
+  const lowerDest = destText.toLowerCase();
+  if (lowerDest.includes('halim')) {
+    coachDest = 'Jakarta (Halim)';
+  } else if (lowerDest.includes('padalarang') && lowerDest.includes('tegalluar')) {
+    coachDest = 'Bandung (Padalarang / Tegalluar)';
+  } else if (lowerDest.includes('padalarang')) {
+    coachDest = 'Padalarang';
+  } else if (lowerDest.includes('tegalluar')) {
+    coachDest = 'Tegalluar (Bandung)';
+  }
+
+  el.coachDirectionText.textContent = `Arah Laju Kereta Menuju ${coachDest}`;
+
+  // Update arrows
+  const arrowChar = isWestbound ? '▶' : '◀';
+  if (el.trainDirectionArrow) {
+    el.trainDirectionArrow.textContent = arrowChar;
+    el.trainDirectionArrow.classList.toggle('reverse', isWestbound);
+  }
+  if (el.coachDirectionArrow) {
+    el.coachDirectionArrow.textContent = arrowChar;
+    el.coachDirectionArrow.classList.toggle('reverse', isWestbound);
+  }
+}
+
 function renderAll() {
   renderKPICards();
+  updateDirectionInfo();
   renderTrainStrip();
   renderSeatGrid();
 }
