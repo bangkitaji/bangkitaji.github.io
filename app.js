@@ -3,8 +3,32 @@
  * Pure JavaScript Frontend Logic
  */
 
-// Station and Track Segment definitions
+// Station and Relasi Definitions
 const STATIONS = ['Halim', 'Karawang', 'Padalarang', 'Tegalluar'];
+
+// Relasi Perjalanan Kereta KCIC Whoosh
+// 1. Kereta Menuju Bandung (Eastbound)
+const RELASI_BANDUNG = [
+  { id: 'ALL', name: '⚡ Seluruh Perjalanan (Halim — Tegalluar)', segments: [0, 1, 2] },
+  { id: 'HLM-KRW', name: '📍 Halim — Karawang', segments: [0] },
+  { id: 'HLM-PDL', name: '📍 Halim — Padalarang', segments: [0, 1] },
+  { id: 'HLM-TGL', name: '📍 Halim — Tegalluar', segments: [0, 1, 2] },
+  { id: 'KRW-PDL', name: '📍 Karawang — Padalarang', segments: [1] },
+  { id: 'KRW-TGL', name: '📍 Karawang — Tegalluar', segments: [1, 2] },
+  { id: 'PDL-TGL', name: '📍 Padalarang — Tegalluar', segments: [2] }
+];
+
+// 2. Kereta Menuju Jakarta (Westbound)
+const RELASI_JAKARTA = [
+  { id: 'ALL', name: '⚡ Seluruh Perjalanan (Tegalluar — Halim)', segments: [0, 1, 2] },
+  { id: 'TGL-PDL', name: '📍 Tegalluar — Padalarang', segments: [2] },
+  { id: 'TGL-KRW', name: '📍 Tegalluar — Karawang', segments: [1, 2] },
+  { id: 'TGL-HLM', name: '📍 Tegalluar — Halim', segments: [0, 1, 2] },
+  { id: 'PDL-KRW', name: '📍 Padalarang — Karawang', segments: [1] },
+  { id: 'PDL-HLM', name: '📍 Padalarang — Halim', segments: [0, 1] },
+  { id: 'KRW-HLM', name: '📍 Karawang — Halim', segments: [0] }
+];
+
 const SEGMENT_DEFINITIONS = [
   { id: 'HLM-KRW', name: 'Halim — Karawang', from: 0, to: 1 },
   { id: 'KRW-PDL', name: 'Karawang — Padalarang', from: 1, to: 2 },
@@ -140,6 +164,7 @@ const state = {
   records: [],
   activeCar: '01',
   selectedSegment: 'ALL',
+  isWestbound: false,
   emptyOnly: false,
   positionFilter: 'ALL',
   searchQuery: '',
@@ -268,10 +293,39 @@ function showToast(message, type = 'success') {
   }, 3500);
 }
 
-// Convert route string (e.g. 'Halim—Padalarang') into list of segment indices occupied [0, 1]
+function normalizeStation(name) {
+  if (!name) return '';
+  const n = name.toLowerCase().trim();
+  if (n.includes('halim')) return 'Halim';
+  if (n.includes('karawang')) return 'Karawang';
+  if (n.includes('padalarang')) return 'Padalarang';
+  if (n.includes('tegalluar')) return 'Tegalluar';
+  return name.trim();
+}
+
+function findStationIndex(str) {
+  if (!str) return -1;
+  const s = str.toLowerCase().trim();
+  if (s.includes('halim')) return 0;
+  if (s.includes('karawang')) return 1;
+  if (s.includes('padalarang')) return 2;
+  if (s.includes('tegalluar')) return 3;
+  return STATIONS.findIndex(st => st.toLowerCase() === s);
+}
+
+function parseRoute(routeStr) {
+  if (!routeStr) return ['', ''];
+  const parts = routeStr.split(/[—–\-]+/);
+  if (parts.length >= 2) {
+    return [normalizeStation(parts[0]), normalizeStation(parts[1])];
+  }
+  return [normalizeStation(routeStr), ''];
+}
+
+// Convert route string (e.g. 'Halim—Padalarang' or 'Tegalluar—Halim') into list of segment indices occupied [0, 1]
 function getRouteSegments(origin, destination) {
-  const origIdx = STATIONS.findIndex(s => s.toLowerCase() === (origin || '').toLowerCase());
-  const destIdx = STATIONS.findIndex(s => s.toLowerCase() === (destination || '').toLowerCase());
+  const origIdx = findStationIndex(origin);
+  const destIdx = findStationIndex(destination);
 
   if (origIdx === -1 || destIdx === -1 || origIdx === destIdx) {
     // Default to whole trip if unparseable
@@ -289,17 +343,11 @@ function getRouteSegments(origin, destination) {
 
 // Check which segments are required for the currently selected filter
 function getRequiredSegments(segmentFilter) {
-  switch (segmentFilter) {
-    case 'HLM-KRW': return [0];
-    case 'KRW-PDL': return [1];
-    case 'PDL-TGL': return [2];
-    case 'HLM-PDL': return [0, 1];
-    case 'KRW-TGL': return [1, 2];
-    case 'HLM-TGL': return [0, 1, 2];
-    case 'ALL':
-    default:
-      return [0, 1, 2];
-  }
+  const matchB = RELASI_BANDUNG.find(r => r.id === segmentFilter);
+  if (matchB) return matchB.segments;
+  const matchJ = RELASI_JAKARTA.find(r => r.id === segmentFilter);
+  if (matchJ) return matchJ.segments;
+  return [0, 1, 2];
 }
 
 // ==========================================================================
@@ -486,6 +534,11 @@ const WhooshLocalDB = {
           oldReq.onsuccess = () => {
             (oldReq.result || []).forEach(r => recStore.delete(r.id));
             records.forEach(r => {
+              const rawRoute = r.route || '';
+              const [parsedOrig, parsedDest] = parseRoute(rawRoute);
+              const origin = parsedOrig || (r.origin ? normalizeStation(r.origin) : 'Halim');
+              const destination = parsedDest || (r.destination ? normalizeStation(r.destination) : 'Tegalluar');
+              const finalRoute = rawRoute || `${origin}—${destination}`;
               recStore.add({
                 trip_id: tripId,
                 booking_code: r.bookingCode || '',
@@ -496,9 +549,9 @@ const WhooshLocalDB = {
                 car: r.car || '01',
                 seat_class: r.seatClass || 'Premium Economy Class',
                 seat: r.seat || '',
-                route: r.route || 'Halim—Tegalluar',
-                origin: (r.route ? r.route.split(/[—–\-]+/)[0] : 'Halim').trim(),
-                destination: (r.route ? r.route.split(/[—–\-]+/)[1] : 'Tegalluar').trim()
+                route: finalRoute,
+                origin: origin,
+                destination: destination
               });
             });
           };
@@ -512,6 +565,11 @@ const WhooshLocalDB = {
           addReq.onsuccess = () => {
             tripId = addReq.result;
             records.forEach(r => {
+              const rawRoute = r.route || '';
+              const [parsedOrig, parsedDest] = parseRoute(rawRoute);
+              const origin = parsedOrig || (r.origin ? normalizeStation(r.origin) : 'Halim');
+              const destination = parsedDest || (r.destination ? normalizeStation(r.destination) : 'Tegalluar');
+              const finalRoute = rawRoute || `${origin}—${destination}`;
               recStore.add({
                 trip_id: tripId,
                 booking_code: r.bookingCode || '',
@@ -522,9 +580,9 @@ const WhooshLocalDB = {
                 car: r.car || '01',
                 seat_class: r.seatClass || 'Premium Economy Class',
                 seat: r.seat || '',
-                route: r.route || 'Halim—Tegalluar',
-                origin: (r.route ? r.route.split(/[—–\-]+/)[0] : 'Halim').trim(),
-                destination: (r.route ? r.route.split(/[—–\-]+/)[1] : 'Tegalluar').trim()
+                route: finalRoute,
+                origin: origin,
+                destination: destination
               });
             });
           };
@@ -623,6 +681,9 @@ async function fetchTrips() {
   state.currentTripId = null;
   state.trip = null;
   state.records = [];
+  state.isWestbound = false;
+  currentSegmentMode = null;
+  state.selectedSegment = 'ALL';
   if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
   processManifestData();
   renderAll();
@@ -686,10 +747,40 @@ function populateTripSelector(trips) {
   });
 }
 
+let currentSegmentMode = null; // 'bandung' | 'jakarta' | null
+
+function updateSegmentSelectOptions(isWestbound) {
+  if (!el.segmentSelect) return;
+  const newMode = isWestbound ? 'jakarta' : 'bandung';
+
+  if (currentSegmentMode === newMode && el.segmentSelect.children.length > 0) {
+    el.segmentSelect.value = state.selectedSegment;
+    return;
+  }
+
+  currentSegmentMode = newMode;
+  const list = isWestbound ? RELASI_JAKARTA : RELASI_BANDUNG;
+
+  const currentVal = state.selectedSegment;
+  const exists = list.some(item => item.id === currentVal);
+  if (!exists) {
+    state.selectedSegment = 'ALL';
+  }
+
+  el.segmentSelect.innerHTML = list.map(item => 
+    `<option value="${item.id}">${item.name}</option>`
+  ).join('');
+
+  el.segmentSelect.value = state.selectedSegment;
+}
+
 function updateDirectionInfo() {
   if (!el.trainDirectionText || !el.coachDirectionText) return;
 
   if (!state.trip || !state.records || state.records.length === 0) {
+    state.isWestbound = false;
+    currentSegmentMode = null;
+    updateSegmentSelectOptions(false);
     el.trainDirectionText.textContent = '--';
     el.coachDirectionText.textContent = 'Arah Laju Kereta: --';
     if (el.trainDirectionArrow) {
@@ -706,26 +797,24 @@ function updateDirectionInfo() {
   // Tally destinations and direction from manifest records
   const destinationsSet = new Set();
   const originsSet = new Set();
-  let countEastbound = 0; // towards Karawang/Padalarang/Tegalluar
-  let countWestbound = 0; // towards Halim
+  let countEastbound = 0; // towards Karawang/Padalarang/Tegalluar (Menuju Bandung)
+  let countWestbound = 0; // towards Halim (Menuju Jakarta)
 
   state.records.forEach(r => {
     let orig = (r.origin || '').trim();
     let dest = (r.destination || '').trim();
 
     if ((!orig || !dest) && r.route) {
-      const parts = r.route.split(/[—–\-]+/);
-      if (parts.length >= 2) {
-        orig = orig || parts[0].trim();
-        dest = dest || parts[1].trim();
-      }
+      const [o, d] = parseRoute(r.route);
+      orig = orig || o;
+      dest = dest || d;
     }
 
-    if (orig) originsSet.add(orig);
-    if (dest) destinationsSet.add(dest);
+    if (orig) originsSet.add(normalizeStation(orig));
+    if (dest) destinationsSet.add(normalizeStation(dest));
 
-    const origIdx = STATIONS.findIndex(s => s.toLowerCase() === orig.toLowerCase());
-    const destIdx = STATIONS.findIndex(s => s.toLowerCase() === dest.toLowerCase());
+    const origIdx = findStationIndex(orig);
+    const destIdx = findStationIndex(dest);
     if (origIdx !== -1 && destIdx !== -1) {
       if (destIdx > origIdx) countEastbound++;
       else if (destIdx < origIdx) countWestbound++;
@@ -733,13 +822,17 @@ function updateDirectionInfo() {
   });
 
   const isWestbound = countWestbound > countEastbound;
+  state.isWestbound = isWestbound;
+
+  // Update relasi dropdown based on train direction
+  updateSegmentSelectOptions(isWestbound);
 
   // Order stations according to travel direction
   // STATIONS: ['Halim', 'Karawang', 'Padalarang', 'Tegalluar']
   const destinations = Array.from(destinationsSet);
   destinations.sort((a, b) => {
-    const idxA = STATIONS.findIndex(s => s.toLowerCase() === a.toLowerCase());
-    const idxB = STATIONS.findIndex(s => s.toLowerCase() === b.toLowerCase());
+    const idxA = findStationIndex(a);
+    const idxB = findStationIndex(b);
     if (idxA !== -1 && idxB !== -1) {
       return isWestbound ? (idxB - idxA) : (idxA - idxB);
     }
@@ -1129,8 +1222,18 @@ function openSeatDetailModal(seatObj, currentStatus) {
 
   // Segment Timeline
   el.modalTimeline.innerHTML = '';
-  SEGMENT_DEFINITIONS.forEach((seg, idx) => {
-    const isOccupied = seatObj.occupiedSegments.has(idx);
+  const timelineSegments = state.isWestbound ? [
+    { name: 'Tegalluar — Padalarang', segIndex: 2 },
+    { name: 'Padalarang — Karawang', segIndex: 1 },
+    { name: 'Karawang — Halim', segIndex: 0 }
+  ] : [
+    { name: 'Halim — Karawang', segIndex: 0 },
+    { name: 'Karawang — Padalarang', segIndex: 1 },
+    { name: 'Padalarang — Tegalluar', segIndex: 2 }
+  ];
+
+  timelineSegments.forEach(seg => {
+    const isOccupied = seatObj.occupiedSegments.has(seg.segIndex);
     const step = document.createElement('div');
     step.className = 'timeline-step';
     step.innerHTML = `
@@ -1275,11 +1378,25 @@ function parseWorksheetRows(rows) {
     if (car.length === 1) car = '0' + car;
     const seatClass = getVal(['CLASS', 'KELAS'], 6) || 'Premium Economy Class';
     const seat = getVal(['SEAT', 'KURSI', 'NO_KURSI'], 7);
-    const route = getVal(['ROUTE', 'RUTE', 'RELASI'], 8) || 'Halim—Tegalluar';
+    const route = getVal(['ROUTE', 'RUTE', 'RELASI'], 8);
+    const [parsedOrig, parsedDest] = parseRoute(route);
+    const origin = parsedOrig || 'Halim';
+    const destination = parsedDest || 'Tegalluar';
+    const finalRoute = route || `${origin}—${destination}`;
 
     if (seat || bookingCode) {
       records.push({
-        bookingCode, ticketNo, passType, tripDate, trainCode, car, seatClass, seat, route
+        bookingCode,
+        ticketNo,
+        passType,
+        tripDate,
+        trainCode,
+        car,
+        seatClass,
+        seat,
+        route: finalRoute,
+        origin,
+        destination
       });
     }
   }
@@ -1476,6 +1593,9 @@ async function handleFlush() {
     state.currentTripId = null;
     state.trip = null;
     state.records = [];
+    state.isWestbound = false;
+    currentSegmentMode = null;
+    state.selectedSegment = 'ALL';
     populateTripSelector([]);
     if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
     processManifestData();

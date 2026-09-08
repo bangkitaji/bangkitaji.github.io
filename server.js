@@ -59,13 +59,23 @@ function initDb() {
   `);
 }
 
+function normalizeStation(name) {
+  if (!name) return '';
+  const n = name.toLowerCase().trim();
+  if (n.includes('halim')) return 'Halim';
+  if (n.includes('karawang')) return 'Karawang';
+  if (n.includes('padalarang')) return 'Padalarang';
+  if (n.includes('tegalluar')) return 'Tegalluar';
+  return name.trim();
+}
+
 function parseRoute(routeStr) {
   if (!routeStr) return ['', ''];
   const parts = routeStr.split(/[—–\-]+/);
   if (parts.length >= 2) {
-    return [parts[0].trim(), parts[1].trim()];
+    return [normalizeStation(parts[0]), normalizeStation(parts[1])];
   }
-  return [routeStr.trim(), ''];
+  return [normalizeStation(routeStr), ''];
 }
 
 function parseWorksheetRows(rows) {
@@ -140,8 +150,11 @@ function parseWorksheetRows(rows) {
     if (car.length === 1) car = '0' + car;
     const seatClass = getVal(['CLASS', 'KELAS'], 6) || 'Premium Economy Class';
     const seat = getVal(['SEAT', 'KURSI', 'NO_KURSI'], 7);
-    const route = getVal(['ROUTE', 'RUTE', 'RELASI'], 8) || 'Halim—Tegalluar';
-    const [origin, dest] = parseRoute(route);
+    const route = getVal(['ROUTE', 'RUTE', 'RELASI'], 8);
+    const [parsedOrigin, parsedDest] = parseRoute(route);
+    const origin = parsedOrigin || 'Halim';
+    const dest = parsedDest || 'Tegalluar';
+    const finalRoute = route || `${origin}—${dest}`;
 
     if (seat || bookingCode) {
       records.push({
@@ -153,7 +166,7 @@ function parseWorksheetRows(rows) {
         car,
         seatClass,
         seat,
-        route,
+        route: finalRoute,
         origin,
         dest
       });
