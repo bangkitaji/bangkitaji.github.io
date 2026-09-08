@@ -286,6 +286,39 @@ body {
   margin-bottom: 1rem;
 }
 
+.flush-confirm-box {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.flush-confirm-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.flush-confirm-text {
+  font-size: 0.85rem;
+  color: #F8FAFC;
+}
+
+.flush-confirm-text strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.flush-confirm-text ul {
+  margin: 0.35rem 0 0 1.25rem;
+  padding: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 .flush-option-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
@@ -1807,6 +1840,12 @@ body {
   .header-right .btn-primary,
   .header-right .btn-danger {
     display: none; /* Accessible via mobile bottom bar / more sheet */
+  }
+
+  /* Sembunyikan Export CSV pada tampilan HP */
+  #btnExportEmpty,
+  #mBtnExportCSV {
+    display: none !important;
   }
 
   .header-right #btnInstallPwa {

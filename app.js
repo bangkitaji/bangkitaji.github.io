@@ -216,7 +216,6 @@ const el = {
   btnCloseFlushModal: document.getElementById('btnCloseFlushModal'),
   btnCancelFlush: document.getElementById('btnCancelFlush'),
   btnConfirmFlushEmpty: document.getElementById('btnConfirmFlushEmpty'),
-  btnConfirmFlushReseed: document.getElementById('btnConfirmFlushReseed'),
   flushAlert: document.getElementById('flushAlert'),
   // Mobile & PWA Elements
   btnInstallPwa: document.getElementById('btnInstallPwa'),
@@ -1352,59 +1351,42 @@ function closeFlushModal() {
   el.flushModalBackdrop.classList.remove('show');
 }
 
-async function handleFlush(reseed = false) {
-  const btn = reseed ? el.btnConfirmFlushReseed : el.btnConfirmFlushEmpty;
-  const originalHtml = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span>Memproses...</span>';
+async function handleFlush() {
+  const btn = el.btnConfirmFlushEmpty;
+  const originalHtml = btn ? btn.innerHTML : '';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span>Mengosongkan...</span>';
+  }
 
   try {
-    // 1. Flush backend SQLite database if online (AWAIT this first)
+    // 1. Flush backend SQLite database if online
     try {
-      const serverFlushRes = await fetch(`/api/flush${reseed ? '?reseed=true' : ''}`, { method: 'POST' });
+      const serverFlushRes = await fetch('/api/flush', { method: 'POST' });
       if (serverFlushRes.ok) {
-        console.log('[*] Database backend berhasil di-flush.');
+        console.log('[*] Database backend berhasil dikosongkan.');
       }
     } catch (_) {}
 
     // 2. Clear client-side IndexedDB
     await WhooshLocalDB.flushAll();
 
-    // 3. If reseed requested, re-load default manifest
-    if (reseed) {
-      try {
-        const csvRes = await fetch('manifest_data.csv');
-        if (csvRes.ok) {
-          const csvText = await csvRes.text();
-          const wb = XLSX.read(csvText, { type: 'string' });
-          const ws = wb.Sheets[wb.SheetNames[0]];
-          const rawRows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '', raw: false });
-          const { records } = parseWorksheetRows(rawRows);
-          if (records.length > 0) {
-            await WhooshLocalDB.saveTrip(records);
-          }
-        }
-      } catch (_) {}
+    // 3. Immediately clear in-memory state & re-render UI
+    state.currentTripId = null;
+    state.trip = null;
+    state.records = [];
+    populateTripSelector([]);
+    if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
+    processManifestData();
+    renderAll();
+
+    const successMsg = 'Database berhasil dikosongkan secara total. Siap untuk upload baru!';
+
+    if (el.flushAlert) {
+      el.flushAlert.className = 'alert-box success';
+      el.flushAlert.textContent = successMsg;
+      el.flushAlert.style.display = 'block';
     }
-
-    // 4. Immediately clear in-memory state & re-render UI if emptying
-    if (!reseed) {
-      state.currentTripId = null;
-      state.trip = null;
-      state.records = [];
-      populateTripSelector([]);
-      if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
-      processManifestData();
-      renderAll();
-    }
-
-    const successMsg = reseed 
-      ? 'Database berhasil di-reset ke manifest bawaan (G1043 • 384 penumpang)!'
-      : 'Database berhasil dikosongkan total. Siap untuk upload baru!';
-
-    el.flushAlert.className = 'alert-box success';
-    el.flushAlert.textContent = successMsg;
-    el.flushAlert.style.display = 'block';
     showToast(successMsg, 'success');
 
     setTimeout(async () => {
@@ -1412,12 +1394,16 @@ async function handleFlush(reseed = false) {
       await fetchTrips();
     }, 400);
   } catch (err) {
-    el.flushAlert.className = 'alert-box error';
-    el.flushAlert.textContent = err.message || 'Gagal membersihkan database.';
-    el.flushAlert.style.display = 'block';
+    if (el.flushAlert) {
+      el.flushAlert.className = 'alert-box error';
+      el.flushAlert.textContent = err.message || 'Gagal membersihkan database.';
+      el.flushAlert.style.display = 'block';
+    }
   } finally {
-    btn.disabled = false;
-    btn.innerHTML = originalHtml;
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+    }
   }
 }
 
@@ -1560,7 +1546,9 @@ function initEventListeners() {
   });
 
   // Export Empty Seats
-  el.btnExportEmpty.addEventListener('click', exportEmptySeatsCSV);
+  if (el.btnExportEmpty) {
+    el.btnExportEmpty.addEventListener('click', exportEmptySeatsCSV);
+  }
   if (el.btnExportExcel) {
     el.btnExportExcel.addEventListener('click', exportEmptySeatsExcel);
   }
@@ -1620,8 +1608,9 @@ function initEventListeners() {
       if (e.target === el.flushModalBackdrop) closeFlushModal();
     });
 
-    el.btnConfirmFlushEmpty.addEventListener('click', () => handleFlush(false));
-    el.btnConfirmFlushReseed.addEventListener('click', () => handleFlush(true));
+    if (el.btnConfirmFlushEmpty) {
+      el.btnConfirmFlushEmpty.addEventListener('click', handleFlush);
+    }
   }
 
   // Banner Upload Button

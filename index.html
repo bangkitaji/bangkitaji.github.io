@@ -70,12 +70,6 @@
         </svg>
         <span>Export Excel (.xlsx)</span>
       </button>
-      <button class="btn btn-secondary" id="btnExportEmpty" title="Unduh daftar kursi kosong format CSV">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-        </svg>
-        <span>Export CSV</span>
-      </button>
       <button class="btn btn-primary" id="btnOpenUploadModal" title="Upload manifest harian baru">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
@@ -472,41 +466,29 @@
       <div class="modal-header">
         <div class="modal-icon-header danger">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
-            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
           </svg>
         </div>
         <div>
-          <h3 class="modal-title">Flush / Reset Database Whoosh</h3>
-          <p class="modal-subtitle">Pilih tindakan pembersihan data perjalanan dan manifest SQLite (whoosh.db)</p>
+          <h3 class="modal-title">Kosongkan Database Whoosh</h3>
+          <p class="modal-subtitle">Konfirmasi pembersihan seluruh data manifest perjalanan</p>
         </div>
       </div>
 
       <div class="modal-body">
         <p class="flush-info-text">
-          Anda dapat mengosongkan seluruh tabel perjalanan kereta & manifest (0 data), atau me-reset kembali ke data bawaan <code>manifest_data.csv</code>.
+          Apakah Anda yakin ingin mengosongkan seluruh database? Tindakan ini akan <strong>menghapus semua data perjalanan kereta dan manifest penumpang</strong> yang tersimpan di sistem.
         </p>
 
-        <div class="flush-options-grid">
-          <div class="flush-option-card">
-            <div class="flush-opt-icon">🗑️</div>
-            <div class="flush-opt-content">
-              <h4>Kosongkan Total (0 Data)</h4>
-              <p>Menghapus seluruh trip dan manifest. Database bersih total untuk mulai upload data baru.</p>
-              <button class="btn btn-danger btn-block" id="btnConfirmFlushEmpty">
-                Kosongkan Total
-              </button>
-            </div>
-          </div>
-
-          <div class="flush-option-card">
-            <div class="flush-opt-icon">🔄</div>
-            <div class="flush-opt-content">
-              <h4>Reset ke Manifest Awal</h4>
-              <p>Menghapus data pengujian dan mengimpor ulang data asli dari <code>manifest_data.csv</code> (384 penumpang).</p>
-              <button class="btn btn-secondary btn-block" id="btnConfirmFlushReseed">
-                Reset ke Data Awal
-              </button>
-            </div>
+        <div class="flush-confirm-box">
+          <div class="flush-confirm-icon">⚠️</div>
+          <div class="flush-confirm-text">
+            <strong>Dampak Pengosongan Database:</strong>
+            <ul>
+              <li>Seluruh riwayat perjalanan kereta akan dihapus (0 trip)</li>
+              <li>Seluruh manifest pemesanan dan tiket penumpang akan dihapus</li>
+              <li>Status seluruh kursi kembali menjadi kosong (siap upload baru)</li>
+            </ul>
           </div>
         </div>
 
@@ -514,7 +496,13 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="btnCancelFlush">Tutup</button>
+        <button class="btn btn-secondary" id="btnCancelFlush">Batal</button>
+        <button class="btn btn-danger" id="btnConfirmFlushEmpty">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+          </svg>
+          <span>Kosongkan Database</span>
+        </button>
       </div>
     </div>
   </div>
@@ -541,13 +529,6 @@
           <div class="m-act-text">
             <strong>Export Excel (.xlsx)</strong>
             <span>Unduh daftar kursi kosong format Excel</span>
-          </div>
-        </button>
-        <button class="mobile-action-btn info" id="mBtnExportCSV">
-          <span class="m-act-icon">📄</span>
-          <div class="m-act-text">
-            <strong>Export CSV</strong>
-            <span>Unduh daftar kursi kosong format CSV</span>
           </div>
         </button>
         <button class="mobile-action-btn install" id="mBtnInstall" style="display:none;">

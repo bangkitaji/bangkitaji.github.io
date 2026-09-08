@@ -447,27 +447,9 @@ const server = http.createServer((req, res) => {
         db.prepare('DELETE FROM sqlite_sequence WHERE name IN ("trips", "manifest_records")').run();
       } catch (_) {}
 
-      const reseed = query.reseed === 'true' || query.reseed === '1';
-      console.log('FLUSH DEBUG:', { query, reseed });
-      if (reseed) {
-        const csvPath = path.join(__dirname, 'manifest_data.csv');
-        console.log('FLUSH CSV PATH:', csvPath, fs.existsSync(csvPath));
-        if (fs.existsSync(csvPath)) {
-          const content = fs.readFileSync(csvPath, 'utf-8');
-          const resSeed = importCSV(content);
-          return sendJson(res, {
-            success: true,
-            message: `Database berhasil di-flush dan di-reset ke manifest bawaan (${resSeed.trainCode} • ${resSeed.tripDate}, ${resSeed.totalRecords} penumpang).`,
-            reseeded: true,
-            trip_id: resSeed.tripId
-          });
-        }
-      }
-
       return sendJson(res, {
         success: true,
-        message: 'Database berhasil dikosongkan (flushed) secara total. Siap untuk upload data baru!',
-        reseeded: false
+        message: 'Database berhasil dikosongkan secara total. Siap untuk upload data baru!'
       });
     } catch (err) {
       return sendJson(res, { success: false, error: err.message }, 500);
