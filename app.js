@@ -146,8 +146,8 @@ const CAR_CONFIGS = {
       { row: 1, cls: 'First Class', left: ['A', 'C'], right: ['F'] },
       { row: 2, cls: 'First Class', left: ['A', 'C'], right: ['F'] },
       { row: 3, cls: 'First Class', left: ['A', 'C'], right: ['F'] },
-      // Rows 4-12: Premium Economy (3-2 config)
-      ...Array.from({ length: 9 }, (_, i) => ({
+      // Rows 4-11: Premium Economy (3-2 config)
+      ...Array.from({ length: 8 }, (_, i) => ({
         row: i + 4,
         cls: 'Premium Economy Class',
         left: ['A', 'B', 'C'],
