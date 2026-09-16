@@ -1,7 +1,7 @@
 {
-  "name": "Whoosh Seat Manifest — Visualizer Kursi Kosong",
-  "short_name": "Whoosh Seats",
-  "description": "Visualizer layout kursi kosong Kereta Cepat Jakarta—Bandung (KCIC400AF) offline & standalone",
+  "name": "Whoosh Seat Manifest — Available Seats Visualizer",
+  "short_name": "Whoosh Manifest",
+  "description": "Available seats visualizer for Jakarta—Bandung High-Speed Railway (KCIC400AF) offline & standalone",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

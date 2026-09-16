@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Whoosh Seats">
-  <title>Whoosh Seat Manifest — Visualizer Kursi Kosong Kereta Cepat</title>
+  <title>Whoosh Seat Manifest — High-Speed Train Seat Availability Visualizer</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="icon.svg">
   <link rel="apple-touch-icon" href="icon.svg">
@@ -25,18 +25,12 @@
   <header class="app-header">
     <div class="header-left">
       <div class="brand-logo">
-        <div class="train-bullet-icon">
-          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
-            <path d="M4 16C4 9.373 9.373 4 16 4h8a4 4 0 014 4v12a4 4 0 01-4 4h-8C9.373 24 4 18.627 4 16z" fill="#C72027"/>
-            <path d="M22 10H14c-3.314 0-6 2.686-6 6s2.686 6 6 6h8a2 2 0 002-2v-8a2 2 0 00-2-2z" fill="#FFFFFF" opacity="0.9"/>
-            <circle cx="11" cy="16" r="2" fill="#C72027"/>
-            <circle cx="21" cy="22" r="1.5" fill="#F8FAFC"/>
-            <circle cx="7" cy="22" r="1.5" fill="#F8FAFC"/>
-          </svg>
+        <div class="train-bullet-icon kcic-logo-badge">
+          <img src="kcic-logo-white.svg" alt="Logo PT KCIC" class="kcic-logo-img">
         </div>
         <div class="brand-text">
-          <span class="brand-title">WHOOSH <span>SEAT VISUALIZER</span></span>
-          <span class="brand-subtitle">Kereta Cepat Jakarta—Bandung (KCIC400AF)</span>
+          <span class="brand-title">WHOOSH <span>MANIFEST</span></span>
+          <span class="brand-subtitle">PT. Kereta Cepat Indonesia China</span>
         </div>
       </div>
     </div>
@@ -45,53 +39,44 @@
     <div class="header-center">
       <div class="trip-selector-container">
         <div class="selector-item">
-          <label for="tripSelect" class="selector-label">Jadwal & Kereta:</label>
+          <label for="tripSelect" class="selector-label">Schedule & Train:</label>
           <div class="custom-select-wrapper">
-            <select id="tripSelect" class="trip-dropdown" aria-label="Pilih Jadwal Kereta">
-              <option value="">(Belum ada data manifest)</option>
+            <select id="tripSelect" class="trip-dropdown" aria-label="Select Train Schedule">
+              <option value="">(No manifest data yet)</option>
             </select>
           </div>
         </div>
         <div class="live-status-badge" id="liveStatusBadge">
           <span class="pulsing-dot"></span>
-          <span id="tripSummaryBadge">Database Kosong</span>
+          <span id="tripSummaryBadge">Database Empty</span>
         </div>
       </div>
     </div>
 
     <!-- Header Actions -->
     <div class="header-right">
-      <button class="btn btn-secondary" id="btnExportExcel" title="Unduh daftar kursi kosong format Excel (.xlsx)">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="8" y1="13" x2="16" y2="13"/>
-          <line x1="8" y1="17" x2="16" y2="17"/>
-        </svg>
-        <span>Export Excel (.xlsx)</span>
-      </button>
-      <button class="btn btn-primary" id="btnOpenUploadModal" title="Upload manifest harian baru">
+      <button class="btn btn-primary" id="btnOpenUploadModal" title="Upload new daily manifest">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
         </svg>
         <span>Upload Manifest</span>
       </button>
-      <button class="btn btn-danger" id="btnOpenFlushModal" title="Flush / Reset Database SQLite">
+      <button class="btn btn-danger" id="btnOpenFlushModal" title="Reset SQLite Database">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"/>
         </svg>
         <span>Flush DB</span>
       </button>
-      <button class="btn btn-install" id="btnInstallPwa" style="display:none;" title="Pasang aplikasi di HP Android">
+      <button class="btn btn-install" id="btnInstallPwa" style="display:none;" title="Install application on Android device">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
           <line x1="12" y1="18" x2="12.01" y2="18"/>
         </svg>
-        <span>Pasang di HP</span>
+        <span>Install App</span>
       </button>
     </div>
     <!-- Mobile Menu Toggle Button -->
-    <button class="btn-mobile-more" id="btnToggleMobileActions" aria-label="Menu Aksi Cepat" title="Menu Aksi">
+    <button class="btn-mobile-more" id="btnToggleMobileActions" aria-label="Quick Actions Menu" title="Action Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/>
       </svg>
@@ -111,12 +96,12 @@
           </svg>
         </div>
         <div class="kpi-data">
-          <span class="kpi-label">Total Kapasitas Rangkaian</span>
+          <span class="kpi-label">Total Train Capacity</span>
           <div class="kpi-value-row">
             <span class="kpi-val" id="kpiTotalSeats">601</span>
-            <span class="kpi-unit">Kursi</span>
+            <span class="kpi-unit">Seats</span>
           </div>
-          <span class="kpi-subtext" id="kpiConfigDetail">8 Gerbong (1st, Business, Premium)</span>
+          <span class="kpi-subtext" id="kpiConfigDetail">8 Cars (1st, Business, Premium)</span>
         </div>
       </div>
 
@@ -127,12 +112,12 @@
           </svg>
         </div>
         <div class="kpi-data">
-          <span class="kpi-label">Kursi Kosong (Tersedia)</span>
+          <span class="kpi-label">Available Seats</span>
           <div class="kpi-value-row">
             <span class="kpi-val text-success" id="kpiAvailableSeats">--</span>
             <span class="kpi-unit" id="kpiAvailablePercent">--%</span>
           </div>
-          <span class="kpi-subtext" id="kpiAvailableSub">Siap dipesan / dialokasikan</span>
+          <span class="kpi-subtext" id="kpiAvailableSub">Ready for booking / allocation</span>
         </div>
       </div>
 
@@ -145,17 +130,17 @@
           </svg>
         </div>
         <div class="kpi-data">
-          <span class="kpi-label">Kursi Terisi (Booked)</span>
+          <span class="kpi-label">Occupied Seats (Booked)</span>
           <div class="kpi-value-row">
             <span class="kpi-val text-danger" id="kpiOccupiedSeats">--</span>
             <span class="kpi-unit" id="kpiOccupancyRate">--%</span>
           </div>
-          <span class="kpi-subtext" id="kpiOccupiedSub">Total tiket terbit: <strong id="kpiTotalTickets">--</strong></span>
+          <span class="kpi-subtext" id="kpiOccupiedSub">Total tickets issued: <strong id="kpiTotalTickets">--</strong></span>
         </div>
       </div>
 
       <div class="kpi-card class-breakdown">
-        <div class="kpi-label">Okupansi Berdasarkan Kelas</div>
+        <div class="kpi-label">Occupancy by Class</div>
         <div class="class-stat-bars">
           <div class="class-stat-item">
             <div class="class-info-row">
@@ -186,12 +171,12 @@
     <section class="train-consist-section">
       <div class="section-header">
         <div class="section-title-wrap">
-          <span class="section-title">Susunan Rangkaian Kereta Whoosh (8 Gerbong)</span>
-          <span class="section-desc">Pilih gerbong untuk melihat denah tata letak kursi secara mendalam</span>
+          <span class="section-title">Whoosh Train Consist (8 Cars)</span>
+          <span class="section-desc">Select a car to view the detailed seat map</span>
         </div>
         <div class="train-direction-tag" id="trainDirectionTag">
           <span class="direction-arrow" id="trainDirectionArrow">◀</span>
-          <span>Arah Keberangkatan Menuju: <strong id="trainDirectionText">--</strong></span>
+          <span>Departure Direction To: <strong id="trainDirectionText">--</strong></span>
         </div>
       </div>
 
@@ -210,16 +195,16 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
             </svg>
-            Relasi / Segmen Perjalanan:
+            Travel Segment:
           </label>
-          <select id="segmentSelect" class="styled-select" aria-label="Pilih Segmen Perjalanan">
-            <option value="ALL">⚡ Seluruh Perjalanan (Halim — Tegalluar)</option>
+          <select id="segmentSelect" class="styled-select" aria-label="Select Travel Segment">
+            <option value="ALL">⚡ Entire Journey (Halim — Tegalluar Summarecon)</option>
             <option value="HLM-KRW">📍 Halim — Karawang</option>
             <option value="HLM-PDL">📍 Halim — Padalarang</option>
-            <option value="HLM-TGL">📍 Halim — Tegalluar</option>
+            <option value="HLM-TGL">📍 Halim — Tegalluar Summarecon</option>
             <option value="KRW-PDL">📍 Karawang — Padalarang</option>
-            <option value="KRW-TGL">📍 Karawang — Tegalluar</option>
-            <option value="PDL-TGL">📍 Padalarang — Tegalluar</option>
+            <option value="KRW-TGL">📍 Karawang — Tegalluar Summarecon</option>
+            <option value="PDL-TGL">📍 Padalarang — Tegalluar Summarecon</option>
           </select>
         </div>
 
@@ -228,18 +213,18 @@
           <label class="switch-control" for="toggleEmptyOnly">
             <input type="checkbox" id="toggleEmptyOnly">
             <span class="switch-slider"></span>
-            <span class="switch-label">Hanya Tampilkan Kursi Kosong</span>
+            <span class="switch-label">Show Available Seats Only</span>
           </label>
         </div>
 
         <!-- Seat Position Filter -->
         <div class="filter-group position-filter">
-          <label class="filter-label">Posisi Kursi:</label>
+          <label class="filter-label">Seat Position:</label>
           <div class="pill-buttons" id="positionFilterGroup">
-            <button class="pill-btn active" data-pos="ALL">Semua</button>
-            <button class="pill-btn" data-pos="WINDOW" title="Kursi jendela A & F">Jendela (A/F)</button>
-            <button class="pill-btn" data-pos="AISLE" title="Kursi lorong C & D">Lorong (C/D)</button>
-            <button class="pill-btn" data-pos="MIDDLE" title="Kursi tengah B (hanya Premium Economy)">Tengah (B)</button>
+            <button class="pill-btn active" data-pos="ALL">All</button>
+            <button class="pill-btn" data-pos="WINDOW" title="Window seat A & F">Window (A/F)</button>
+            <button class="pill-btn" data-pos="AISLE" title="Aisle seat C & D">Aisle (C/D)</button>
+            <button class="pill-btn" data-pos="MIDDLE" title="Middle seat B (Premium Economy only)">Middle (B)</button>
           </div>
         </div>
 
@@ -249,8 +234,8 @@
             <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
             </svg>
-            <input type="text" id="searchInput" placeholder="Cari No. Kursi, Kode Booking, Tiket..." autocomplete="off">
-            <button class="btn-clear-search" id="btnClearSearch" title="Reset pencarian" style="display:none;">&times;</button>
+            <input type="text" id="searchInput" placeholder="Search Seat No., Booking Code, Ticket..." autocomplete="off">
+            <button class="btn-clear-search" id="btnClearSearch" title="Clear search" style="display:none;">&times;</button>
           </div>
         </div>
       </div>
@@ -259,15 +244,15 @@
       <div class="legend-row">
         <div class="legend-item">
           <span class="legend-box seat-sample available"></span>
-          <span>Kursi Kosong (Tersedia)</span>
+          <span>Available Seats</span>
         </div>
         <div class="legend-item">
           <span class="legend-box seat-sample occupied"></span>
-          <span>Kursi Terisi Penuh</span>
+          <span>Fully Occupied</span>
         </div>
         <div class="legend-item">
           <span class="legend-box seat-sample partial"></span>
-          <span>Terisi Parsial (Tersedia di segmen tertentu)</span>
+          <span>Partially Booked (Available on specific segments)</span>
         </div>
         <div class="legend-divider"></div>
         <div class="legend-item">
@@ -286,15 +271,15 @@
     <section class="seatmap-section">
       <div class="coach-card-header">
         <div class="coach-header-left">
-          <span class="active-car-badge" id="activeCarBadge">Gerbong 01</span>
+          <span class="active-car-badge" id="activeCarBadge">Car 01</span>
           <span class="active-car-title" id="activeCarTitle">First Class & Business Class</span>
-          <span class="active-car-specs" id="activeCarSpecs">37 Kursi Total</span>
+          <span class="active-car-specs" id="activeCarSpecs">37 Seats Total</span>
         </div>
         <div class="coach-header-right">
           <div class="car-occupancy-pill" id="carOccupancyPill">
-            <span>Terisi: <strong id="carOccupiedCount">0</strong></span>
+            <span>Occupied: <strong id="carOccupiedCount">0</strong></span>
             <span class="dot-sep">•</span>
-            <span>Kosong: <strong id="carEmptyCount" class="text-success">0</strong></span>
+            <span>Available: <strong id="carEmptyCount" class="text-success">0</strong></span>
           </div>
         </div>
       </div>
@@ -304,15 +289,15 @@
         <div class="empty-banner-content">
           <div class="empty-banner-icon">🚄</div>
           <div class="empty-banner-info">
-            <h4>Database Manifest Sedang Kosong</h4>
-            <p>Belum ada data perjalanan kereta yang aktif. Silakan upload file manifest harian baru (.xlsx / .csv) untuk memvisualisasikan status kursi.</p>
+            <h4>Manifest Database is Empty</h4>
+            <p>No active train trip data found. Please upload a new daily manifest file (.xlsx / .csv) to visualize seat availability.</p>
           </div>
         </div>
         <button class="btn btn-primary" id="btnBannerUpload">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
           </svg>
-          <span>Upload Manifest Sekarang</span>
+          <span>Upload Manifest Now</span>
         </button>
       </div>
 
@@ -322,14 +307,14 @@
           <!-- Direction & Nose indicators -->
           <div class="coach-front-end">
             <div class="train-driver-cab" id="driverCabIndicator" style="display:none;">
-              <span>Ujung Rangkaian / Ruang Masinis</span>
+              <span>Train Front End / Driver Cab</span>
             </div>
             <div class="chassis-amenity-bar">
-              <div class="amenity-item"><span class="amenity-icon">🚪</span> Pintu Masuk</div>
-              <div class="amenity-item"><span class="amenity-icon">🚻</span> Toilet</div>
-              <div class="amenity-item"><span class="amenity-icon">🧳</span> Bagasi Besar</div>
+              <div class="amenity-item"><span class="amenity-icon">🚪</span> Entrance</div>
+              <div class="amenity-item"><span class="amenity-icon">🚻</span> Restroom</div>
+              <div class="amenity-item"><span class="amenity-icon">🧳</span> Luggage Area</div>
               <div class="amenity-item direction-pill" id="coachDirectionPill">
-                <span class="blink-arrow" id="coachDirectionArrow">◀</span> <span id="coachDirectionText">Arah Laju Kereta: --</span>
+                <span class="blink-arrow" id="coachDirectionArrow">◀</span> <span id="coachDirectionText">Train Direction: --</span>
               </div>
             </div>
           </div>
@@ -342,13 +327,13 @@
           <!-- Rear bulkhead -->
           <div class="coach-rear-end">
             <div class="chassis-amenity-bar">
-              <div class="amenity-item"><span class="amenity-icon">🚪</span> Pintu Keluar</div>
-              <div class="amenity-item"><span class="amenity-icon">🔌</span> Stopkontak 220V</div>
+              <div class="amenity-item"><span class="amenity-icon">🚪</span> Exit</div>
+              <div class="amenity-item"><span class="amenity-icon">🔌</span> 220V Power Outlet</div>
               <div class="amenity-item" id="bistroIndicator" style="display:none;">
-                <span class="amenity-icon">☕</span> Restorasi / Bistro Bar Whoosh
+                <span class="amenity-icon">☕</span> Whoosh Dining Car / Bistro Bar
               </div>
               <div class="amenity-item" id="wheelchairIndicator" style="display:none;">
-                <span class="amenity-icon">♿</span> Area Khusus Difabel / Kursi Roda
+                <span class="amenity-icon">♿</span> Accessible Area / Wheelchair Priority
               </div>
             </div>
           </div>
@@ -367,7 +352,7 @@
       <div class="modal-header">
         <div class="seat-modal-badge" id="modalSeatBadge">001A</div>
         <div class="seat-modal-title-wrap">
-          <h3 class="seat-modal-title" id="modalSeatTitle">Kursi 001A • Gerbong 01</h3>
+          <h3 class="seat-modal-title" id="modalSeatTitle">Seat 001A • Car 01</h3>
           <span class="seat-modal-class" id="modalSeatClass">First Class (2-1)</span>
         </div>
       </div>
@@ -377,14 +362,14 @@
         <div class="seat-status-banner" id="modalStatusBanner">
           <span class="status-icon" id="modalStatusIcon">🟢</span>
           <div class="status-text-wrap">
-            <strong id="modalStatusTitle">Kursi Kosong (Tersedia)</strong>
-            <span id="modalStatusDesc">Kursi ini belum dipesan untuk seluruh ruas perjalanan.</span>
+            <strong id="modalStatusTitle">Available Seat</strong>
+            <span id="modalStatusDesc">This seat has not been booked for any segment along the journey.</span>
           </div>
         </div>
 
         <!-- Station Segment Timeline -->
         <div class="segment-timeline-container">
-          <h4 class="timeline-title">Status Keterisian per Ruas Stasiun:</h4>
+          <h4 class="timeline-title">Occupancy Status per Station Segment:</h4>
           <div class="segment-timeline" id="modalTimeline">
             <!-- Injected by JS -->
           </div>
@@ -392,7 +377,7 @@
 
         <!-- Passenger & Booking Details (if occupied) -->
         <div class="passenger-details-section" id="modalPassengerSection" style="display:none;">
-          <h4 class="section-subheading">Informasi Penumpang / Tiket:</h4>
+          <h4 class="section-subheading">Passenger & Ticket Information:</h4>
           <div class="passenger-card-list" id="modalPassengerList">
             <!-- Injected by JS -->
           </div>
@@ -400,7 +385,7 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="btnCloseDetailFooter">Tutup</button>
+        <button class="btn btn-secondary" id="btnCloseDetailFooter">Close</button>
       </div>
     </div>
   </div>
@@ -417,8 +402,8 @@
           </svg>
         </div>
         <div>
-          <h3 class="modal-title">Upload Data Manifest Whoosh (Excel / CSV)</h3>
-          <p class="modal-subtitle">Unggah file Excel (.xlsx, .xls) atau CSV manifest harian untuk memperbarui data kursi ke database SQLite</p>
+          <h3 class="modal-title">Upload Whoosh Manifest Data (Excel / CSV)</h3>
+          <p class="modal-subtitle">Upload daily manifest Excel (.xlsx, .xls) or CSV files to update seat data in the SQLite database</p>
         </div>
       </div>
 
@@ -430,19 +415,19 @@
             <svg class="dropzone-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
             </svg>
-            <p class="dropzone-main-text">Drag & drop file <strong>Excel (.xlsx, .xls)</strong> atau <strong>CSV</strong> di sini</p>
-            <p class="dropzone-sub-text">atau <button type="button" class="link-btn" id="btnBrowseFile">Pilih file dari komputer</button></p>
-            <span class="dropzone-format-hint">Mendukung Microsoft Excel (.xlsx, .xls) dan CSV (titik-koma / koma)</span>
+            <p class="dropzone-main-text">Drag & drop <strong>Excel (.xlsx, .xls)</strong> or <strong>CSV</strong> file here</p>
+            <p class="dropzone-sub-text">or <button type="button" class="link-btn" id="btnBrowseFile">Browse file from computer</button></p>
+            <span class="dropzone-format-hint">Supports Microsoft Excel (.xlsx, .xls) and CSV (semicolon / comma)</span>
           </div>
         </div>
 
         <div id="fileInfoBadge" class="file-info-pill" style="display:none;"></div>
 
-        <div class="or-divider"><span>ATAU TEMPELKAN TEKS CSV</span></div>
+        <div class="or-divider"><span>OR PASTE CSV TEXT</span></div>
 
         <!-- Paste Textarea -->
         <div class="paste-area-wrapper">
-          <textarea id="csvPasteTextarea" class="styled-textarea" placeholder="Tempelkan baris manifest Whoosh di sini... (Contoh: BOOKING CODE;TICKET NUMBER;...)" rows="5"></textarea>
+          <textarea id="csvPasteTextarea" class="styled-textarea" placeholder="Paste Whoosh manifest rows here... (e.g. BOOKING CODE;TICKET NUMBER;...)" rows="5"></textarea>
         </div>
 
         <!-- Upload Status / Alert -->
@@ -450,9 +435,9 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="btnCancelUpload">Batal</button>
+        <button class="btn btn-secondary" id="btnCancelUpload">Cancel</button>
         <button class="btn btn-primary" id="btnSubmitUpload">
-          <span>Simpan & Perbarui Database</span>
+          <span>Save & Update Database</span>
         </button>
       </div>
     </div>
@@ -470,24 +455,24 @@
           </svg>
         </div>
         <div>
-          <h3 class="modal-title">Kosongkan Database Whoosh</h3>
-          <p class="modal-subtitle">Konfirmasi pembersihan seluruh data manifest perjalanan</p>
+          <h3 class="modal-title">Reset Whoosh Database</h3>
+          <p class="modal-subtitle">Confirm clearing of all journey manifest data</p>
         </div>
       </div>
 
       <div class="modal-body">
         <p class="flush-info-text">
-          Apakah Anda yakin ingin mengosongkan seluruh database? Tindakan ini akan <strong>menghapus semua data perjalanan kereta dan manifest penumpang</strong> yang tersimpan di sistem.
+          Are you sure you want to reset the database? This action will <strong>delete all train trip and passenger manifest records</strong> stored in the system.
         </p>
 
         <div class="flush-confirm-box">
           <div class="flush-confirm-icon">⚠️</div>
           <div class="flush-confirm-text">
-            <strong>Dampak Pengosongan Database:</strong>
+            <strong>Database Reset Impact:</strong>
             <ul>
-              <li>Seluruh riwayat perjalanan kereta akan dihapus (0 trip)</li>
-              <li>Seluruh manifest pemesanan dan tiket penumpang akan dihapus</li>
-              <li>Status seluruh kursi kembali menjadi kosong (siap upload baru)</li>
+              <li>All train trip history will be deleted (0 trips)</li>
+              <li>All passenger booking and ticket manifests will be removed</li>
+              <li>All seat statuses will return to available (ready for fresh upload)</li>
             </ul>
           </div>
         </div>
@@ -496,12 +481,12 @@
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="btnCancelFlush">Batal</button>
+        <button class="btn btn-secondary" id="btnCancelFlush">Cancel</button>
         <button class="btn btn-danger" id="btnConfirmFlushEmpty">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
           </svg>
-          <span>Kosongkan Database</span>
+          <span>Reset Database</span>
         </button>
       </div>
     </div>
@@ -513,36 +498,29 @@
       <div class="bottom-sheet-drag-handle"></div>
       <button class="modal-close-btn" id="btnCloseMobileActions">&times;</button>
       <div class="modal-header">
-        <h3 class="modal-title">Aksi & Pengaturan Whoosh</h3>
-        <span class="offline-indicator-badge" id="offlineIndicatorBadge">🟢 Standalone Offline Siap</span>
+        <h3 class="modal-title">Whoosh Actions & Settings</h3>
+        <span class="offline-indicator-badge" id="offlineIndicatorBadge">🟢 Standalone Offline Ready</span>
       </div>
       <div class="modal-body mobile-actions-grid">
         <button class="mobile-action-btn primary" id="mBtnUpload">
           <span class="m-act-icon">📤</span>
           <div class="m-act-text">
-            <strong>Upload Manifest Baru</strong>
-            <span>Pilih file Excel (.xlsx, .xls) atau CSV dari HP</span>
-          </div>
-        </button>
-        <button class="mobile-action-btn success" id="mBtnExportExcel">
-          <span class="m-act-icon">📊</span>
-          <div class="m-act-text">
-            <strong>Export Excel (.xlsx)</strong>
-            <span>Unduh daftar kursi kosong format Excel</span>
+            <strong>Upload New Manifest</strong>
+            <span>Select Excel (.xlsx, .xls) or CSV file from device</span>
           </div>
         </button>
         <button class="mobile-action-btn install" id="mBtnInstall" style="display:none;">
           <span class="m-act-icon">📲</span>
           <div class="m-act-text">
-            <strong>Pasang Aplikasi di HP (PWA)</strong>
-            <span>Tambahkan ke Layar Utama Android</span>
+            <strong>Install Mobile App (PWA)</strong>
+            <span>Add to Android Home Screen</span>
           </div>
         </button>
         <button class="mobile-action-btn danger" id="mBtnFlush">
           <span class="m-act-icon">🗑️</span>
           <div class="m-act-text">
-            <strong>Flush / Reset Database</strong>
-            <span>Kosongkan atau muat ulang data bawaan</span>
+            <strong>Reset Database</strong>
+            <span>Clear database or reset to default data</span>
           </div>
         </button>
       </div>
@@ -551,23 +529,23 @@
 
   <!-- Mobile Bottom Navigation Bar (Persistent) -->
   <nav class="mobile-bottom-bar" id="mobileBottomBar">
-    <button class="bottom-nav-item active" id="bNavCars" title="Pilih Gerbong">
+    <button class="bottom-nav-item active" id="bNavCars" title="Select Cars">
       <span class="b-nav-icon">🚆</span>
-      <span class="b-nav-label">Gerbong</span>
+      <span class="b-nav-label">Cars</span>
     </button>
-    <button class="bottom-nav-item" id="bNavFilter" title="Relasi / Segmen">
+    <button class="bottom-nav-item" id="bNavFilter" title="Travel Routes">
       <span class="b-nav-icon">⚡</span>
-      <span class="b-nav-label">Filter Rute</span>
+      <span class="b-nav-label">Routes</span>
     </button>
     <button class="bottom-nav-item highlight" id="bNavUpload" title="Upload Manifest">
       <span class="b-nav-icon">📤</span>
       <span class="b-nav-label">Upload</span>
     </button>
-    <button class="bottom-nav-item" id="bNavExport" title="Export Kursi">
+    <button class="bottom-nav-item" id="bNavExport" title="Export Seats">
       <span class="b-nav-icon">📊</span>
       <span class="b-nav-label">Export</span>
     </button>
-    <button class="bottom-nav-item" id="bNavMore" title="Aksi Lainnya">
+    <button class="bottom-nav-item" id="bNavMore" title="More Actions">
       <span class="b-nav-icon">⚙️</span>
       <span class="b-nav-label">Menu</span>
     </button>

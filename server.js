@@ -14,11 +14,11 @@ const PORT = process.env.PORT || 8000;
 const DB_FILE = path.join(__dirname, 'whoosh.db');
 const STATIC_DIR = __dirname;
 
-const STATIONS = ['Halim', 'Karawang', 'Padalarang', 'Tegalluar'];
+const STATIONS = ['Halim', 'Karawang', 'Padalarang', 'Tegalluar Summarecon'];
 const SEGMENTS = [
   { id: 'HLM-KRW', name: 'Halim — Karawang', from: 0, to: 1 },
   { id: 'KRW-PDL', name: 'Karawang — Padalarang', from: 1, to: 2 },
-  { id: 'PDL-TGL', name: 'Padalarang — Tegalluar', from: 2, to: 3 }
+  { id: 'PDL-TGL', name: 'Padalarang — Tegalluar Summarecon', from: 2, to: 3 }
 ];
 
 // Initialize SQLite Database
@@ -65,7 +65,7 @@ function normalizeStation(name) {
   if (n.includes('halim')) return 'Halim';
   if (n.includes('karawang')) return 'Karawang';
   if (n.includes('padalarang')) return 'Padalarang';
-  if (n.includes('tegalluar')) return 'Tegalluar';
+  if (n.includes('tegalluar')) return 'Tegalluar Summarecon';
   return name.trim();
 }
 
@@ -153,7 +153,7 @@ function parseWorksheetRows(rows) {
     const route = getVal(['ROUTE', 'RUTE', 'RELASI'], 8);
     const [parsedOrigin, parsedDest] = parseRoute(route);
     const origin = parsedOrigin || 'Halim';
-    const dest = parsedDest || 'Tegalluar';
+    const dest = parsedDest || 'Tegalluar Summarecon';
     const finalRoute = route || `${origin}—${dest}`;
 
     if (seat || bookingCode) {
@@ -178,7 +178,7 @@ function parseWorksheetRows(rows) {
 
 function saveRecordsToTrip(records) {
   if (!records || !records.length) {
-    throw new Error('Tidak ada catatan penumpang yang valid dalam file manifest.');
+    throw new Error('No valid passenger records found in manifest file.');
   }
 
   const first = records[0];
@@ -462,7 +462,7 @@ const server = http.createServer((req, res) => {
 
       return sendJson(res, {
         success: true,
-        message: 'Database berhasil dikosongkan secara total. Siap untuk upload data baru!'
+        message: 'Database successfully cleared. Ready for new upload!'
       });
     } catch (err) {
       return sendJson(res, { success: false, error: err.message }, 500);

@@ -4,26 +4,26 @@
  */
 
 // Station and Relasi Definitions
-const STATIONS = ['Halim', 'Karawang', 'Padalarang', 'Tegalluar'];
+const STATIONS = ['Halim', 'Karawang', 'Padalarang', 'Tegalluar Summarecon'];
 
 // Relasi Perjalanan Kereta KCIC Whoosh
-// 1. Kereta Menuju Bandung (Eastbound)
+// 1. Train Bound for Bandung (Eastbound)
 const RELASI_BANDUNG = [
-  { id: 'ALL', name: '⚡ Seluruh Perjalanan (Halim — Tegalluar)', segments: [0, 1, 2] },
+  { id: 'ALL', name: '⚡ Entire Journey (Halim — Tegalluar Summarecon)', segments: [0, 1, 2] },
   { id: 'HLM-KRW', name: '📍 Halim — Karawang', segments: [0] },
   { id: 'HLM-PDL', name: '📍 Halim — Padalarang', segments: [0, 1] },
-  { id: 'HLM-TGL', name: '📍 Halim — Tegalluar', segments: [0, 1, 2] },
+  { id: 'HLM-TGL', name: '📍 Halim — Tegalluar Summarecon', segments: [0, 1, 2] },
   { id: 'KRW-PDL', name: '📍 Karawang — Padalarang', segments: [1] },
-  { id: 'KRW-TGL', name: '📍 Karawang — Tegalluar', segments: [1, 2] },
-  { id: 'PDL-TGL', name: '📍 Padalarang — Tegalluar', segments: [2] }
+  { id: 'KRW-TGL', name: '📍 Karawang — Tegalluar Summarecon', segments: [1, 2] },
+  { id: 'PDL-TGL', name: '📍 Padalarang — Tegalluar Summarecon', segments: [2] }
 ];
 
-// 2. Kereta Menuju Jakarta (Westbound)
+// 2. Train Bound for Jakarta (Westbound)
 const RELASI_JAKARTA = [
-  { id: 'ALL', name: '⚡ Seluruh Perjalanan (Tegalluar — Halim)', segments: [0, 1, 2] },
-  { id: 'TGL-PDL', name: '📍 Tegalluar — Padalarang', segments: [2] },
-  { id: 'TGL-KRW', name: '📍 Tegalluar — Karawang', segments: [1, 2] },
-  { id: 'TGL-HLM', name: '📍 Tegalluar — Halim', segments: [0, 1, 2] },
+  { id: 'ALL', name: '⚡ Entire Journey (Tegalluar Summarecon — Halim)', segments: [0, 1, 2] },
+  { id: 'TGL-PDL', name: '📍 Tegalluar Summarecon — Padalarang', segments: [2] },
+  { id: 'TGL-KRW', name: '📍 Tegalluar Summarecon — Karawang', segments: [1, 2] },
+  { id: 'TGL-HLM', name: '📍 Tegalluar Summarecon — Halim', segments: [0, 1, 2] },
   { id: 'PDL-KRW', name: '📍 Padalarang — Karawang', segments: [1] },
   { id: 'PDL-HLM', name: '📍 Padalarang — Halim', segments: [0, 1] },
   { id: 'KRW-HLM', name: '📍 Karawang — Halim', segments: [0] }
@@ -32,14 +32,14 @@ const RELASI_JAKARTA = [
 const SEGMENT_DEFINITIONS = [
   { id: 'HLM-KRW', name: 'Halim — Karawang', from: 0, to: 1 },
   { id: 'KRW-PDL', name: 'Karawang — Padalarang', from: 1, to: 2 },
-  { id: 'PDL-TGL', name: 'Padalarang — Tegalluar', from: 2, to: 3 }
+  { id: 'PDL-TGL', name: 'Padalarang — Tegalluar Summarecon', from: 2, to: 3 }
 ];
 
 // KCIC Whoosh CR400AF Car Configurations
 const CAR_CONFIGS = {
   '01': {
     carNum: '01',
-    name: 'Gerbong 01',
+    name: 'Car 01',
     classes: 'First Class & Business Class',
     badgeClass: 'mixed',
     isFrontLocomotive: true,
@@ -60,7 +60,7 @@ const CAR_CONFIGS = {
   },
   '02': {
     carNum: '02',
-    name: 'Gerbong 02',
+    name: 'Car 02',
     classes: 'Premium Economy Class',
     badgeClass: 'premium',
     rows: [
@@ -75,7 +75,7 @@ const CAR_CONFIGS = {
   },
   '03': {
     carNum: '03',
-    name: 'Gerbong 03',
+    name: 'Car 03',
     classes: 'Premium Economy Class',
     badgeClass: 'premium',
     rows: Array.from({ length: 18 }, (_, i) => ({
@@ -87,8 +87,8 @@ const CAR_CONFIGS = {
   },
   '04': {
     carNum: '04',
-    name: 'Gerbong 04',
-    classes: 'Premium Economy Class (Akses Difabel)',
+    name: 'Car 04',
+    classes: 'Premium Economy Class (Accessible)',
     badgeClass: 'premium',
     isWheelchairAccessible: true,
     rows: Array.from({ length: 16 }, (_, i) => ({
@@ -100,59 +100,61 @@ const CAR_CONFIGS = {
   },
   '05': {
     carNum: '05',
-    name: 'Gerbong 05',
-    classes: 'Premium Economy Class & Restorasi (Bistro)',
+    name: 'Car 05',
+    classes: 'Premium Economy Class & Dining (Bistro)',
     badgeClass: 'premium',
     isBistroCar: true,
     rows: Array.from({ length: 15 }, (_, i) => ({
       row: i + 1,
       cls: 'Premium Economy Class',
-      left: ['A', 'B', 'C'],
-      right: ['D', 'F']
+      left: ['F', 'D'],
+      right: ['C', 'B', 'A']
     }))
   },
   '06': {
     carNum: '06',
-    name: 'Gerbong 06',
+    name: 'Car 06',
     classes: 'Premium Economy Class',
     badgeClass: 'premium',
     rows: Array.from({ length: 18 }, (_, i) => ({
       row: i + 1,
       cls: 'Premium Economy Class',
-      left: ['A', 'B', 'C'],
-      right: ['D', 'F']
+      left: ['F', 'D'],
+      right: ['C', 'B', 'A']
     }))
   },
   '07': {
     carNum: '07',
-    name: 'Gerbong 07',
+    name: 'Car 07',
     classes: 'Premium Economy Class',
     badgeClass: 'premium',
     rows: Array.from({ length: 18 }, (_, i) => ({
       row: i + 1,
       cls: 'Premium Economy Class',
-      left: ['A', 'B', 'C'],
-      right: ['D', 'F']
+      left: ['F', 'D'],
+      right: ['C', 'B', 'A']
     }))
   },
   '08': {
     carNum: '08',
-    name: 'Gerbong 08',
+    name: 'Car 08',
     classes: 'First Class & Premium Economy Class',
     badgeClass: 'mixed',
     isRearLocomotive: true,
     rows: [
-      // Rows 1-3: First Class (2-1 config)
-      { row: 1, cls: 'First Class', left: ['A', 'C'], right: ['F'] },
-      { row: 2, cls: 'First Class', left: ['A', 'C'], right: ['F'] },
-      { row: 3, cls: 'First Class', left: ['A', 'C'], right: ['F'] },
-      // Rows 4-11: Premium Economy (3-2 config)
-      ...Array.from({ length: 8 }, (_, i) => ({
-        row: i + 4,
-        cls: 'Premium Economy Class',
-        left: ['A', 'B', 'C'],
-        right: ['D', 'F']
-      }))
+      // Rows 11 to 4: Premium Economy (2-3 config: F, D - aisle - C, B, A)
+      { row: 11, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 10, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 9, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 8, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 7, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 6, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 5, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      { row: 4, cls: 'Premium Economy Class', left: ['F', 'D'], right: ['C', 'B', 'A'] },
+      // Rows 3 to 1: First Class (1-2 config: F - aisle - C, A)
+      { row: 3, cls: 'First Class', left: ['F'], right: ['C', 'A'] },
+      { row: 2, cls: 'First Class', left: ['F'], right: ['C', 'A'] },
+      { row: 1, cls: 'First Class', left: ['F'], right: ['C', 'A'] }
     ]
   }
 };
@@ -202,6 +204,7 @@ const el = {
   carOccupiedCount: document.getElementById('carOccupiedCount'),
   carEmptyCount: document.getElementById('carEmptyCount'),
   driverCabIndicator: document.getElementById('driverCabIndicator'),
+  driverRearCabIndicator: document.getElementById('driverRearCabIndicator'),
   bistroIndicator: document.getElementById('bistroIndicator'),
   wheelchairIndicator: document.getElementById('wheelchairIndicator'),
   seatGridContainer: document.getElementById('seatGridContainer'),
@@ -299,7 +302,7 @@ function normalizeStation(name) {
   if (n.includes('halim')) return 'Halim';
   if (n.includes('karawang')) return 'Karawang';
   if (n.includes('padalarang')) return 'Padalarang';
-  if (n.includes('tegalluar')) return 'Tegalluar';
+  if (n.includes('tegalluar')) return 'Tegalluar Summarecon';
   return name.trim();
 }
 
@@ -506,7 +509,7 @@ const WhooshLocalDB = {
 
   async saveTrip(records) {
     await this.init();
-    if (!records || !records.length) throw new Error('Tidak ada data penumpang untuk disimpan.');
+    if (!records || !records.length) throw new Error('No passenger data to save.');
 
     const first = records[0];
     const tripDate = first.tripDate || '04/09/2026';
@@ -537,7 +540,7 @@ const WhooshLocalDB = {
               const rawRoute = r.route || '';
               const [parsedOrig, parsedDest] = parseRoute(rawRoute);
               const origin = parsedOrig || (r.origin ? normalizeStation(r.origin) : 'Halim');
-              const destination = parsedDest || (r.destination ? normalizeStation(r.destination) : 'Tegalluar');
+              const destination = parsedDest || (r.destination ? normalizeStation(r.destination) : 'Tegalluar Summarecon');
               const finalRoute = rawRoute || `${origin}—${destination}`;
               recStore.add({
                 trip_id: tripId,
@@ -568,7 +571,7 @@ const WhooshLocalDB = {
               const rawRoute = r.route || '';
               const [parsedOrig, parsedDest] = parseRoute(rawRoute);
               const origin = parsedOrig || (r.origin ? normalizeStation(r.origin) : 'Halim');
-              const destination = parsedDest || (r.destination ? normalizeStation(r.destination) : 'Tegalluar');
+              const destination = parsedDest || (r.destination ? normalizeStation(r.destination) : 'Tegalluar Summarecon');
               const finalRoute = rawRoute || `${origin}—${destination}`;
               recStore.add({
                 trip_id: tripId,
@@ -659,7 +662,7 @@ async function fetchTrips() {
       state.currentTripId = null;
       state.trip = null;
       state.records = [];
-      if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
+      if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Empty';
       processManifestData();
       renderAll();
       return;
@@ -684,7 +687,7 @@ async function fetchTrips() {
   state.isWestbound = false;
   currentSegmentMode = null;
   state.selectedSegment = 'ALL';
-  if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
+  if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Empty';
   processManifestData();
   renderAll();
 }
@@ -721,11 +724,11 @@ async function loadManifest(tripId) {
       processManifestData();
       renderAll();
     } else {
-      showToast('Data perjalanan tidak ditemukan.', 'error');
+      showToast('Trip data not found.', 'error');
     }
   } catch (err) {
-    console.error('Gagal memuat manifest:', err);
-    showToast('Gagal memuat data manifest.', 'error');
+    console.error('Failed to load manifest:', err);
+    showToast('Failed to load manifest data.', 'error');
   }
 }
 
@@ -736,13 +739,13 @@ async function loadManifest(tripId) {
 function populateTripSelector(trips) {
   el.tripSelect.innerHTML = '';
   if (!trips || trips.length === 0) {
-    el.tripSelect.innerHTML = '<option value="">(Belum ada data manifest)</option>';
+    el.tripSelect.innerHTML = '<option value="">(No manifest data yet)</option>';
     return;
   }
   trips.forEach(t => {
     const opt = document.createElement('option');
     opt.value = t.id;
-    opt.textContent = `${t.train_code} — ${t.trip_date} (${t.total_bookings} Penumpang)`;
+    opt.textContent = `${t.train_code} — ${t.trip_date} (${t.total_bookings} Passengers)`;
     el.tripSelect.appendChild(opt);
   });
 }
@@ -850,14 +853,14 @@ function updateDirectionInfo() {
   if (lowerDest.includes('halim')) {
     coachDest = 'Jakarta (Halim)';
   } else if (lowerDest.includes('padalarang') && lowerDest.includes('tegalluar')) {
-    coachDest = 'Bandung (Padalarang / Tegalluar)';
+    coachDest = 'Bandung (Padalarang / Tegalluar Summarecon)';
   } else if (lowerDest.includes('padalarang')) {
     coachDest = 'Padalarang';
   } else if (lowerDest.includes('tegalluar')) {
-    coachDest = 'Tegalluar (Bandung)';
+    coachDest = 'Tegalluar Summarecon (Bandung)';
   }
 
-  el.coachDirectionText.textContent = `Arah Laju Kereta Menuju ${coachDest}`;
+  el.coachDirectionText.textContent = `Train Direction Towards ${coachDest}`;
 
   // Update arrows
   const arrowChar = isWestbound ? '▶' : '◀';
@@ -883,10 +886,10 @@ function renderKPICards() {
     if (el.kpiTotalSeats) el.kpiTotalSeats.textContent = '601';
     if (el.kpiAvailableSeats) el.kpiAvailableSeats.textContent = '--';
     if (el.kpiAvailablePercent) el.kpiAvailablePercent.textContent = '--%';
-    if (el.kpiAvailableSub) el.kpiAvailableSub.textContent = 'Belum ada data manifest';
+    if (el.kpiAvailableSub) el.kpiAvailableSub.textContent = 'No manifest data yet';
     if (el.kpiOccupiedSeats) el.kpiOccupiedSeats.textContent = '--';
     if (el.kpiOccupancyRate) el.kpiOccupancyRate.textContent = '--%';
-    if (el.kpiOccupiedSub) el.kpiOccupiedSub.innerHTML = 'Silakan upload manifest harian';
+    if (el.kpiOccupiedSub) el.kpiOccupiedSub.innerHTML = 'Please upload daily manifest';
     if (el.kpiTotalTickets) el.kpiTotalTickets.textContent = '0';
     if (el.statFirstClass) el.statFirstClass.textContent = '0/18';
     if (el.barFirstClass) el.barFirstClass.style.width = '0%';
@@ -956,11 +959,11 @@ function renderKPICards() {
     if (el.kpiTotalSeats) el.kpiTotalSeats.textContent = totalSeats;
     if (el.kpiAvailableSeats) el.kpiAvailableSeats.textContent = pureEmpty;
     if (el.kpiAvailablePercent) el.kpiAvailablePercent.textContent = `${availRate}%`;
-    if (el.kpiAvailableSub) el.kpiAvailableSub.innerHTML = `+<strong>${partialOccupied}</strong> kursi terisi sebagian`;
+    if (el.kpiAvailableSub) el.kpiAvailableSub.innerHTML = `+<strong>${partialOccupied}</strong> seats partially booked`;
 
     if (el.kpiOccupiedSeats) el.kpiOccupiedSeats.textContent = totalBookedSeats;
     if (el.kpiOccupancyRate) el.kpiOccupancyRate.textContent = `${occRate}%`;
-    if (el.kpiOccupiedSub) el.kpiOccupiedSub.innerHTML = `(${fullyOccupied} Penuh • ${partialOccupied} Parsial)`;
+    if (el.kpiOccupiedSub) el.kpiOccupiedSub.innerHTML = `(${fullyOccupied} Full • ${partialOccupied} Partial)`;
   } else {
     const occRate = totalSeats > 0 ? ((fullyOccupied / totalSeats) * 100).toFixed(1) : 0;
     const availRate = totalSeats > 0 ? ((pureEmpty / totalSeats) * 100).toFixed(1) : 0;
@@ -968,11 +971,11 @@ function renderKPICards() {
     if (el.kpiTotalSeats) el.kpiTotalSeats.textContent = totalSeats;
     if (el.kpiAvailableSeats) el.kpiAvailableSeats.textContent = pureEmpty;
     if (el.kpiAvailablePercent) el.kpiAvailablePercent.textContent = `${availRate}%`;
-    if (el.kpiAvailableSub) el.kpiAvailableSub.textContent = `Tersedia pada segmen ini`;
+    if (el.kpiAvailableSub) el.kpiAvailableSub.textContent = `Available on this segment`;
 
     if (el.kpiOccupiedSeats) el.kpiOccupiedSeats.textContent = fullyOccupied;
     if (el.kpiOccupancyRate) el.kpiOccupancyRate.textContent = `${occRate}%`;
-    if (el.kpiOccupiedSub) el.kpiOccupiedSub.textContent = `Terisi pada segmen ini`;
+    if (el.kpiOccupiedSub) el.kpiOccupiedSub.textContent = `Occupied on this segment`;
   }
 
   el.kpiTotalTickets.textContent = state.records.length;
@@ -1023,17 +1026,17 @@ function renderTrainStrip() {
 
     card.innerHTML = `
       <div class="car-strip-top">
-        <span class="car-num-badge">G${carNum}</span>
+        <span class="car-num-badge">C${carNum}</span>
         <span class="car-class-badge ${config.badgeClass}">
-          ${carNum === '01' ? '1st/Bisnis' : carNum === '08' ? '1st/Prem' : carNum === '05' ? 'Bistro' : 'Ekonomi'}
+          ${carNum === '01' ? '1st/Business' : carNum === '08' ? '1st/Prem' : carNum === '05' ? 'Bistro' : 'Economy'}
         </span>
       </div>
       <div class="car-occ-bar">
         <div class="car-occ-fill ${occFillClass}" style="width: ${state.trip ? occPercent : 0}%"></div>
       </div>
       <div class="car-strip-bottom">
-        <span>${state.trip ? `${occPercent}% Terisi` : '0% Terisi'}</span>
-        <span class="car-empty-tag">${state.trip ? `${emptyInCar} Kosong` : '--'}</span>
+        <span>${state.trip ? `${occPercent}% Occupied` : '0% Occupied'}</span>
+        <span class="car-empty-tag">${state.trip ? `${emptyInCar} Available` : '--'}</span>
       </div>
     `;
 
@@ -1053,11 +1056,14 @@ function renderSeatGrid() {
   if (!config) return;
 
   // Update Coach Header Info
-  el.activeCarBadge.textContent = `Gerbong ${config.carNum}`;
+  el.activeCarBadge.textContent = `Car ${config.carNum}`;
   el.activeCarTitle.textContent = config.classes;
 
   // Car amenities flags
-  el.driverCabIndicator.style.display = (config.isFrontLocomotive || config.isRearLocomotive) ? 'block' : 'none';
+  el.driverCabIndicator.style.display = config.isFrontLocomotive ? 'block' : 'none';
+  if (el.driverRearCabIndicator) {
+    el.driverRearCabIndicator.style.display = config.isRearLocomotive ? 'block' : 'none';
+  }
   el.bistroIndicator.style.display = config.isBistroCar ? 'flex' : 'none';
   el.wheelchairIndicator.style.display = config.isWheelchairAccessible ? 'flex' : 'none';
 
@@ -1075,7 +1081,7 @@ function renderSeatGrid() {
     }
   });
 
-  el.activeCarSpecs.textContent = `${carTotal} Kursi Total`;
+  el.activeCarSpecs.textContent = `${carTotal} Seats Total`;
   el.carOccupiedCount.textContent = state.trip ? carOccupied : '0';
   el.carEmptyCount.textContent = state.trip ? carEmpty : '--';
 
@@ -1089,7 +1095,7 @@ function renderSeatGrid() {
 
   config.rows.forEach(rowDef => {
     const rowDiv = document.createElement('div');
-    rowDiv.className = 'seat-row';
+    rowDiv.className = `seat-row ${rowDef.cls === 'First Class' ? 'first-class-row' : ''}`;
 
     // Row Number Label
     const rowLabel = document.createElement('div');
@@ -1109,7 +1115,7 @@ function renderSeatGrid() {
     // Aisle
     const aisle = document.createElement('div');
     aisle.className = 'seat-aisle';
-    aisle.textContent = 'LORONG';
+    aisle.textContent = 'AISLE';
     rowDiv.appendChild(aisle);
 
     // Right Cluster (D, F or F)
@@ -1199,37 +1205,38 @@ function createSeatElement(carNum, rowNum, letter) {
 
 function openSeatDetailModal(seatObj, currentStatus) {
   el.modalSeatBadge.textContent = seatObj.seat;
-  el.modalSeatTitle.textContent = `Kursi ${seatObj.seat} • Gerbong ${seatObj.car}`;
-  el.modalSeatClass.textContent = `${seatObj.seatClass} (${['A', 'F'].includes(seatObj.letter) ? 'Jendela' : ['C', 'D'].includes(seatObj.letter) ? 'Lorong' : 'Tengah'})`;
+  el.modalSeatTitle.textContent = `Seat ${seatObj.seat} • Car ${seatObj.car}`;
+  const posLabel = ['A', 'F'].includes(seatObj.letter) ? 'Window' : ['C', 'D'].includes(seatObj.letter) ? 'Aisle' : 'Middle';
+  el.modalSeatClass.textContent = `${seatObj.seatClass} (${posLabel})`;
 
   // Status Banner
   el.modalStatusBanner.className = `seat-status-banner ${currentStatus.toLowerCase()}`;
   if (currentStatus === 'AVAILABLE') {
     el.modalStatusIcon.textContent = '🟢';
-    el.modalStatusTitle.textContent = 'Kursi Kosong (Tersedia)';
+    el.modalStatusTitle.textContent = 'Available Seat';
     el.modalStatusDesc.textContent = state.selectedSegment === 'ALL'
-      ? 'Kursi ini belum dipesan untuk seluruh stasiun perjalanan kereta.'
-      : `Kursi ini kosong pada segmen relasi yang Anda pilih.`;
+      ? 'This seat has not been booked for any stations along the journey.'
+      : `This seat is available on your selected travel segment.`;
   } else if (currentStatus === 'OCCUPIED') {
     el.modalStatusIcon.textContent = '🔴';
-    el.modalStatusTitle.textContent = 'Kursi Terisi (Booked)';
-    el.modalStatusDesc.textContent = 'Kursi ini telah dipesan oleh penumpang pada segmen relasi ini.';
+    el.modalStatusTitle.textContent = 'Occupied Seat (Booked)';
+    el.modalStatusDesc.textContent = 'This seat has been booked by a passenger on this travel segment.';
   } else {
     el.modalStatusIcon.textContent = '🟡';
-    el.modalStatusTitle.textContent = 'Terisi Parsial (Staggered Bookings)';
-    el.modalStatusDesc.textContent = 'Kursi ini dipesan di beberapa stasiun tertentu, namun kosong di stasiun lainnya.';
+    el.modalStatusTitle.textContent = 'Partially Booked (Staggered Bookings)';
+    el.modalStatusDesc.textContent = 'This seat is booked on specific station segments, but available on others.';
   }
 
   // Segment Timeline
   el.modalTimeline.innerHTML = '';
   const timelineSegments = state.isWestbound ? [
-    { name: 'Tegalluar — Padalarang', segIndex: 2 },
+    { name: 'Tegalluar Summarecon — Padalarang', segIndex: 2 },
     { name: 'Padalarang — Karawang', segIndex: 1 },
     { name: 'Karawang — Halim', segIndex: 0 }
   ] : [
     { name: 'Halim — Karawang', segIndex: 0 },
     { name: 'Karawang — Padalarang', segIndex: 1 },
-    { name: 'Padalarang — Tegalluar', segIndex: 2 }
+    { name: 'Padalarang — Tegalluar Summarecon', segIndex: 2 }
   ];
 
   timelineSegments.forEach(seg => {
@@ -1239,7 +1246,7 @@ function openSeatDetailModal(seatObj, currentStatus) {
     step.innerHTML = `
       <span class="step-route">${seg.name}</span>
       <span class="step-status-tag ${isOccupied ? 'taken' : 'free'}">
-        ${isOccupied ? '🔴 TERISI' : '🟢 KOSONG'}
+        ${isOccupied ? '🔴 OCCUPIED' : '🟢 AVAILABLE'}
       </span>
     `;
     el.modalTimeline.appendChild(step);
@@ -1254,19 +1261,19 @@ function openSeatDetailModal(seatObj, currentStatus) {
       card.className = 'passenger-card';
       card.innerHTML = `
         <div class="passenger-info-item">
-          <span class="info-label">Kode Booking</span>
+          <span class="info-label">Booking Code</span>
           <span class="info-val">${r.booking_code || '-'}</span>
         </div>
         <div class="passenger-info-item">
-          <span class="info-label">Nomor Tiket</span>
+          <span class="info-label">Ticket Number</span>
           <span class="info-val">${r.ticket_number || '-'}</span>
         </div>
         <div class="passenger-info-item">
-          <span class="info-label">Tipe Tiket</span>
+          <span class="info-label">Ticket Type</span>
           <span class="info-val">${r.passenger_type || '-'}</span>
         </div>
         <div class="passenger-info-item">
-          <span class="info-label">Rute Perjalanan</span>
+          <span class="info-label">Travel Route</span>
           <span class="info-val" style="color: #60A5FA;">${r.route || '-'}</span>
         </div>
       `;
@@ -1331,7 +1338,7 @@ function parseWorksheetRows(rows) {
   }
 
   if (headerRowIdx === -1) {
-    throw new Error('Tidak dapat menemukan baris header manifest (BOOKING CODE, SEAT, CLASS, dll) pada file.');
+    throw new Error('Unable to find manifest header row (BOOKING CODE, SEAT, CLASS, etc.) in file.');
   }
 
   const headerRow = rows[headerRowIdx];
@@ -1381,7 +1388,7 @@ function parseWorksheetRows(rows) {
     const route = getVal(['ROUTE', 'RUTE', 'RELASI'], 8);
     const [parsedOrig, parsedDest] = parseRoute(route);
     const origin = parsedOrig || 'Halim';
-    const destination = parsedDest || 'Tegalluar';
+    const destination = parsedDest || 'Tegalluar Summarecon';
     const finalRoute = route || `${origin}—${destination}`;
 
     if (seat || bookingCode) {
@@ -1436,7 +1443,7 @@ function processUploadedFile(file) {
         const data = new Uint8Array(e.target.result);
         const wb = XLSX.read(data, { type: 'array' });
         if (!wb.SheetNames || !wb.SheetNames.length) {
-          showToast('File Excel tidak memiliki lembar kerja!', 'error');
+          showToast('Excel file has no worksheets!', 'error');
           return;
         }
         const sheetName = wb.SheetNames[0];
@@ -1445,7 +1452,7 @@ function processUploadedFile(file) {
         const { headerRowIdx, records } = parseWorksheetRows(rawRows);
 
         if (!records.length) {
-          showToast('Tidak ada data penumpang yang valid ditemukan pada file Excel.', 'warning');
+          showToast('No valid passenger data found in the Excel file.', 'warning');
           return;
         }
 
@@ -1454,13 +1461,13 @@ function processUploadedFile(file) {
 
         if (el.fileInfoBadge) {
           el.fileInfoBadge.style.display = 'flex';
-          const titleNotice = headerRowIdx > 0 ? ' • Judul banner otomatis dilewati' : '';
-          el.fileInfoBadge.innerHTML = `📊 <strong>Excel Terdeteksi:</strong> ${file.name} (Sheet: "${sheetName}", <strong>${records.length}</strong> penumpang terdeteksi${titleNotice})`;
+          const titleNotice = headerRowIdx > 0 ? ' • Banner title automatically skipped' : '';
+          el.fileInfoBadge.innerHTML = `📊 <strong>Excel Detected:</strong> ${file.name} (Sheet: "${sheetName}", <strong>${records.length}</strong> passengers detected${titleNotice})`;
         }
-        showToast(`File Excel "${file.name}" berhasil dibaca (${records.length} penumpang)!`, 'success');
+        showToast(`Excel file "${file.name}" read successfully (${records.length} passengers)!`, 'success');
       } catch (err) {
         console.error(err);
-        showToast(`Gagal membaca file Excel: ${err.message}`, 'error');
+        showToast(`Failed to read Excel file: ${err.message}`, 'error');
       }
     };
     reader.readAsArrayBuffer(file);
@@ -1479,9 +1486,9 @@ function processUploadedFile(file) {
             el.csvPasteTextarea.value = recordsToCSV(records);
             if (el.fileInfoBadge) {
               el.fileInfoBadge.style.display = 'flex';
-              el.fileInfoBadge.innerHTML = `📄 <strong>CSV Terdeteksi:</strong> ${file.name} (<strong>${records.length}</strong> baris penumpang)`;
+              el.fileInfoBadge.innerHTML = `📄 <strong>CSV Detected:</strong> ${file.name} (<strong>${records.length}</strong> passenger rows)`;
             }
-            showToast(`File CSV "${file.name}" siap diunggah!`, 'success');
+            showToast(`CSV file "${file.name}" ready to upload!`, 'success');
             return;
           }
         }
@@ -1492,9 +1499,9 @@ function processUploadedFile(file) {
       if (el.fileInfoBadge) {
         el.fileInfoBadge.style.display = 'flex';
         const rowCount = text.split(/\r?\n/).filter(l => l.trim()).length - 1;
-        el.fileInfoBadge.innerHTML = `📄 <strong>CSV Terdeteksi:</strong> ${file.name} (~${rowCount} baris data penumpang)`;
+        el.fileInfoBadge.innerHTML = `📄 <strong>CSV Detected:</strong> ${file.name} (~${rowCount} passenger data rows)`;
       }
-      showToast(`File CSV "${file.name}" siap diunggah!`, 'success');
+      showToast(`CSV file "${file.name}" ready to upload!`, 'success');
     };
     reader.readAsText(file);
   }
@@ -1503,13 +1510,13 @@ function processUploadedFile(file) {
 async function handleUpload(csvText) {
   if (!csvText || !csvText.trim()) {
     el.uploadAlert.className = 'alert-box error';
-    el.uploadAlert.textContent = 'Harap pilih file Excel / CSV atau masukkan data manifest.';
+    el.uploadAlert.textContent = 'Please select an Excel / CSV file or enter manifest data.';
     el.uploadAlert.style.display = 'block';
     return;
   }
 
   el.btnSubmitUpload.disabled = true;
-  el.btnSubmitUpload.innerHTML = '<span>Menyimpan ke Database HP...</span>';
+  el.btnSubmitUpload.innerHTML = '<span>Saving to Database...</span>';
 
   try {
     // 1. Parse records
@@ -1519,7 +1526,7 @@ async function handleUpload(csvText) {
     const { records } = parseWorksheetRows(rawRows);
 
     if (!records || !records.length) {
-      throw new Error('Tidak ditemukan catatan penumpang yang valid.');
+      throw new Error('No valid passenger records found.');
     }
 
     // 2. Save directly to local IndexedDB (instant offline storage on phone!)
@@ -1535,7 +1542,7 @@ async function handleUpload(csvText) {
     } catch (_) {}
 
     const first = records[0];
-    const successMsg = `Manifest ${first.trainCode} (${first.tripDate}) berhasil disimpan (${records.length} penumpang)!`;
+    const successMsg = `Manifest ${first.trainCode} (${first.tripDate}) saved successfully (${records.length} passengers)!`;
 
     el.uploadAlert.className = 'alert-box success';
     el.uploadAlert.textContent = successMsg;
@@ -1548,11 +1555,11 @@ async function handleUpload(csvText) {
     }, 800);
   } catch (err) {
     el.uploadAlert.className = 'alert-box error';
-    el.uploadAlert.textContent = err.message || 'Gagal menyimpan data manifest.';
+    el.uploadAlert.textContent = err.message || 'Failed to save manifest data.';
     el.uploadAlert.style.display = 'block';
   } finally {
     el.btnSubmitUpload.disabled = false;
-    el.btnSubmitUpload.innerHTML = '<span>Simpan & Perbarui Database</span>';
+    el.btnSubmitUpload.innerHTML = '<span>Save & Update Database</span>';
   }
 }
 
@@ -1574,7 +1581,7 @@ async function handleFlush() {
   const originalHtml = btn ? btn.innerHTML : '';
   if (btn) {
     btn.disabled = true;
-    btn.innerHTML = '<span>Mengosongkan...</span>';
+    btn.innerHTML = '<span>Clearing...</span>';
   }
 
   try {
@@ -1582,7 +1589,7 @@ async function handleFlush() {
     try {
       const serverFlushRes = await fetch('/api/flush', { method: 'POST' });
       if (serverFlushRes.ok) {
-        console.log('[*] Database backend berhasil dikosongkan.');
+        console.log('[*] Backend database cleared successfully.');
       }
     } catch (_) {}
 
@@ -1597,11 +1604,11 @@ async function handleFlush() {
     currentSegmentMode = null;
     state.selectedSegment = 'ALL';
     populateTripSelector([]);
-    if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Kosong';
+    if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Empty';
     processManifestData();
     renderAll();
 
-    const successMsg = 'Database berhasil dikosongkan secara total. Siap untuk upload baru!';
+    const successMsg = 'Database successfully cleared. Ready for fresh upload!';
 
     if (el.flushAlert) {
       el.flushAlert.className = 'alert-box success';
@@ -1617,7 +1624,7 @@ async function handleFlush() {
   } catch (err) {
     if (el.flushAlert) {
       el.flushAlert.className = 'alert-box error';
-      el.flushAlert.textContent = err.message || 'Gagal membersihkan database.';
+      el.flushAlert.textContent = err.message || 'Failed to reset database.';
       el.flushAlert.style.display = 'block';
     }
   } finally {
@@ -1638,21 +1645,21 @@ function getEmptySeatsData() {
   const seg = state.selectedSegment;
 
   const rows = [
-    ['NO_KA', 'TANGGAL', 'GERBONG', 'NOMOR_KURSI', 'KELAS', 'POSISI', 'SEGMEN_TERSEDIA']
+    ['TRAIN_NO', 'DATE', 'CAR', 'SEAT_NUMBER', 'CLASS', 'POSITION', 'AVAILABLE_SEGMENT']
   ];
 
   state.seatMap.forEach(seat => {
     const status = getSeatStatus(seat, state.selectedSegment);
     if (status === 'AVAILABLE') {
-      const pos = ['A', 'F'].includes(seat.letter) ? 'Jendela' : ['C', 'D'].includes(seat.letter) ? 'Lorong' : 'Tengah';
+      const pos = ['A', 'F'].includes(seat.letter) ? 'Window' : ['C', 'D'].includes(seat.letter) ? 'Aisle' : 'Middle';
       rows.push([
         trainCode,
         tripDate,
-        `G${seat.car}`,
+        `C${seat.car}`,
         seat.seat,
         seat.seatClass,
         pos,
-        seg === 'ALL' ? 'Seluruh Rute' : seg
+        seg === 'ALL' ? 'Entire Route' : seg
       ]);
     }
   });
@@ -1662,13 +1669,13 @@ function getEmptySeatsData() {
 
 function exportEmptySeatsCSV() {
   if (!state.trip) {
-    showToast('Belum ada data manifest perjalanan. Silakan upload file manifest terlebih dahulu.', 'warning');
+    showToast('No trip manifest data yet. Please upload a manifest file first.', 'warning');
     return;
   }
   const { trainCode, tripDate, seg, rows } = getEmptySeatsData();
 
   if (rows.length <= 1) {
-    showToast('Tidak ada kursi kosong untuk diexport.', 'warning');
+    showToast('No available seats to export.', 'warning');
     return;
   }
 
@@ -1677,24 +1684,24 @@ function exportEmptySeatsCSV() {
   const downloadUrl = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = downloadUrl;
-  a.download = `kursi_kosong_${trainCode}_${tripDate}_segmen_${seg}.csv`;
+  a.download = `available_seats_${trainCode}_${tripDate}_segment_${seg}.csv`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(downloadUrl);
 
-  showToast(`Berhasil mengekspor ${rows.length - 1} kursi kosong ke format CSV!`, 'success');
+  showToast(`Successfully exported ${rows.length - 1} available seats to CSV!`, 'success');
 }
 
 function exportEmptySeatsExcel() {
   if (!state.trip) {
-    showToast('Belum ada data manifest perjalanan. Silakan upload file manifest terlebih dahulu.', 'warning');
+    showToast('No trip manifest data yet. Please upload a manifest file first.', 'warning');
     return;
   }
   const { trainCode, tripDate, seg, rows } = getEmptySeatsData();
 
   if (rows.length <= 1) {
-    showToast('Tidak ada kursi kosong untuk diexport.', 'warning');
+    showToast('No available seats to export.', 'warning');
     return;
   }
 
@@ -1703,19 +1710,19 @@ function exportEmptySeatsExcel() {
     { wch: 10 }, { wch: 14 }, { wch: 12 }, { wch: 14 }, { wch: 24 }, { wch: 12 }, { wch: 26 }
   ];
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Kursi Kosong Whoosh');
+  XLSX.utils.book_append_sheet(wb, ws, 'Whoosh Available Seats');
   const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
   const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
   const downloadUrl = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = downloadUrl;
-  a.download = `kursi_kosong_${trainCode}_${tripDate}_segmen_${seg}.xlsx`;
+  a.download = `available_seats_${trainCode}_${tripDate}_segment_${seg}.xlsx`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(downloadUrl);
 
-  showToast(`Berhasil mengekspor ${rows.length - 1} kursi kosong ke Excel (.xlsx)!`, 'success');
+  showToast(`Successfully exported ${rows.length - 1} available seats to Excel (.xlsx)!`, 'success');
 }
 
 // ==========================================================================
@@ -1945,14 +1952,14 @@ function triggerPwaInstall() {
     deferredInstallPrompt.prompt();
     deferredInstallPrompt.userChoice.then((choice) => {
       if (choice.outcome === 'accepted') {
-        showToast('Whoosh Seats berhasil dipasang di HP!', 'success');
+        showToast('Whoosh Seats app installed successfully!', 'success');
         if (el.btnInstallPwa) el.btnInstallPwa.style.display = 'none';
         if (el.mBtnInstall) el.mBtnInstall.style.display = 'none';
       }
       deferredInstallPrompt = null;
     });
   } else {
-    showToast('Buka menu titik tiga (⋮) di Chrome HP ➔ "Tambahkan ke Layar Utama" / "Install Aplikasi"', 'info');
+    showToast('Tap browser menu (⋮) in Chrome ➔ "Add to Home screen" / "Install app"', 'info');
   }
 }
 
@@ -1960,8 +1967,8 @@ function triggerPwaInstall() {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js')
-      .then((reg) => console.log('[PWA] Service Worker aktif:', reg.scope))
-      .catch((err) => console.warn('[PWA] Service Worker gagal:', err));
+      .then((reg) => console.log('[PWA] Service Worker active:', reg.scope))
+      .catch((err) => console.warn('[PWA] Service Worker failed:', err));
   });
 }
 

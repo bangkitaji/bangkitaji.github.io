@@ -3,7 +3,7 @@
  * Enables 100% Standalone Offline usage on Android devices
  */
 
-const CACHE_NAME = 'whoosh-seats-v8';
+const CACHE_NAME = 'whoosh-seats-v13';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -12,6 +12,8 @@ const ASSETS_TO_CACHE = [
   './xlsx.full.min.js',
   './manifest.webmanifest',
   './icon.svg',
+  './kcic-logo-white.svg',
+  './kcic-logo.svg',
   './manifest_data.csv'
 ];
 
