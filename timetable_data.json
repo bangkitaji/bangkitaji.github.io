@@ -1,0 +1,4573 @@
+{
+  "metadata": {
+    "title": "Whoosh High-Speed Railway Train Timetable Reference",
+    "source": "jadwal_kereta.xlsx",
+    "stations": [
+      "Halim",
+      "Karawang",
+      "Padalarang",
+      "Tegalluar Summarecon"
+    ],
+    "generated_at": "2026-09-16T10:31:56.188Z"
+  },
+  "routes": {
+    "HLM-TGL": {
+      "id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "direction_label": "Halim ➔ Tegalluar Summarecon (Menuju Bandung)",
+      "stations": [
+        "Halim",
+        "Karawang",
+        "Padalarang",
+        "Tegalluar Summarecon"
+      ],
+      "trains": [
+        {
+          "train_number": "G1003",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "06:25",
+          "arrival_time": "07:19",
+          "schedule": {
+            "Halim": "06:25",
+            "Karawang": "06:42",
+            "Padalarang": "07:05",
+            "Tegalluar Summarecon": "07:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "06:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "06:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "07:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "07:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Senin–Sabtu",
+          "operating_days_en": "Mon–Sat"
+        },
+        {
+          "train_number": "G1005",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "07:00",
+          "arrival_time": "07:47",
+          "schedule": {
+            "Halim": "07:00",
+            "Karawang": null,
+            "Padalarang": "07:33",
+            "Tegalluar Summarecon": "07:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "07:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "07:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "07:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Senin–Sabtu",
+          "operating_days_en": "Mon–Sat"
+        },
+        {
+          "train_number": "G1007",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "07:25",
+          "arrival_time": "08:19",
+          "schedule": {
+            "Halim": "07:25",
+            "Karawang": "07:42",
+            "Padalarang": "08:05",
+            "Tegalluar Summarecon": "08:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "07:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "07:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "08:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "08:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Senin–Sabtu",
+          "operating_days_en": "Mon–Sat"
+        },
+        {
+          "train_number": "G1009",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "08:00",
+          "arrival_time": "08:47",
+          "schedule": {
+            "Halim": "08:00",
+            "Karawang": null,
+            "Padalarang": "08:33",
+            "Tegalluar Summarecon": "08:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "08:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "08:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "08:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1011",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "08:25",
+          "arrival_time": "09:19",
+          "schedule": {
+            "Halim": "08:25",
+            "Karawang": "08:42",
+            "Padalarang": "09:05",
+            "Tegalluar Summarecon": "09:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "08:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "08:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "09:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "09:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1013",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "09:00",
+          "arrival_time": "09:47",
+          "schedule": {
+            "Halim": "09:00",
+            "Karawang": null,
+            "Padalarang": "09:33",
+            "Tegalluar Summarecon": "09:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "09:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "09:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "09:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1015",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "09:25",
+          "arrival_time": "10:19",
+          "schedule": {
+            "Halim": "09:25",
+            "Karawang": "09:42",
+            "Padalarang": "10:05",
+            "Tegalluar Summarecon": "10:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "09:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "09:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "10:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "10:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1017",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "10:00",
+          "arrival_time": "10:47",
+          "schedule": {
+            "Halim": "10:00",
+            "Karawang": null,
+            "Padalarang": "10:33",
+            "Tegalluar Summarecon": "10:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "10:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "10:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "10:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1019",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "10:25",
+          "arrival_time": "11:19",
+          "schedule": {
+            "Halim": "10:25",
+            "Karawang": "10:42",
+            "Padalarang": "11:05",
+            "Tegalluar Summarecon": "11:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "10:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "10:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "11:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "11:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1021",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "11:00",
+          "arrival_time": "11:47",
+          "schedule": {
+            "Halim": "11:00",
+            "Karawang": null,
+            "Padalarang": "11:33",
+            "Tegalluar Summarecon": "11:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "11:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "11:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "11:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1023",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "11:25",
+          "arrival_time": "12:19",
+          "schedule": {
+            "Halim": "11:25",
+            "Karawang": "11:42",
+            "Padalarang": "12:05",
+            "Tegalluar Summarecon": "12:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "11:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "11:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "12:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "12:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1025",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "12:00",
+          "arrival_time": "12:47",
+          "schedule": {
+            "Halim": "12:00",
+            "Karawang": null,
+            "Padalarang": "12:33",
+            "Tegalluar Summarecon": "12:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "12:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "12:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "12:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1027",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "12:25",
+          "arrival_time": "13:19",
+          "schedule": {
+            "Halim": "12:25",
+            "Karawang": "12:42",
+            "Padalarang": "13:05",
+            "Tegalluar Summarecon": "13:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "12:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "12:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "13:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "13:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1029",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "13:00",
+          "arrival_time": "13:47",
+          "schedule": {
+            "Halim": "13:00",
+            "Karawang": null,
+            "Padalarang": "13:33",
+            "Tegalluar Summarecon": "13:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "13:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "13:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "13:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1031",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "13:25",
+          "arrival_time": "14:19",
+          "schedule": {
+            "Halim": "13:25",
+            "Karawang": "13:42",
+            "Padalarang": "14:05",
+            "Tegalluar Summarecon": "14:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "13:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "13:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "14:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "14:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1033",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "14:00",
+          "arrival_time": "14:47",
+          "schedule": {
+            "Halim": "14:00",
+            "Karawang": null,
+            "Padalarang": "14:33",
+            "Tegalluar Summarecon": "14:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "14:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "14:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "14:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1035",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "14:25",
+          "arrival_time": "15:19",
+          "schedule": {
+            "Halim": "14:25",
+            "Karawang": "14:42",
+            "Padalarang": "15:05",
+            "Tegalluar Summarecon": "15:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "14:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "14:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "15:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "15:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1037",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "15:00",
+          "arrival_time": "15:47",
+          "schedule": {
+            "Halim": "15:00",
+            "Karawang": null,
+            "Padalarang": "15:33",
+            "Tegalluar Summarecon": "15:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "15:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "15:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "15:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1039",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "15:25",
+          "arrival_time": "16:19",
+          "schedule": {
+            "Halim": "15:25",
+            "Karawang": "15:42",
+            "Padalarang": "16:05",
+            "Tegalluar Summarecon": "16:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "15:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "15:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "16:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "16:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1041",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "16:00",
+          "arrival_time": "16:47",
+          "schedule": {
+            "Halim": "16:00",
+            "Karawang": null,
+            "Padalarang": "16:33",
+            "Tegalluar Summarecon": "16:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "16:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "16:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "16:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1043",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "16:25",
+          "arrival_time": "17:19",
+          "schedule": {
+            "Halim": "16:25",
+            "Karawang": "16:42",
+            "Padalarang": "17:05",
+            "Tegalluar Summarecon": "17:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "16:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "16:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "17:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "17:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1045",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "17:00",
+          "arrival_time": "17:47",
+          "schedule": {
+            "Halim": "17:00",
+            "Karawang": null,
+            "Padalarang": "17:33",
+            "Tegalluar Summarecon": "17:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "17:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "17:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "17:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1047",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "17:25",
+          "arrival_time": "18:19",
+          "schedule": {
+            "Halim": "17:25",
+            "Karawang": "17:42",
+            "Padalarang": "18:05",
+            "Tegalluar Summarecon": "18:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "17:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "17:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "18:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "18:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1049",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "18:00",
+          "arrival_time": "18:47",
+          "schedule": {
+            "Halim": "18:00",
+            "Karawang": null,
+            "Padalarang": "18:33",
+            "Tegalluar Summarecon": "18:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "18:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "18:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "18:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1051",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "18:25",
+          "arrival_time": "19:19",
+          "schedule": {
+            "Halim": "18:25",
+            "Karawang": "18:42",
+            "Padalarang": "19:05",
+            "Tegalluar Summarecon": "19:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "18:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "18:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "19:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "19:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1053",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "19:00",
+          "arrival_time": "19:47",
+          "schedule": {
+            "Halim": "19:00",
+            "Karawang": null,
+            "Padalarang": "19:33",
+            "Tegalluar Summarecon": "19:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "19:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "19:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "19:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1055",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "19:25",
+          "arrival_time": "20:19",
+          "schedule": {
+            "Halim": "19:25",
+            "Karawang": "19:42",
+            "Padalarang": "20:05",
+            "Tegalluar Summarecon": "20:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "19:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "19:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "20:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "20:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1057",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "20:00",
+          "arrival_time": "20:47",
+          "schedule": {
+            "Halim": "20:00",
+            "Karawang": null,
+            "Padalarang": "20:33",
+            "Tegalluar Summarecon": "20:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "20:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "20:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "20:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1059",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "20:25",
+          "arrival_time": "21:19",
+          "schedule": {
+            "Halim": "20:25",
+            "Karawang": "20:42",
+            "Padalarang": "21:05",
+            "Tegalluar Summarecon": "21:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "20:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "20:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "21:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "21:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1061",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "21:00",
+          "arrival_time": "21:47",
+          "schedule": {
+            "Halim": "21:00",
+            "Karawang": null,
+            "Padalarang": "21:33",
+            "Tegalluar Summarecon": "21:47"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "21:00",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "21:33",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "21:47",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1063",
+          "route_id": "HLM-TGL",
+          "origin": "Halim",
+          "destination": "Tegalluar Summarecon",
+          "direction": "EASTBOUND",
+          "departure_time": "21:25",
+          "arrival_time": "22:19",
+          "schedule": {
+            "Halim": "21:25",
+            "Karawang": "21:42",
+            "Padalarang": "22:05",
+            "Tegalluar Summarecon": "22:19"
+          },
+          "stops": [
+            {
+              "station": "Halim",
+              "time": "21:25",
+              "type": "departure"
+            },
+            {
+              "station": "Karawang",
+              "time": "21:42",
+              "type": "stop"
+            },
+            {
+              "station": "Padalarang",
+              "time": "22:05",
+              "type": "stop"
+            },
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "22:19",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        }
+      ]
+    },
+    "TGL-HLM": {
+      "id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "direction_label": "Tegalluar Summarecon ➔ Halim (Menuju Jakarta)",
+      "stations": [
+        "Tegalluar Summarecon",
+        "Padalarang",
+        "Karawang",
+        "Halim"
+      ],
+      "trains": [
+        {
+          "train_number": "G1004",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "06:05",
+          "arrival_time": "06:52",
+          "schedule": {
+            "Tegalluar Summarecon": "06:05",
+            "Padalarang": "06:23",
+            "Karawang": null,
+            "Halim": "06:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "06:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "06:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "06:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Senin–Sabtu",
+          "operating_days_en": "Mon–Sat"
+        },
+        {
+          "train_number": "G1006",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "06:35",
+          "arrival_time": "07:29",
+          "schedule": {
+            "Tegalluar Summarecon": "06:35",
+            "Padalarang": "06:53",
+            "Karawang": "07:14",
+            "Halim": "07:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "06:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "06:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "07:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "07:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Senin–Sabtu",
+          "operating_days_en": "Mon–Sat"
+        },
+        {
+          "train_number": "G1008",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "07:05",
+          "arrival_time": "07:52",
+          "schedule": {
+            "Tegalluar Summarecon": "07:05",
+            "Padalarang": "07:23",
+            "Karawang": null,
+            "Halim": "07:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "07:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "07:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "07:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Senin–Sabtu",
+          "operating_days_en": "Mon–Sat"
+        },
+        {
+          "train_number": "G1010",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "07:35",
+          "arrival_time": "08:29",
+          "schedule": {
+            "Tegalluar Summarecon": "07:35",
+            "Padalarang": "07:53",
+            "Karawang": "08:14",
+            "Halim": "08:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "07:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "07:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "08:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "08:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1012",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "08:05",
+          "arrival_time": "08:52",
+          "schedule": {
+            "Tegalluar Summarecon": "08:05",
+            "Padalarang": "08:23",
+            "Karawang": null,
+            "Halim": "08:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "08:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "08:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "08:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1014",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "08:35",
+          "arrival_time": "09:29",
+          "schedule": {
+            "Tegalluar Summarecon": "08:35",
+            "Padalarang": "08:53",
+            "Karawang": "09:14",
+            "Halim": "09:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "08:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "08:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "09:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "09:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1016",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "09:05",
+          "arrival_time": "09:52",
+          "schedule": {
+            "Tegalluar Summarecon": "09:05",
+            "Padalarang": "09:23",
+            "Karawang": null,
+            "Halim": "09:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "09:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "09:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "09:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1018",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "09:35",
+          "arrival_time": "10:29",
+          "schedule": {
+            "Tegalluar Summarecon": "09:35",
+            "Padalarang": "09:53",
+            "Karawang": "10:14",
+            "Halim": "10:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "09:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "09:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "10:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "10:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1020",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "10:05",
+          "arrival_time": "10:52",
+          "schedule": {
+            "Tegalluar Summarecon": "10:05",
+            "Padalarang": "10:23",
+            "Karawang": null,
+            "Halim": "10:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "10:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "10:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "10:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1022",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "10:35",
+          "arrival_time": "11:29",
+          "schedule": {
+            "Tegalluar Summarecon": "10:35",
+            "Padalarang": "10:53",
+            "Karawang": "11:14",
+            "Halim": "11:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "10:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "10:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "11:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "11:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1024",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "11:05",
+          "arrival_time": "11:52",
+          "schedule": {
+            "Tegalluar Summarecon": "11:05",
+            "Padalarang": "11:23",
+            "Karawang": null,
+            "Halim": "11:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "11:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "11:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "11:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1026",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "11:35",
+          "arrival_time": "12:29",
+          "schedule": {
+            "Tegalluar Summarecon": "11:35",
+            "Padalarang": "11:53",
+            "Karawang": "12:14",
+            "Halim": "12:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "11:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "11:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "12:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "12:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1028",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "12:05",
+          "arrival_time": "12:52",
+          "schedule": {
+            "Tegalluar Summarecon": "12:05",
+            "Padalarang": "12:23",
+            "Karawang": null,
+            "Halim": "12:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "12:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "12:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "12:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1030",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "12:35",
+          "arrival_time": "13:29",
+          "schedule": {
+            "Tegalluar Summarecon": "12:35",
+            "Padalarang": "12:53",
+            "Karawang": "13:14",
+            "Halim": "13:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "12:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "12:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "13:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "13:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1032",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "13:05",
+          "arrival_time": "13:52",
+          "schedule": {
+            "Tegalluar Summarecon": "13:05",
+            "Padalarang": "13:23",
+            "Karawang": null,
+            "Halim": "13:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "13:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "13:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "13:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1034",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "13:35",
+          "arrival_time": "14:29",
+          "schedule": {
+            "Tegalluar Summarecon": "13:35",
+            "Padalarang": "13:53",
+            "Karawang": "14:14",
+            "Halim": "14:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "13:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "13:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "14:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "14:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1036",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "14:05",
+          "arrival_time": "14:52",
+          "schedule": {
+            "Tegalluar Summarecon": "14:05",
+            "Padalarang": "14:23",
+            "Karawang": null,
+            "Halim": "14:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "14:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "14:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "14:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1038",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "14:35",
+          "arrival_time": "15:29",
+          "schedule": {
+            "Tegalluar Summarecon": "14:35",
+            "Padalarang": "14:53",
+            "Karawang": "15:14",
+            "Halim": "15:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "14:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "14:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "15:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "15:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1040",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "15:05",
+          "arrival_time": "15:52",
+          "schedule": {
+            "Tegalluar Summarecon": "15:05",
+            "Padalarang": "15:23",
+            "Karawang": null,
+            "Halim": "15:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "15:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "15:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "15:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1042",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "15:35",
+          "arrival_time": "16:29",
+          "schedule": {
+            "Tegalluar Summarecon": "15:35",
+            "Padalarang": "15:53",
+            "Karawang": "16:14",
+            "Halim": "16:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "15:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "15:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "16:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "16:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1044",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "16:05",
+          "arrival_time": "16:52",
+          "schedule": {
+            "Tegalluar Summarecon": "16:05",
+            "Padalarang": "16:23",
+            "Karawang": null,
+            "Halim": "16:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "16:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "16:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "16:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1046",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "16:35",
+          "arrival_time": "17:29",
+          "schedule": {
+            "Tegalluar Summarecon": "16:35",
+            "Padalarang": "16:53",
+            "Karawang": "17:14",
+            "Halim": "17:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "16:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "16:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "17:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "17:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1048",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "17:05",
+          "arrival_time": "17:52",
+          "schedule": {
+            "Tegalluar Summarecon": "17:05",
+            "Padalarang": "17:23",
+            "Karawang": null,
+            "Halim": "17:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "17:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "17:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "17:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1050",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "17:35",
+          "arrival_time": "18:29",
+          "schedule": {
+            "Tegalluar Summarecon": "17:35",
+            "Padalarang": "17:53",
+            "Karawang": "18:14",
+            "Halim": "18:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "17:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "17:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "18:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "18:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1052",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "18:05",
+          "arrival_time": "18:52",
+          "schedule": {
+            "Tegalluar Summarecon": "18:05",
+            "Padalarang": "18:23",
+            "Karawang": null,
+            "Halim": "18:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "18:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "18:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "18:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1054",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "18:35",
+          "arrival_time": "19:29",
+          "schedule": {
+            "Tegalluar Summarecon": "18:35",
+            "Padalarang": "18:53",
+            "Karawang": "19:14",
+            "Halim": "19:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "18:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "18:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "19:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "19:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1056",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "19:05",
+          "arrival_time": "19:52",
+          "schedule": {
+            "Tegalluar Summarecon": "19:05",
+            "Padalarang": "19:23",
+            "Karawang": null,
+            "Halim": "19:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "19:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "19:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "19:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1058",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "19:35",
+          "arrival_time": "20:29",
+          "schedule": {
+            "Tegalluar Summarecon": "19:35",
+            "Padalarang": "19:53",
+            "Karawang": "20:14",
+            "Halim": "20:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "19:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "19:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "20:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "20:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1060",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "20:05",
+          "arrival_time": "20:52",
+          "schedule": {
+            "Tegalluar Summarecon": "20:05",
+            "Padalarang": "20:23",
+            "Karawang": null,
+            "Halim": "20:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "20:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "20:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "20:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1062",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "20:35",
+          "arrival_time": "21:29",
+          "schedule": {
+            "Tegalluar Summarecon": "20:35",
+            "Padalarang": "20:53",
+            "Karawang": "21:14",
+            "Halim": "21:29"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "20:35",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "20:53",
+              "type": "stop"
+            },
+            {
+              "station": "Karawang",
+              "time": "21:14",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "21:29",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        },
+        {
+          "train_number": "G1064",
+          "route_id": "TGL-HLM",
+          "origin": "Tegalluar Summarecon",
+          "destination": "Halim",
+          "direction": "WESTBOUND",
+          "departure_time": "21:05",
+          "arrival_time": "21:52",
+          "schedule": {
+            "Tegalluar Summarecon": "21:05",
+            "Padalarang": "21:23",
+            "Karawang": null,
+            "Halim": "21:52"
+          },
+          "stops": [
+            {
+              "station": "Tegalluar Summarecon",
+              "time": "21:05",
+              "type": "departure"
+            },
+            {
+              "station": "Padalarang",
+              "time": "21:23",
+              "type": "stop"
+            },
+            {
+              "station": "Halim",
+              "time": "21:52",
+              "type": "arrival"
+            }
+          ],
+          "operating_days": "Setiap Hari",
+          "operating_days_en": "Daily"
+        }
+      ]
+    }
+  },
+  "by_train_number": {
+    "G1003": {
+      "train_number": "G1003",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "06:25",
+      "arrival_time": "07:19",
+      "schedule": {
+        "Halim": "06:25",
+        "Karawang": "06:42",
+        "Padalarang": "07:05",
+        "Tegalluar Summarecon": "07:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "06:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "06:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "07:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "07:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Senin–Sabtu",
+      "operating_days_en": "Mon–Sat"
+    },
+    "G1005": {
+      "train_number": "G1005",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "07:00",
+      "arrival_time": "07:47",
+      "schedule": {
+        "Halim": "07:00",
+        "Karawang": null,
+        "Padalarang": "07:33",
+        "Tegalluar Summarecon": "07:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "07:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "07:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "07:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Senin–Sabtu",
+      "operating_days_en": "Mon–Sat"
+    },
+    "G1007": {
+      "train_number": "G1007",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "07:25",
+      "arrival_time": "08:19",
+      "schedule": {
+        "Halim": "07:25",
+        "Karawang": "07:42",
+        "Padalarang": "08:05",
+        "Tegalluar Summarecon": "08:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "07:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "07:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "08:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "08:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Senin–Sabtu",
+      "operating_days_en": "Mon–Sat"
+    },
+    "G1009": {
+      "train_number": "G1009",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "08:00",
+      "arrival_time": "08:47",
+      "schedule": {
+        "Halim": "08:00",
+        "Karawang": null,
+        "Padalarang": "08:33",
+        "Tegalluar Summarecon": "08:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "08:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "08:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "08:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1011": {
+      "train_number": "G1011",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "08:25",
+      "arrival_time": "09:19",
+      "schedule": {
+        "Halim": "08:25",
+        "Karawang": "08:42",
+        "Padalarang": "09:05",
+        "Tegalluar Summarecon": "09:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "08:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "08:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "09:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "09:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1013": {
+      "train_number": "G1013",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "09:00",
+      "arrival_time": "09:47",
+      "schedule": {
+        "Halim": "09:00",
+        "Karawang": null,
+        "Padalarang": "09:33",
+        "Tegalluar Summarecon": "09:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "09:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "09:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "09:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1015": {
+      "train_number": "G1015",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "09:25",
+      "arrival_time": "10:19",
+      "schedule": {
+        "Halim": "09:25",
+        "Karawang": "09:42",
+        "Padalarang": "10:05",
+        "Tegalluar Summarecon": "10:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "09:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "09:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "10:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "10:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1017": {
+      "train_number": "G1017",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "10:00",
+      "arrival_time": "10:47",
+      "schedule": {
+        "Halim": "10:00",
+        "Karawang": null,
+        "Padalarang": "10:33",
+        "Tegalluar Summarecon": "10:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "10:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "10:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "10:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1019": {
+      "train_number": "G1019",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "10:25",
+      "arrival_time": "11:19",
+      "schedule": {
+        "Halim": "10:25",
+        "Karawang": "10:42",
+        "Padalarang": "11:05",
+        "Tegalluar Summarecon": "11:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "10:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "10:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "11:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "11:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1021": {
+      "train_number": "G1021",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "11:00",
+      "arrival_time": "11:47",
+      "schedule": {
+        "Halim": "11:00",
+        "Karawang": null,
+        "Padalarang": "11:33",
+        "Tegalluar Summarecon": "11:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "11:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "11:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "11:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1023": {
+      "train_number": "G1023",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "11:25",
+      "arrival_time": "12:19",
+      "schedule": {
+        "Halim": "11:25",
+        "Karawang": "11:42",
+        "Padalarang": "12:05",
+        "Tegalluar Summarecon": "12:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "11:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "11:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "12:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "12:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1025": {
+      "train_number": "G1025",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "12:00",
+      "arrival_time": "12:47",
+      "schedule": {
+        "Halim": "12:00",
+        "Karawang": null,
+        "Padalarang": "12:33",
+        "Tegalluar Summarecon": "12:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "12:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "12:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "12:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1027": {
+      "train_number": "G1027",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "12:25",
+      "arrival_time": "13:19",
+      "schedule": {
+        "Halim": "12:25",
+        "Karawang": "12:42",
+        "Padalarang": "13:05",
+        "Tegalluar Summarecon": "13:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "12:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "12:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "13:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "13:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1029": {
+      "train_number": "G1029",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "13:00",
+      "arrival_time": "13:47",
+      "schedule": {
+        "Halim": "13:00",
+        "Karawang": null,
+        "Padalarang": "13:33",
+        "Tegalluar Summarecon": "13:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "13:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "13:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "13:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1031": {
+      "train_number": "G1031",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "13:25",
+      "arrival_time": "14:19",
+      "schedule": {
+        "Halim": "13:25",
+        "Karawang": "13:42",
+        "Padalarang": "14:05",
+        "Tegalluar Summarecon": "14:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "13:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "13:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "14:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "14:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1033": {
+      "train_number": "G1033",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "14:00",
+      "arrival_time": "14:47",
+      "schedule": {
+        "Halim": "14:00",
+        "Karawang": null,
+        "Padalarang": "14:33",
+        "Tegalluar Summarecon": "14:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "14:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "14:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "14:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1035": {
+      "train_number": "G1035",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "14:25",
+      "arrival_time": "15:19",
+      "schedule": {
+        "Halim": "14:25",
+        "Karawang": "14:42",
+        "Padalarang": "15:05",
+        "Tegalluar Summarecon": "15:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "14:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "14:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "15:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "15:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1037": {
+      "train_number": "G1037",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "15:00",
+      "arrival_time": "15:47",
+      "schedule": {
+        "Halim": "15:00",
+        "Karawang": null,
+        "Padalarang": "15:33",
+        "Tegalluar Summarecon": "15:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "15:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "15:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "15:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1039": {
+      "train_number": "G1039",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "15:25",
+      "arrival_time": "16:19",
+      "schedule": {
+        "Halim": "15:25",
+        "Karawang": "15:42",
+        "Padalarang": "16:05",
+        "Tegalluar Summarecon": "16:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "15:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "15:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "16:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "16:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1041": {
+      "train_number": "G1041",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "16:00",
+      "arrival_time": "16:47",
+      "schedule": {
+        "Halim": "16:00",
+        "Karawang": null,
+        "Padalarang": "16:33",
+        "Tegalluar Summarecon": "16:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "16:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "16:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "16:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1043": {
+      "train_number": "G1043",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "16:25",
+      "arrival_time": "17:19",
+      "schedule": {
+        "Halim": "16:25",
+        "Karawang": "16:42",
+        "Padalarang": "17:05",
+        "Tegalluar Summarecon": "17:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "16:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "16:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "17:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "17:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1045": {
+      "train_number": "G1045",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "17:00",
+      "arrival_time": "17:47",
+      "schedule": {
+        "Halim": "17:00",
+        "Karawang": null,
+        "Padalarang": "17:33",
+        "Tegalluar Summarecon": "17:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "17:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "17:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "17:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1047": {
+      "train_number": "G1047",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "17:25",
+      "arrival_time": "18:19",
+      "schedule": {
+        "Halim": "17:25",
+        "Karawang": "17:42",
+        "Padalarang": "18:05",
+        "Tegalluar Summarecon": "18:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "17:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "17:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "18:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "18:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1049": {
+      "train_number": "G1049",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "18:00",
+      "arrival_time": "18:47",
+      "schedule": {
+        "Halim": "18:00",
+        "Karawang": null,
+        "Padalarang": "18:33",
+        "Tegalluar Summarecon": "18:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "18:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "18:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "18:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1051": {
+      "train_number": "G1051",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "18:25",
+      "arrival_time": "19:19",
+      "schedule": {
+        "Halim": "18:25",
+        "Karawang": "18:42",
+        "Padalarang": "19:05",
+        "Tegalluar Summarecon": "19:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "18:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "18:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "19:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "19:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1053": {
+      "train_number": "G1053",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "19:00",
+      "arrival_time": "19:47",
+      "schedule": {
+        "Halim": "19:00",
+        "Karawang": null,
+        "Padalarang": "19:33",
+        "Tegalluar Summarecon": "19:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "19:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "19:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "19:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1055": {
+      "train_number": "G1055",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "19:25",
+      "arrival_time": "20:19",
+      "schedule": {
+        "Halim": "19:25",
+        "Karawang": "19:42",
+        "Padalarang": "20:05",
+        "Tegalluar Summarecon": "20:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "19:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "19:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "20:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "20:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1057": {
+      "train_number": "G1057",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "20:00",
+      "arrival_time": "20:47",
+      "schedule": {
+        "Halim": "20:00",
+        "Karawang": null,
+        "Padalarang": "20:33",
+        "Tegalluar Summarecon": "20:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "20:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "20:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "20:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1059": {
+      "train_number": "G1059",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "20:25",
+      "arrival_time": "21:19",
+      "schedule": {
+        "Halim": "20:25",
+        "Karawang": "20:42",
+        "Padalarang": "21:05",
+        "Tegalluar Summarecon": "21:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "20:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "20:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "21:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "21:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1061": {
+      "train_number": "G1061",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "21:00",
+      "arrival_time": "21:47",
+      "schedule": {
+        "Halim": "21:00",
+        "Karawang": null,
+        "Padalarang": "21:33",
+        "Tegalluar Summarecon": "21:47"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "21:00",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "21:33",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "21:47",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1063": {
+      "train_number": "G1063",
+      "route_id": "HLM-TGL",
+      "origin": "Halim",
+      "destination": "Tegalluar Summarecon",
+      "direction": "EASTBOUND",
+      "departure_time": "21:25",
+      "arrival_time": "22:19",
+      "schedule": {
+        "Halim": "21:25",
+        "Karawang": "21:42",
+        "Padalarang": "22:05",
+        "Tegalluar Summarecon": "22:19"
+      },
+      "stops": [
+        {
+          "station": "Halim",
+          "time": "21:25",
+          "type": "departure"
+        },
+        {
+          "station": "Karawang",
+          "time": "21:42",
+          "type": "stop"
+        },
+        {
+          "station": "Padalarang",
+          "time": "22:05",
+          "type": "stop"
+        },
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "22:19",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1004": {
+      "train_number": "G1004",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "06:05",
+      "arrival_time": "06:52",
+      "schedule": {
+        "Tegalluar Summarecon": "06:05",
+        "Padalarang": "06:23",
+        "Karawang": null,
+        "Halim": "06:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "06:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "06:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "06:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Senin–Sabtu",
+      "operating_days_en": "Mon–Sat"
+    },
+    "G1006": {
+      "train_number": "G1006",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "06:35",
+      "arrival_time": "07:29",
+      "schedule": {
+        "Tegalluar Summarecon": "06:35",
+        "Padalarang": "06:53",
+        "Karawang": "07:14",
+        "Halim": "07:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "06:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "06:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "07:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "07:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Senin–Sabtu",
+      "operating_days_en": "Mon–Sat"
+    },
+    "G1008": {
+      "train_number": "G1008",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "07:05",
+      "arrival_time": "07:52",
+      "schedule": {
+        "Tegalluar Summarecon": "07:05",
+        "Padalarang": "07:23",
+        "Karawang": null,
+        "Halim": "07:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "07:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "07:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "07:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Senin–Sabtu",
+      "operating_days_en": "Mon–Sat"
+    },
+    "G1010": {
+      "train_number": "G1010",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "07:35",
+      "arrival_time": "08:29",
+      "schedule": {
+        "Tegalluar Summarecon": "07:35",
+        "Padalarang": "07:53",
+        "Karawang": "08:14",
+        "Halim": "08:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "07:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "07:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "08:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "08:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1012": {
+      "train_number": "G1012",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "08:05",
+      "arrival_time": "08:52",
+      "schedule": {
+        "Tegalluar Summarecon": "08:05",
+        "Padalarang": "08:23",
+        "Karawang": null,
+        "Halim": "08:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "08:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "08:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "08:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1014": {
+      "train_number": "G1014",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "08:35",
+      "arrival_time": "09:29",
+      "schedule": {
+        "Tegalluar Summarecon": "08:35",
+        "Padalarang": "08:53",
+        "Karawang": "09:14",
+        "Halim": "09:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "08:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "08:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "09:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "09:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1016": {
+      "train_number": "G1016",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "09:05",
+      "arrival_time": "09:52",
+      "schedule": {
+        "Tegalluar Summarecon": "09:05",
+        "Padalarang": "09:23",
+        "Karawang": null,
+        "Halim": "09:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "09:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "09:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "09:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1018": {
+      "train_number": "G1018",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "09:35",
+      "arrival_time": "10:29",
+      "schedule": {
+        "Tegalluar Summarecon": "09:35",
+        "Padalarang": "09:53",
+        "Karawang": "10:14",
+        "Halim": "10:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "09:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "09:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "10:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "10:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1020": {
+      "train_number": "G1020",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "10:05",
+      "arrival_time": "10:52",
+      "schedule": {
+        "Tegalluar Summarecon": "10:05",
+        "Padalarang": "10:23",
+        "Karawang": null,
+        "Halim": "10:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "10:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "10:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "10:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1022": {
+      "train_number": "G1022",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "10:35",
+      "arrival_time": "11:29",
+      "schedule": {
+        "Tegalluar Summarecon": "10:35",
+        "Padalarang": "10:53",
+        "Karawang": "11:14",
+        "Halim": "11:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "10:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "10:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "11:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "11:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1024": {
+      "train_number": "G1024",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "11:05",
+      "arrival_time": "11:52",
+      "schedule": {
+        "Tegalluar Summarecon": "11:05",
+        "Padalarang": "11:23",
+        "Karawang": null,
+        "Halim": "11:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "11:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "11:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "11:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1026": {
+      "train_number": "G1026",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "11:35",
+      "arrival_time": "12:29",
+      "schedule": {
+        "Tegalluar Summarecon": "11:35",
+        "Padalarang": "11:53",
+        "Karawang": "12:14",
+        "Halim": "12:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "11:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "11:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "12:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "12:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1028": {
+      "train_number": "G1028",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "12:05",
+      "arrival_time": "12:52",
+      "schedule": {
+        "Tegalluar Summarecon": "12:05",
+        "Padalarang": "12:23",
+        "Karawang": null,
+        "Halim": "12:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "12:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "12:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "12:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1030": {
+      "train_number": "G1030",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "12:35",
+      "arrival_time": "13:29",
+      "schedule": {
+        "Tegalluar Summarecon": "12:35",
+        "Padalarang": "12:53",
+        "Karawang": "13:14",
+        "Halim": "13:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "12:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "12:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "13:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "13:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1032": {
+      "train_number": "G1032",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "13:05",
+      "arrival_time": "13:52",
+      "schedule": {
+        "Tegalluar Summarecon": "13:05",
+        "Padalarang": "13:23",
+        "Karawang": null,
+        "Halim": "13:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "13:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "13:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "13:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1034": {
+      "train_number": "G1034",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "13:35",
+      "arrival_time": "14:29",
+      "schedule": {
+        "Tegalluar Summarecon": "13:35",
+        "Padalarang": "13:53",
+        "Karawang": "14:14",
+        "Halim": "14:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "13:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "13:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "14:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "14:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1036": {
+      "train_number": "G1036",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "14:05",
+      "arrival_time": "14:52",
+      "schedule": {
+        "Tegalluar Summarecon": "14:05",
+        "Padalarang": "14:23",
+        "Karawang": null,
+        "Halim": "14:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "14:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "14:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "14:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1038": {
+      "train_number": "G1038",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "14:35",
+      "arrival_time": "15:29",
+      "schedule": {
+        "Tegalluar Summarecon": "14:35",
+        "Padalarang": "14:53",
+        "Karawang": "15:14",
+        "Halim": "15:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "14:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "14:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "15:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "15:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1040": {
+      "train_number": "G1040",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "15:05",
+      "arrival_time": "15:52",
+      "schedule": {
+        "Tegalluar Summarecon": "15:05",
+        "Padalarang": "15:23",
+        "Karawang": null,
+        "Halim": "15:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "15:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "15:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "15:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1042": {
+      "train_number": "G1042",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "15:35",
+      "arrival_time": "16:29",
+      "schedule": {
+        "Tegalluar Summarecon": "15:35",
+        "Padalarang": "15:53",
+        "Karawang": "16:14",
+        "Halim": "16:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "15:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "15:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "16:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "16:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1044": {
+      "train_number": "G1044",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "16:05",
+      "arrival_time": "16:52",
+      "schedule": {
+        "Tegalluar Summarecon": "16:05",
+        "Padalarang": "16:23",
+        "Karawang": null,
+        "Halim": "16:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "16:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "16:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "16:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1046": {
+      "train_number": "G1046",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "16:35",
+      "arrival_time": "17:29",
+      "schedule": {
+        "Tegalluar Summarecon": "16:35",
+        "Padalarang": "16:53",
+        "Karawang": "17:14",
+        "Halim": "17:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "16:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "16:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "17:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "17:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1048": {
+      "train_number": "G1048",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "17:05",
+      "arrival_time": "17:52",
+      "schedule": {
+        "Tegalluar Summarecon": "17:05",
+        "Padalarang": "17:23",
+        "Karawang": null,
+        "Halim": "17:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "17:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "17:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "17:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1050": {
+      "train_number": "G1050",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "17:35",
+      "arrival_time": "18:29",
+      "schedule": {
+        "Tegalluar Summarecon": "17:35",
+        "Padalarang": "17:53",
+        "Karawang": "18:14",
+        "Halim": "18:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "17:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "17:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "18:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "18:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1052": {
+      "train_number": "G1052",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "18:05",
+      "arrival_time": "18:52",
+      "schedule": {
+        "Tegalluar Summarecon": "18:05",
+        "Padalarang": "18:23",
+        "Karawang": null,
+        "Halim": "18:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "18:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "18:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "18:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1054": {
+      "train_number": "G1054",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "18:35",
+      "arrival_time": "19:29",
+      "schedule": {
+        "Tegalluar Summarecon": "18:35",
+        "Padalarang": "18:53",
+        "Karawang": "19:14",
+        "Halim": "19:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "18:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "18:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "19:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "19:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1056": {
+      "train_number": "G1056",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "19:05",
+      "arrival_time": "19:52",
+      "schedule": {
+        "Tegalluar Summarecon": "19:05",
+        "Padalarang": "19:23",
+        "Karawang": null,
+        "Halim": "19:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "19:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "19:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "19:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1058": {
+      "train_number": "G1058",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "19:35",
+      "arrival_time": "20:29",
+      "schedule": {
+        "Tegalluar Summarecon": "19:35",
+        "Padalarang": "19:53",
+        "Karawang": "20:14",
+        "Halim": "20:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "19:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "19:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "20:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "20:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1060": {
+      "train_number": "G1060",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "20:05",
+      "arrival_time": "20:52",
+      "schedule": {
+        "Tegalluar Summarecon": "20:05",
+        "Padalarang": "20:23",
+        "Karawang": null,
+        "Halim": "20:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "20:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "20:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "20:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1062": {
+      "train_number": "G1062",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "20:35",
+      "arrival_time": "21:29",
+      "schedule": {
+        "Tegalluar Summarecon": "20:35",
+        "Padalarang": "20:53",
+        "Karawang": "21:14",
+        "Halim": "21:29"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "20:35",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "20:53",
+          "type": "stop"
+        },
+        {
+          "station": "Karawang",
+          "time": "21:14",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "21:29",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    },
+    "G1064": {
+      "train_number": "G1064",
+      "route_id": "TGL-HLM",
+      "origin": "Tegalluar Summarecon",
+      "destination": "Halim",
+      "direction": "WESTBOUND",
+      "departure_time": "21:05",
+      "arrival_time": "21:52",
+      "schedule": {
+        "Tegalluar Summarecon": "21:05",
+        "Padalarang": "21:23",
+        "Karawang": null,
+        "Halim": "21:52"
+      },
+      "stops": [
+        {
+          "station": "Tegalluar Summarecon",
+          "time": "21:05",
+          "type": "departure"
+        },
+        {
+          "station": "Padalarang",
+          "time": "21:23",
+          "type": "stop"
+        },
+        {
+          "station": "Halim",
+          "time": "21:52",
+          "type": "arrival"
+        }
+      ],
+      "operating_days": "Setiap Hari",
+      "operating_days_en": "Daily"
+    }
+  }
+}

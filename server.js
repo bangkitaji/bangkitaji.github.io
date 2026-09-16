@@ -21,6 +21,18 @@ const SEGMENTS = [
   { id: 'PDL-TGL', name: 'Padalarang — Tegalluar Summarecon', from: 2, to: 3 }
 ];
 
+// Load Whoosh Timetable Reference
+let TIMETABLE_DATA = null;
+try {
+  const timetableFile = path.join(__dirname, 'timetable_data.json');
+  if (fs.existsSync(timetableFile)) {
+    TIMETABLE_DATA = JSON.parse(fs.readFileSync(timetableFile, 'utf-8'));
+    console.log('[*] Whoosh timetable reference loaded (62 trips).');
+  }
+} catch (e) {
+  console.warn('[!] Failed to load timetable_data.json:', e.message);
+}
+
 // Initialize SQLite Database
 const db = new DatabaseSync(DB_FILE);
 
@@ -346,9 +358,43 @@ const server = http.createServer((req, res) => {
   const query = parsedUrl.query;
 
   // API Endpoints
+  if (pathname === '/api/timetable' && req.method === 'GET') {
+    try {
+      const timetableData = require('./timetable_data.json');
+      if (query.train) {
+        const train = timetableData.by_train_number[String(query.train).trim().toUpperCase()];
+        if (train) return sendJson(res, train);
+        return sendJson(res, { error: `Train ${query.train} not found in timetable reference` }, 404);
+      }
+      return sendJson(res, timetableData);
+    } catch (err) {
+      return sendJson(res, { error: 'Timetable reference file not found' }, 404);
+    }
+  }
+
   if (pathname === '/api/trips' && req.method === 'GET') {
     const trips = db.prepare('SELECT id, trip_date, train_code, total_bookings, created_at FROM trips ORDER BY created_at DESC').all();
     return sendJson(res, { trips });
+  }
+
+  if (pathname === '/api/timetable' && req.method === 'GET') {
+    if (!TIMETABLE_DATA) {
+      return sendJson(res, { error: 'Timetable data not loaded.' }, 503);
+    }
+    const trainNum = (query.train || query.train_code || query.code || '').toUpperCase().trim();
+    if (trainNum) {
+      const train = TIMETABLE_DATA.by_train_number[trainNum];
+      if (train) {
+        return sendJson(res, { success: true, train });
+      }
+      return sendJson(res, { error: `Train ${trainNum} not found in timetable reference.` }, 404);
+    }
+    return sendJson(res, {
+      success: true,
+      metadata: TIMETABLE_DATA.metadata,
+      routes: TIMETABLE_DATA.routes,
+      trains: TIMETABLE_DATA.by_train_number
+    });
   }
 
   if (pathname === '/api/manifest' && req.method === 'GET') {

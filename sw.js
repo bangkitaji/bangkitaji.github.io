@@ -3,11 +3,13 @@
  * Enables 100% Standalone Offline usage on Android devices
  */
 
-const CACHE_NAME = 'whoosh-seats-v14';
+const CACHE_NAME = 'whoosh-seats-v17';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './styles.css',
+  './timetable.js',
+  './timetable_data.json',
   './app.js',
   './xlsx.full.min.js',
   './manifest.webmanifest',

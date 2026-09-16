@@ -245,6 +245,18 @@ const el = {
   btnCancelFlush: document.getElementById('btnCancelFlush'),
   btnConfirmFlushEmpty: document.getElementById('btnConfirmFlushEmpty'),
   flushAlert: document.getElementById('flushAlert'),
+  // Timetable Reference Modal
+  timetableBackdrop: document.getElementById('timetableBackdrop'),
+  timetableModal: document.getElementById('timetableModal'),
+  btnOpenTimetableModal: document.getElementById('btnOpenTimetableModal'),
+  btnCloseTimetableModal: document.getElementById('btnCloseTimetableModal'),
+  btnCloseTimetableFooter: document.getElementById('btnCloseTimetableFooter'),
+  tabHlmTgl: document.getElementById('tabHlmTgl'),
+  tabTglHlm: document.getElementById('tabTglHlm'),
+  timetableSearchInput: document.getElementById('timetableSearchInput'),
+  timetableTableContainer: document.getElementById('timetableTableContainer'),
+  timetableFooterInfo: document.getElementById('timetableFooterInfo'),
+  mBtnTimetable: document.getElementById('mBtnTimetable'),
   // Mobile & PWA Elements
   btnInstallPwa: document.getElementById('btnInstallPwa'),
   btnToggleMobileActions: document.getElementById('btnToggleMobileActions'),
@@ -269,7 +281,27 @@ const el = {
   trainDirectionText: document.getElementById('trainDirectionText'),
   coachDirectionPill: document.getElementById('coachDirectionPill'),
   coachDirectionArrow: document.getElementById('coachDirectionArrow'),
-  coachDirectionText: document.getElementById('coachDirectionText')
+  coachDirectionText: document.getElementById('coachDirectionText'),
+  // Dedicated Trip Schedule & Timetable Card Elements
+  tripScheduleCard: document.getElementById('tripScheduleCard'),
+  tripCardActiveBody: document.getElementById('tripCardActiveBody'),
+  tripCardEmptyBody: document.getElementById('tripCardEmptyBody'),
+  heroOriginName: document.getElementById('heroOriginName'),
+  heroOriginTime: document.getElementById('heroOriginTime'),
+  heroOriginStatus: document.getElementById('heroOriginStatus'),
+  heroDestName: document.getElementById('heroDestName'),
+  heroDestTime: document.getElementById('heroDestTime'),
+  heroDestStatus: document.getElementById('heroDestStatus'),
+  heroDirectionBadge: document.getElementById('heroDirectionBadge'),
+  heroDirArrow: document.getElementById('heroDirArrow'),
+  heroDirText: document.getElementById('heroDirText'),
+  heroDurationBadge: document.getElementById('heroDurationBadge'),
+  heroDaysBadge: document.getElementById('heroDaysBadge'),
+  heroCabinBadge: document.getElementById('heroCabinBadge'),
+  heroTrainCodeBadge: document.getElementById('heroTrainCodeBadge'),
+  heroStopsTimeline: document.getElementById('heroStopsTimeline'),
+  btnCardTimetableRef: document.getElementById('btnCardTimetableRef'),
+  btnCardUpload: document.getElementById('btnCardUpload')
 };
 
 // ==========================================================================
@@ -279,6 +311,13 @@ const el = {
 function formatSeatCode(rowNum, letter) {
   const paddedRow = String(rowNum).padStart(3, '0');
   return `${paddedRow}${letter}`;
+}
+
+// Timetable Reference Helper
+function getTrainScheduleInfo(trainCode) {
+  if (!trainCode || typeof WHOOSH_TIMETABLE === 'undefined' || !WHOOSH_TIMETABLE.by_train_number) return null;
+  const cleanCode = String(trainCode).trim().toUpperCase();
+  return WHOOSH_TIMETABLE.by_train_number[cleanCode] || null;
 }
 
 function showToast(message, type = 'success') {
@@ -706,7 +745,9 @@ async function loadManifest(tripId) {
           state.currentTripId = tripId;
           state.trip = data.trip;
           state.records = data.records || [];
-          el.tripSummaryBadge.textContent = `${state.trip.train_code} • ${state.trip.trip_date}`;
+          const tInfo = getTrainScheduleInfo(state.trip.train_code);
+          const schedText = tInfo ? ` • ${tInfo.departure_time} ➔ ${tInfo.arrival_time}` : '';
+          el.tripSummaryBadge.textContent = `${state.trip.train_code}${schedText} • ${state.trip.trip_date}`;
           processManifestData();
           renderAll();
           return;
@@ -720,7 +761,9 @@ async function loadManifest(tripId) {
       state.currentTripId = tripId;
       state.trip = trip;
       state.records = records || [];
-      el.tripSummaryBadge.textContent = `${state.trip.train_code} • ${state.trip.trip_date}`;
+      const tInfo = getTrainScheduleInfo(state.trip.train_code);
+      const schedText = tInfo ? ` • ${tInfo.departure_time} ➔ ${tInfo.arrival_time}` : '';
+      el.tripSummaryBadge.textContent = `${state.trip.train_code}${schedText} • ${state.trip.trip_date}`;
       processManifestData();
       renderAll();
     } else {
@@ -745,7 +788,9 @@ function populateTripSelector(trips) {
   trips.forEach(t => {
     const opt = document.createElement('option');
     opt.value = t.id;
-    opt.textContent = `${t.train_code} — ${t.trip_date} (${t.total_bookings} Passengers)`;
+    const tInfo = getTrainScheduleInfo(t.train_code);
+    const schedStr = tInfo ? ` (${tInfo.departure_time} ➔ ${tInfo.arrival_time})` : '';
+    opt.textContent = `${t.train_code}${schedStr} — ${t.trip_date} (${t.total_bookings} Passengers)`;
     el.tripSelect.appendChild(opt);
   });
 }
@@ -785,14 +830,14 @@ function updateDirectionInfo() {
     currentSegmentMode = null;
     updateSegmentSelectOptions(false);
     el.trainDirectionText.textContent = '--';
-    el.coachDirectionText.textContent = 'Arah Laju Kereta: --';
+    el.coachDirectionText.textContent = 'Train Direction: --';
     if (el.trainDirectionArrow) {
-      el.trainDirectionArrow.textContent = '◀';
-      el.trainDirectionArrow.classList.remove('reverse');
+      el.trainDirectionArrow.textContent = '▶';
+      el.trainDirectionArrow.classList.add('reverse');
     }
     if (el.coachDirectionArrow) {
-      el.coachDirectionArrow.textContent = '◀';
-      el.coachDirectionArrow.classList.remove('reverse');
+      el.coachDirectionArrow.textContent = '▶';
+      el.coachDirectionArrow.classList.add('reverse');
     }
     return;
   }
@@ -824,7 +869,12 @@ function updateDirectionInfo() {
     }
   });
 
-  const isWestbound = countWestbound > countEastbound;
+  // Check official timetable reference first if available
+  const tInfo = getTrainScheduleInfo(state.trip ? state.trip.train_code : '');
+  let isWestbound = countWestbound > countEastbound;
+  if (tInfo) {
+    isWestbound = (tInfo.direction === 'WESTBOUND');
+  }
   state.isWestbound = isWestbound;
 
   // Update relasi dropdown based on train direction
@@ -862,19 +912,166 @@ function updateDirectionInfo() {
 
   el.coachDirectionText.textContent = `Train Direction Towards ${coachDest}`;
 
-  // Update arrows
-  const arrowChar = isWestbound ? '▶' : '◀';
+  // Update arrows based on travel direction:
+  // Arah Jakarta (Westbound): Cars paling depan is C01 (left side), arrow points LEFT ◀
+  // Arah Bandung (Eastbound): Cars paling depan is C08 (right side), arrow points RIGHT ▶
+  const arrowChar = isWestbound ? '◀' : '▶';
   if (el.trainDirectionArrow) {
     el.trainDirectionArrow.textContent = arrowChar;
-    el.trainDirectionArrow.classList.toggle('reverse', isWestbound);
+    el.trainDirectionArrow.classList.toggle('reverse', !isWestbound);
   }
   if (el.coachDirectionArrow) {
     el.coachDirectionArrow.textContent = arrowChar;
-    el.coachDirectionArrow.classList.toggle('reverse', isWestbound);
+    el.coachDirectionArrow.classList.toggle('reverse', !isWestbound);
+  }
+}
+
+// ==========================================================================
+// DEDICATED TRIP SCHEDULE & TIMETABLE JOURNEY CARD RENDERER
+// ==========================================================================
+
+function renderTripScheduleCard() {
+  if (!el.tripScheduleCard) return;
+
+  if (!state.trip) {
+    if (el.tripCardActiveBody) el.tripCardActiveBody.style.display = 'none';
+    if (el.tripCardEmptyBody) el.tripCardEmptyBody.style.display = 'flex';
+    if (el.tripSummaryBadge) el.tripSummaryBadge.textContent = 'Database Empty';
+    return;
+  }
+
+  if (el.tripCardActiveBody) el.tripCardActiveBody.style.display = 'flex';
+  if (el.tripCardEmptyBody) el.tripCardEmptyBody.style.display = 'none';
+
+  const trainCode = (state.trip.train_code || 'G1000').toUpperCase().trim();
+  const tripDate = state.trip.trip_date || '';
+  const totalBookings = state.trip.total_bookings || (state.records ? state.records.length : 0);
+  const tInfo = getTrainScheduleInfo(trainCode);
+
+  // Direction logic
+  const isWestbound = tInfo ? (tInfo.direction === 'WESTBOUND') : state.isWestbound;
+
+  // Origin & Destination default
+  let originName = isWestbound ? 'Tegalluar Summarecon' : 'Halim';
+  let destName = isWestbound ? 'Halim' : 'Tegalluar Summarecon';
+  let depTime = '06:00';
+  let arrTime = '06:45';
+  let operatingDays = 'Daily';
+
+  if (tInfo) {
+    originName = tInfo.origin;
+    destName = tInfo.destination;
+    depTime = tInfo.departure_time;
+    arrTime = tInfo.arrival_time;
+    operatingDays = tInfo.operating_days_en || 'Daily';
+  }
+
+  // Calculate duration in minutes
+  let durationStr = '⏱️ 46-54 Mins';
+  if (depTime && arrTime && depTime.includes(':') && arrTime.includes(':')) {
+    const [dH, dM] = depTime.split(':').map(Number);
+    const [aH, aM] = arrTime.split(':').map(Number);
+    const diffMin = (aH * 60 + aM) - (dH * 60 + dM);
+    if (diffMin > 0) {
+      durationStr = `⏱️ ${diffMin} Mins`;
+    }
+  }
+
+  // Update hero texts
+  if (el.heroOriginName) el.heroOriginName.textContent = originName;
+  if (el.heroOriginTime) el.heroOriginTime.textContent = depTime;
+  if (el.heroOriginStatus) el.heroOriginStatus.textContent = `${originName} Terminal`;
+
+  if (el.heroDestName) el.heroDestName.textContent = destName;
+  if (el.heroDestTime) el.heroDestTime.textContent = arrTime;
+  if (el.heroDestStatus) el.heroDestStatus.textContent = `${destName} Terminus`;
+
+  // Direction badge
+  const arrowChar = isWestbound ? '◀' : '▶';
+  if (el.heroDirArrow) el.heroDirArrow.textContent = arrowChar;
+  if (el.heroDirText) {
+    el.heroDirText.textContent = isWestbound
+      ? 'WESTBOUND ➔ Halim (Towards Jakarta)'
+      : 'EASTBOUND ➔ Tegalluar Summarecon (Towards Bandung)';
+  }
+  if (el.heroDirectionBadge) {
+    el.heroDirectionBadge.classList.toggle('reverse', !isWestbound);
+  }
+
+  // Journey Meta Pills
+  if (el.heroDurationBadge) el.heroDurationBadge.textContent = durationStr;
+  if (el.heroDaysBadge) el.heroDaysBadge.textContent = `🗓️ ${operatingDays}`;
+  if (el.heroCabinBadge) {
+    el.heroCabinBadge.textContent = isWestbound
+      ? 'Cab: Car 01 Leading (Front ◀)'
+      : 'Cab: Car 08 Leading (Front ▶)';
+  }
+  if (el.heroTrainCodeBadge) {
+    el.heroTrainCodeBadge.textContent = `Train: ${trainCode}`;
+  }
+
+  // Summary badge in card controls
+  if (el.tripSummaryBadge) {
+    el.tripSummaryBadge.textContent = `${trainCode} (${depTime} ➔ ${arrTime}) • ${tripDate} • ${totalBookings} Seats Booked`;
+  }
+
+  // Render Station Stops Timeline Stepper
+  if (el.heroStopsTimeline) {
+    // Ordered stations based on travel direction
+    const orderedStations = isWestbound
+      ? ['Tegalluar Summarecon', 'Padalarang', 'Karawang', 'Halim']
+      : ['Halim', 'Karawang', 'Padalarang', 'Tegalluar Summarecon'];
+
+    let timelineHtml = '';
+    orderedStations.forEach((st, idx) => {
+      let role = 'stop';
+      let badgeClass = 'stop';
+      let badgeText = 'Stop';
+      let displayTime = '—';
+
+      if (idx === 0) {
+        role = 'origin';
+        badgeClass = 'origin';
+        badgeText = 'Origin';
+        displayTime = depTime;
+      } else if (idx === orderedStations.length - 1) {
+        role = 'destination';
+        badgeClass = 'destination';
+        badgeText = 'Terminus';
+        displayTime = arrTime;
+      } else {
+        // Intermediate stop
+        const timeFromSched = tInfo && tInfo.schedule ? tInfo.schedule[st] : null;
+        if (timeFromSched) {
+          role = 'stop';
+          badgeClass = 'stop';
+          badgeText = 'Stop';
+          displayTime = timeFromSched;
+        } else {
+          role = 'direct';
+          badgeClass = 'direct';
+          badgeText = 'Direct / Pass';
+          displayTime = '— Pass';
+        }
+      }
+
+      timelineHtml += `
+        <div class="timeline-station-card ${role}">
+          <div class="station-node-header">
+            <span class="station-node-badge ${badgeClass}">${badgeText}</span>
+            <span class="station-node-time ${displayTime.includes('Pass') ? 'pass' : ''}">${displayTime}</span>
+          </div>
+          <span class="station-node-name">${st}</span>
+        </div>
+      `;
+    });
+
+    el.heroStopsTimeline.innerHTML = timelineHtml;
   }
 }
 
 function renderAll() {
+  renderTripScheduleCard();
   renderKPICards();
   updateDirectionInfo();
   renderTrainStrip();
@@ -1016,9 +1213,24 @@ function renderTrainStrip() {
 
     const occPercent = carSeats.length > 0 ? Math.round((occupiedInCar / carSeats.length) * 100) : 0;
 
+    const isLeading = (state.isWestbound && carNum === '01') || (!state.isWestbound && carNum === '08');
+    const isTrailing = (state.isWestbound && carNum === '08') || (!state.isWestbound && carNum === '01');
+
     const card = document.createElement('div');
-    card.className = `train-car-card ${state.activeCar === carNum ? 'active' : ''} ${config.isFrontLocomotive ? 'locomotive-front' : ''} ${config.isRearLocomotive ? 'locomotive-rear' : ''}`;
+    card.className = `train-car-card ${state.activeCar === carNum ? 'active' : ''} ${config.isFrontLocomotive ? 'locomotive-front' : ''} ${config.isRearLocomotive ? 'locomotive-rear' : ''} ${isLeading ? 'leading-car' : ''} ${isTrailing ? 'trailing-car' : ''}`;
     card.dataset.car = carNum;
+    card.title = isLeading
+      ? `Car ${carNum} — Leading Car (Kereta Paling Depan)`
+      : isTrailing
+      ? `Car ${carNum} — Trailing Car (Kereta Paling Belakang)`
+      : `Car ${carNum} (${config.classes})`;
+
+    let roleBadge = '';
+    if (isLeading) {
+      roleBadge = `<span class="car-role-badge leading">Head / Front</span>`;
+    } else if (isTrailing) {
+      roleBadge = `<span class="car-role-badge trailing">Tail / Rear</span>`;
+    }
 
     let occFillClass = '';
     if (occPercent > 75) occFillClass = 'high';
@@ -1027,6 +1239,7 @@ function renderTrainStrip() {
     card.innerHTML = `
       <div class="car-strip-top">
         <span class="car-num-badge">C${carNum}</span>
+        ${roleBadge}
         <span class="car-class-badge ${config.badgeClass}">
           ${carNum === '01' ? '1st/Business' : carNum === '08' ? '1st/Prem' : carNum === '05' ? 'Bistro' : 'Economy'}
         </span>
@@ -1059,11 +1272,41 @@ function renderSeatGrid() {
   el.activeCarBadge.textContent = `Car ${config.carNum}`;
   el.activeCarTitle.textContent = config.classes;
 
-  // Car amenities flags
-  el.driverCabIndicator.style.display = config.isFrontLocomotive ? 'block' : 'none';
-  if (el.driverRearCabIndicator) {
-    el.driverRearCabIndicator.style.display = config.isRearLocomotive ? 'block' : 'none';
+  // Car amenities flags & Direction-aware driver cabin indicators:
+  // Arah Jakarta (Westbound): Cars paling depan is Car 01 (Front cab), Trailing is Car 08 (Rear cab)
+  // Arah Bandung (Eastbound): Cars paling depan is Car 08 (Front cab), Trailing is Car 01 (Rear cab)
+  const isWestbound = state.isWestbound;
+
+  if (config.isFrontLocomotive) {
+    // Car 01 (Front-facing locomotive nose)
+    el.driverCabIndicator.style.display = 'block';
+    if (isWestbound) {
+      el.driverCabIndicator.className = 'train-driver-cab active-cab';
+      el.driverCabIndicator.innerHTML = `<span>🟢 Train Front End • Active Driver Cab (Leading Car — Towards Jakarta)</span>`;
+    } else {
+      el.driverCabIndicator.className = 'train-driver-cab trailing-cab';
+      el.driverCabIndicator.innerHTML = `<span>⚪ Train Rear End • Trailing Driver Cab (Rear of Train — Heading to Bandung)</span>`;
+    }
+  } else {
+    el.driverCabIndicator.style.display = 'none';
   }
+
+  if (el.driverRearCabIndicator) {
+    if (config.isRearLocomotive) {
+      // Car 08 (Rear-facing locomotive nose)
+      el.driverRearCabIndicator.style.display = 'block';
+      if (!isWestbound) {
+        el.driverRearCabIndicator.className = 'train-driver-cab rear-cab active-cab';
+        el.driverRearCabIndicator.innerHTML = `<span>🟢 Train Front End • Active Driver Cab (Leading Car — Towards Bandung)</span>`;
+      } else {
+        el.driverRearCabIndicator.className = 'train-driver-cab rear-cab trailing-cab';
+        el.driverRearCabIndicator.innerHTML = `<span>⚪ Train Rear End • Trailing Driver Cab (Rear of Train — Heading to Jakarta)</span>`;
+      }
+    } else {
+      el.driverRearCabIndicator.style.display = 'none';
+    }
+  }
+
   el.bistroIndicator.style.display = config.isBistroCar ? 'flex' : 'none';
   el.wheelchairIndicator.style.display = config.isWheelchairAccessible ? 'flex' : 'none';
 
@@ -1291,8 +1534,94 @@ function closeSeatDetailModal() {
 }
 
 // ==========================================================================
-// UPLOAD MANIFEST FLOW
+// TIMETABLE REFERENCE MODAL
 // ==========================================================================
+
+let activeTimetableRoute = 'HLM-TGL';
+
+function openTimetableModal(routeId = 'HLM-TGL') {
+  if (!el.timetableBackdrop) return;
+  activeTimetableRoute = routeId;
+  if (el.tabHlmTgl) el.tabHlmTgl.classList.toggle('active', routeId === 'HLM-TGL');
+  if (el.tabTglHlm) el.tabTglHlm.classList.toggle('active', routeId === 'TGL-HLM');
+  if (el.timetableSearchInput) el.timetableSearchInput.value = '';
+  renderTimetableTable(routeId, '');
+  el.timetableBackdrop.classList.add('show');
+}
+
+function closeTimetableModal() {
+  if (el.timetableBackdrop) el.timetableBackdrop.classList.remove('show');
+}
+
+function renderTimetableTable(routeId, filterText = '') {
+  if (!el.timetableTableContainer || typeof WHOOSH_TIMETABLE === 'undefined') return;
+  const routeData = WHOOSH_TIMETABLE.routes[routeId];
+  if (!routeData) return;
+
+  const currentTrain = state.trip ? state.trip.train_code.toUpperCase() : '';
+  const q = String(filterText || '').trim().toLowerCase();
+
+  const filteredTrains = routeData.trains.filter(t => {
+    if (!q) return true;
+    if (t.train_number.toLowerCase().includes(q)) return true;
+    if (t.operating_days.toLowerCase().includes(q) || t.operating_days_en.toLowerCase().includes(q)) return true;
+    return Object.entries(t.schedule).some(([st, time]) => 
+      st.toLowerCase().includes(q) || (time && time.includes(q))
+    );
+  });
+
+  const stations = routeData.stations;
+
+  let html = `
+    <table class="timetable-table">
+      <thead>
+        <tr>
+          <th>Train</th>
+          ${stations.map(st => `<th>${st}</th>`).join('')}
+          <th>Days</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  if (filteredTrains.length === 0) {
+    html += `
+      <tr>
+        <td colspan="${stations.length + 2}" style="text-align:center; padding: 2rem; color: var(--text-muted);">
+          No scheduled trains found matching "${filterText}".
+        </td>
+      </tr>
+    `;
+  } else {
+    filteredTrains.forEach(t => {
+      const isCurrentActive = t.train_number.toUpperCase() === currentTrain;
+      html += `
+        <tr class="${isCurrentActive ? 'active-train-row' : ''}">
+          <td>
+            <span class="train-code-badge">${t.train_number}</span>
+            ${isCurrentActive ? '<span style="font-size:0.65rem; color:#4ade80; margin-left:4px; font-weight:700;">● Current</span>' : ''}
+          </td>
+          ${stations.map(st => {
+            const time = t.schedule[st];
+            return `<td><span class="timetable-time ${time ? '' : 'pass'}">${time || '—'}</span></td>`;
+          }).join('')}
+          <td>
+            <span class="op-days-badge ${t.operating_days_en === 'Daily' ? 'daily' : 'mon-sat'}">
+              ${t.operating_days_en}
+            </span>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  html += `</tbody></table>`;
+  el.timetableTableContainer.innerHTML = html;
+
+  if (el.timetableFooterInfo) {
+    el.timetableFooterInfo.textContent = `Showing ${filteredTrains.length} of ${routeData.trains.length} scheduled trains (${routeData.direction_label})`;
+  }
+}
 
 // ==========================================================================
 // UPLOAD MANIFEST FLOW (EXCEL & CSV)
@@ -1827,6 +2156,39 @@ function initEventListeners() {
     handleUpload(text);
   });
 
+  // Timetable Reference Modal
+  if (el.btnOpenTimetableModal) {
+    el.btnOpenTimetableModal.addEventListener('click', () => openTimetableModal());
+  }
+  if (el.btnCloseTimetableModal) {
+    el.btnCloseTimetableModal.addEventListener('click', closeTimetableModal);
+  }
+  if (el.btnCloseTimetableFooter) {
+    el.btnCloseTimetableFooter.addEventListener('click', closeTimetableModal);
+  }
+  if (el.timetableBackdrop) {
+    el.timetableBackdrop.addEventListener('click', e => {
+      if (e.target === el.timetableBackdrop) closeTimetableModal();
+    });
+  }
+  if (el.tabHlmTgl) {
+    el.tabHlmTgl.addEventListener('click', () => openTimetableModal('HLM-TGL'));
+  }
+  if (el.tabTglHlm) {
+    el.tabTglHlm.addEventListener('click', () => openTimetableModal('TGL-HLM'));
+  }
+  if (el.timetableSearchInput) {
+    el.timetableSearchInput.addEventListener('input', e => {
+      renderTimetableTable(activeTimetableRoute, e.target.value);
+    });
+  }
+  if (el.mBtnTimetable) {
+    el.mBtnTimetable.addEventListener('click', () => {
+      if (el.mobileActionsBackdrop) el.mobileActionsBackdrop.classList.remove('show');
+      openTimetableModal();
+    });
+  }
+
   // Flush Database Modal
   if (el.btnOpenFlushModal) {
     el.btnOpenFlushModal.addEventListener('click', openFlushModal);
@@ -1841,9 +2203,18 @@ function initEventListeners() {
     }
   }
 
-  // Banner Upload Button
+  // Banner & Card Upload Buttons
   if (el.btnBannerUpload) {
     el.btnBannerUpload.addEventListener('click', openUploadModal);
+  }
+  if (el.btnCardUpload) {
+    el.btnCardUpload.addEventListener('click', openUploadModal);
+  }
+  if (el.btnCardTimetableRef) {
+    el.btnCardTimetableRef.addEventListener('click', () => {
+      const isWestbound = state.isWestbound;
+      openTimetableModal(isWestbound ? 'TGL-HLM' : 'HLM-TGL');
+    });
   }
 
   // Mobile Actions Bottom Sheet

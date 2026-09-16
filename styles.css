@@ -383,6 +383,447 @@ body {
   gap: 1.75rem;
 }
 
+/* ==========================================================================
+   DEDICATED TRIP SCHEDULE & TIMETABLE JOURNEY CARD
+   ========================================================================== */
+.trip-schedule-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--whoosh-red);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.trip-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.15rem 1.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.trip-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.trip-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(199, 32, 39, 0.15);
+  border: 1px solid rgba(199, 32, 39, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 0 16px var(--whoosh-red-glow);
+}
+
+.trip-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.trip-card-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.2rem 0 0;
+}
+
+.trip-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.trip-selector-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.trip-select-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #CBD5E1;
+  white-space: nowrap;
+}
+
+.trip-card-controls .btn-sm {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  gap: 0.45rem;
+}
+
+.trip-card-body {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Journey Hero Banner */
+.journey-hero {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.2fr) minmax(280px, 2fr) minmax(180px, 1.2fr);
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.station-endpoint {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.station-endpoint.destination {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.endpoint-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.station-endpoint.origin .endpoint-tag {
+  color: #34D399;
+}
+
+.station-endpoint.destination .endpoint-tag {
+  color: #F87171;
+}
+
+.endpoint-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.endpoint-time {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #F8FAFC;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0.15rem 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.endpoint-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Track Center Visual */
+.journey-track-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.direction-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(199, 32, 39, 0.15);
+  border: 1px solid rgba(199, 32, 39, 0.35);
+  color: #FECACA;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.direction-pill-badge .dir-arrow {
+  color: var(--whoosh-red-light);
+  font-weight: 900;
+  animation: slide-arrow 1.5s infinite;
+}
+
+.direction-pill-badge.reverse .dir-arrow {
+  animation: slide-arrow-right 1.5s infinite;
+}
+
+.track-line-visual {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  margin: 0.25rem 0;
+}
+
+.track-line {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10B981 0%, #3B82F6 50%, #C72027 100%);
+}
+
+.train-bullet-marker {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  filter: drop-shadow(0 2px 6px rgba(199, 32, 39, 0.6));
+  animation: marker-pulse 2s infinite ease-in-out;
+}
+
+@keyframes marker-pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.15); }
+}
+
+.journey-meta-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #E2E8F0;
+}
+
+.meta-pill.highlight {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #FCD34D;
+}
+
+/* Station Stops Stepper */
+.journey-timeline-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timeline-header-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.station-timeline-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.timeline-station-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.timeline-station-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.timeline-station-card.origin {
+  border-top: 3px solid #10B981;
+}
+
+.timeline-station-card.stop {
+  border-top: 3px solid #3B82F6;
+}
+
+.timeline-station-card.direct {
+  border-top: 3px solid var(--text-dim);
+  opacity: 0.65;
+}
+
+.timeline-station-card.destination {
+  border-top: 3px solid var(--whoosh-red);
+}
+
+.station-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.station-node-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+}
+
+.station-node-badge.origin {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+.station-node-badge.stop {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60A5FA;
+}
+
+.station-node-badge.direct {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.station-node-badge.destination {
+  background: rgba(199, 32, 39, 0.2);
+  color: #F87171;
+}
+
+.station-node-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  margin-top: 0.15rem;
+}
+
+.station-node-time {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #E2E8F0;
+}
+
+.station-node-time.pass {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Empty State inside Card */
+.trip-card-empty {
+  padding: 3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-state-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 480px;
+}
+
+.empty-state-icon {
+  font-size: 2.75rem;
+  opacity: 0.7;
+}
+
+.empty-state-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.empty-state-content p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive adjustments for trip card */
+@media (max-width: 992px) {
+  .journey-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .station-endpoint.destination {
+    text-align: center;
+    align-items: center;
+  }
+  .station-endpoint.origin {
+    text-align: center;
+    align-items: center;
+  }
+  .station-timeline-stepper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .trip-card-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .trip-card-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .trip-selector-box {
+    width: 100%;
+  }
+  .trip-selector-box .custom-select-wrapper {
+    flex: 1;
+  }
+  .trip-selector-box select {
+    width: 100%;
+  }
+  .station-timeline-stepper {
+    grid-template-columns: 1fr;
+  }
+}
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1055,6 +1496,58 @@ body {
   border-left: none;
   border-right: 3px solid var(--whoosh-red);
   text-align: right;
+}
+
+.train-driver-cab.active-cab {
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.22) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-left: 3px solid #22c55e;
+  color: #4ade80;
+}
+
+.train-driver-cab.rear-cab.active-cab {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(34, 197, 94, 0.22) 100%);
+  border-left: none;
+  border-right: 3px solid #22c55e;
+  color: #4ade80;
+  text-align: right;
+}
+
+.train-driver-cab.trailing-cab {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
+}
+
+.train-driver-cab.rear-cab.trailing-cab {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: none;
+  border-right: 3px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.car-role-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.12rem 0.35rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.car-role-badge.leading {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.car-role-badge.trailing {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.train-car-card.leading-car {
+  border-color: rgba(34, 197, 94, 0.4);
 }
 
 .chassis-amenity-bar {
@@ -2170,5 +2663,181 @@ body {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   TIMETABLE REFERENCE MODAL
+   ========================================================================== */
+.modal-card.timetable-modal {
+  max-width: 860px;
+  max-height: 88vh;
+  width: 95%;
+}
+
+.timetable-modal-body {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  flex: 1;
+}
+
+.timetable-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.timetable-tabs {
+  display: flex;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.timetable-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.timetable-tab:hover {
+  color: #FFFFFF;
+}
+
+.timetable-tab.active {
+  background: var(--whoosh-red);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px var(--whoosh-red-glow);
+}
+
+.timetable-search-wrap {
+  flex: 1;
+  min-width: 220px;
+}
+
+.timetable-search-wrap input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.85rem;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.timetable-search-wrap input:focus {
+  outline: none;
+  border-color: var(--whoosh-red);
+  box-shadow: 0 0 0 2px var(--whoosh-red-glow);
+}
+
+.timetable-table-container {
+  overflow-y: auto;
+  max-height: 50vh;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.timetable-table th {
+  background: rgba(16, 22, 34, 0.96);
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.timetable-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+}
+
+.timetable-table tr:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.timetable-table tr.active-train-row {
+  background: rgba(199, 32, 39, 0.15);
+  border-left: 3px solid var(--whoosh-red);
+}
+
+.train-code-badge {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  font-size: 0.82rem;
+}
+
+.timetable-table tr.active-train-row .train-code-badge {
+  background: var(--whoosh-red);
+  color: #FFFFFF;
+}
+
+.timetable-time {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #E2E8F0;
+}
+
+.timetable-time.pass {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.op-days-badge {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.op-days-badge.daily {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.op-days-badge.mon-sat {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.timetable-footer-info {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 
 

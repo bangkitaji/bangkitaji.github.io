@@ -34,27 +34,14 @@
         </div>
       </div>
     </div>
-
-    <!-- Trip & Date Switcher -->
-    <div class="header-center">
-      <div class="trip-selector-container">
-        <div class="selector-item">
-          <label for="tripSelect" class="selector-label">Schedule & Train:</label>
-          <div class="custom-select-wrapper">
-            <select id="tripSelect" class="trip-dropdown" aria-label="Select Train Schedule">
-              <option value="">(No manifest data yet)</option>
-            </select>
-          </div>
-        </div>
-        <div class="live-status-badge" id="liveStatusBadge">
-          <span class="pulsing-dot"></span>
-          <span id="tripSummaryBadge">Database Empty</span>
-        </div>
-      </div>
-    </div>
-
     <!-- Header Actions -->
     <div class="header-right">
+      <button class="btn btn-secondary" id="btnOpenTimetableModal" title="View Whoosh Train Timetable Reference">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Timetable</span>
+      </button>
       <button class="btn btn-primary" id="btnOpenUploadModal" title="Upload new daily manifest">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
@@ -85,6 +72,98 @@
 
   <!-- Main Container -->
   <main class="main-content">
+
+    <!-- Dedicated Trip & Timetable Journey Card -->
+    <section class="trip-schedule-card" id="tripScheduleCard">
+      <!-- Card Header: Title & Dropdown Selector -->
+      <div class="trip-card-header">
+        <div class="trip-card-title-group">
+          <span class="trip-card-icon">🚅</span>
+          <div>
+            <h2 class="trip-card-title">Active Trip & Journey Information</h2>
+            <p class="trip-card-subtitle">Official Whoosh timetable & manifest dispatch</p>
+          </div>
+        </div>
+        <div class="trip-card-controls">
+          <div class="trip-selector-box">
+            <label for="tripSelect" class="trip-select-label">Schedule & Train:</label>
+            <div class="custom-select-wrapper">
+              <select id="tripSelect" class="trip-dropdown" aria-label="Select Train Schedule">
+                <option value="">(No manifest data yet)</option>
+              </select>
+            </div>
+          </div>
+          <div class="live-status-badge" id="liveStatusBadge">
+            <span class="pulsing-dot"></span>
+            <span id="tripSummaryBadge">Database Empty</span>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btnCardTimetableRef" title="Browse full 62 train timetable reference">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>Full Timetable</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Active State: Comprehensive Journey Details -->
+      <div class="trip-card-body" id="tripCardActiveBody">
+        <!-- Route Hero Banner -->
+        <div class="journey-hero">
+          <!-- Origin Box -->
+          <div class="station-endpoint origin">
+            <span class="endpoint-tag">DEPARTURE</span>
+            <span class="endpoint-name" id="heroOriginName">Halim</span>
+            <span class="endpoint-time" id="heroOriginTime">06:25</span>
+            <span class="endpoint-sub" id="heroOriginStatus">Origin Terminal</span>
+          </div>
+
+          <!-- Track & Meta Center -->
+          <div class="journey-track-center">
+            <div class="direction-pill-badge" id="heroDirectionBadge">
+              <span class="dir-arrow" id="heroDirArrow">▶</span>
+              <span id="heroDirText">EASTBOUND ➔ Tegalluar Summarecon</span>
+            </div>
+            <div class="track-line-visual">
+              <div class="track-line"></div>
+              <div class="train-bullet-marker" id="heroTrainMarker">🚅</div>
+            </div>
+            <div class="journey-meta-badges">
+              <span class="meta-pill" id="heroDurationBadge">⏱️ 54 Mins</span>
+              <span class="meta-pill" id="heroDaysBadge">🗓️ Daily</span>
+              <span class="meta-pill" id="heroCabinBadge">Cab: Car 08 Leading</span>
+              <span class="meta-pill" id="heroTrainCodeBadge">Train: G1043</span>
+            </div>
+          </div>
+
+          <!-- Destination Box -->
+          <div class="station-endpoint destination">
+            <span class="endpoint-tag">ARRIVAL</span>
+            <span class="endpoint-name" id="heroDestName">Tegalluar Summarecon</span>
+            <span class="endpoint-time" id="heroDestTime">07:19</span>
+            <span class="endpoint-sub" id="heroDestStatus">Terminus</span>
+          </div>
+        </div>
+
+        <!-- Station Stops Timeline / Stepper -->
+        <div class="journey-timeline-section">
+          <div class="timeline-header-label">Station Stops & Timetable Progression:</div>
+          <div class="station-timeline-stepper" id="heroStopsTimeline">
+            <!-- Populated dynamically based on train schedule -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State: When no manifest is loaded -->
+      <div class="trip-card-empty" id="tripCardEmptyBody" style="display:none;">
+        <div class="empty-state-content">
+          <span class="empty-state-icon">🚅</span>
+          <h3>No Trip Manifest Loaded</h3>
+          <p>Select a saved schedule from the dropdown above or upload a new daily manifest file to view full timetable details and seat occupancy.</p>
+          <button class="btn btn-primary" id="btnCardUpload">Upload Manifest</button>
+        </div>
+      </div>
+    </section>
 
     <!-- KPI Metric Cards -->
     <section class="kpi-grid">
@@ -495,6 +574,50 @@
     </div>
   </div>
 
+  <!-- Timetable Reference Modal -->
+  <div class="modal-backdrop" id="timetableBackdrop">
+    <div class="modal-card timetable-modal" id="timetableModal">
+      <button class="modal-close-btn" id="btnCloseTimetableModal">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <span class="modal-icon-badge">🕒</span>
+          <div>
+            <h3 class="modal-title">Whoosh Train Timetable Reference</h3>
+            <p class="modal-desc">Official schedule for Jakarta—Bandung High-Speed Railway (62 Scheduled Trips)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timetable-modal-body">
+        <!-- Direction Tabs & Search -->
+        <div class="timetable-toolbar">
+          <div class="timetable-tabs">
+            <button class="timetable-tab active" id="tabHlmTgl" data-route="HLM-TGL">
+              <span>Halim ➔ Tegalluar (31)</span>
+            </button>
+            <button class="timetable-tab" id="tabTglHlm" data-route="TGL-HLM">
+              <span>Tegalluar ➔ Halim (31)</span>
+            </button>
+          </div>
+          <div class="timetable-search-wrap">
+            <input type="text" id="timetableSearchInput" placeholder="Search train (e.g. G1043), station, or time..." autocomplete="off">
+          </div>
+        </div>
+
+        <!-- Timetable Table Container -->
+        <div class="timetable-table-container" id="timetableTableContainer">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="timetable-footer-info" id="timetableFooterInfo">Showing 31 trains</span>
+        <button class="btn btn-secondary" id="btnCloseTimetableFooter">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Actions Bottom Drawer Sheet -->
   <div class="modal-backdrop" id="mobileActionsBackdrop">
     <div class="modal-card mobile-actions-sheet" id="mobileActionsSheet">
@@ -505,6 +628,13 @@
         <span class="offline-indicator-badge" id="offlineIndicatorBadge">🟢 Standalone Offline Ready</span>
       </div>
       <div class="modal-body mobile-actions-grid">
+        <button class="mobile-action-btn" id="mBtnTimetable">
+          <span class="m-act-icon">🕒</span>
+          <div class="m-act-text">
+            <strong>Train Timetable Reference</strong>
+            <span>Browse 62 scheduled Whoosh train trips</span>
+          </div>
+        </button>
         <button class="mobile-action-btn primary" id="mBtnUpload">
           <span class="m-act-icon">📤</span>
           <div class="m-act-text">
@@ -557,6 +687,7 @@
   <!-- Toast Notification -->
   <div class="toast-container" id="toastContainer"></div>
 
+  <script src="timetable.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
