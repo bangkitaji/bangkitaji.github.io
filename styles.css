@@ -1048,6 +1048,15 @@ body {
   border-left: 3px solid var(--whoosh-red);
 }
 
+.train-driver-cab.rear-cab {
+  margin-bottom: 0;
+  margin-top: 0.65rem;
+  background: linear-gradient(90deg, transparent 0%, rgba(199, 32, 39, 0.3) 100%);
+  border-left: none;
+  border-right: 3px solid var(--whoosh-red);
+  text-align: right;
+}
+
 .chassis-amenity-bar {
   display: flex;
   align-items: center;
@@ -1112,6 +1121,11 @@ body {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+}
+
+/* Ensure First Class rows align seamlessly with adjacent rows */
+.seat-row.first-class-row .seat-cluster.left {
+  min-width: calc(58px * 2 + 0.45rem);
 }
 
 /* Aisle */
