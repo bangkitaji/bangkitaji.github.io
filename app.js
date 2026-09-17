@@ -789,8 +789,8 @@ function populateTripSelector(trips) {
     const opt = document.createElement('option');
     opt.value = t.id;
     const tInfo = getTrainScheduleInfo(t.train_code);
-    const schedStr = tInfo ? ` (${tInfo.departure_time} ➔ ${tInfo.arrival_time})` : '';
-    opt.textContent = `${t.train_code}${schedStr} — ${t.trip_date} (${t.total_bookings} Passengers)`;
+    const depTime = tInfo && tInfo.departure_time ? ` — ${tInfo.departure_time}` : '';
+    opt.textContent = `${t.train_code} — ${t.trip_date}${depTime}`;
     el.tripSelect.appendChild(opt);
   });
 }
@@ -1254,14 +1254,23 @@ function renderTrainStrip() {
     `;
 
     card.addEventListener('click', () => {
-      state.activeCar = carNum;
-      document.querySelectorAll('.train-car-card').forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
+      setActiveCar(carNum);
       renderSeatGrid();
     });
 
     el.trainCarsContainer.appendChild(card);
   });
+}
+
+function setActiveCar(carNum) {
+  if (carNum.length === 1) carNum = '0' + carNum;
+  if (!CAR_CONFIGS[carNum]) return;
+  state.activeCar = carNum;
+  if (el.trainCarsContainer) {
+    el.trainCarsContainer.querySelectorAll('.train-car-card').forEach(c => {
+      c.classList.toggle('active', c.dataset.car === carNum);
+    });
+  }
 }
 
 function renderSeatGrid() {
@@ -1417,15 +1426,42 @@ function createSeatElement(carNum, rowNum, letter) {
 
   // Search Check
   if (state.searchQuery) {
-    const q = state.searchQuery.toLowerCase();
-    const matchesSeat = seatCode.toLowerCase().includes(q) || `${rowNum}${letter}`.toLowerCase().includes(q);
+    const qRaw = state.searchQuery.trim().toLowerCase();
+    const qClean = qRaw.replace(/[^a-z0-9]/g, '');
+    const seatCodeLower = seatCode.toLowerCase(); // e.g. "005a"
+    const rowLetterClean = `${rowNum}${letter}`.toLowerCase(); // e.g. "5a"
+    const rowPaddedLetter = `${String(rowNum).padStart(2, '0')}${letter}`.toLowerCase(); // e.g. "05a"
+
+    // Parse potential car + seat in search query like "2 5a" or "c2 5a"
+    const carSeatMatch = state.searchQuery.match(/(?:car|gerbong|c|k)?\s*0?([1-8])\s*[-/_, ]+\s*(?:seat|kursi|no)?\s*0*([0-9]{1,2})\s*[-/ ]*([a-fA-F])/i);
+    let matchesSeat = false;
+    if (carSeatMatch) {
+      const matchCar = '0' + carSeatMatch[1];
+      const matchRow = parseInt(carSeatMatch[2], 10);
+      const matchLetter = carSeatMatch[3].toUpperCase();
+      if (carNum === matchCar && rowNum === matchRow && letter === matchLetter) {
+        matchesSeat = true;
+      }
+    } else {
+      matchesSeat =
+        seatCodeLower === qClean ||
+        rowLetterClean === qClean ||
+        rowPaddedLetter === qClean ||
+        (qClean.length >= 2 && seatCodeLower.includes(qClean)) ||
+        seatCodeLower.includes(qRaw) ||
+        rowLetterClean.includes(qRaw) ||
+        rowPaddedLetter.includes(qRaw);
+    }
+
     const matchesBooking = seatObj.records.some(r =>
-      (r.booking_code && r.booking_code.toLowerCase().includes(q)) ||
-      (r.ticket_number && r.ticket_number.toLowerCase().includes(q))
+      (r.booking_code && r.booking_code.toLowerCase().includes(qRaw)) ||
+      (r.ticket_number && r.ticket_number.toLowerCase().includes(qRaw)) ||
+      (r.passenger_name && r.passenger_name.toLowerCase().includes(qRaw))
     );
 
     if (matchesSeat || matchesBooking) {
       seatNode.classList.add('search-match');
+      isFilteredOut = false;
     }
   }
 
@@ -2088,18 +2124,145 @@ function initEventListeners() {
     });
   });
 
-  // Search input
-  el.searchInput.addEventListener('input', e => {
-    state.searchQuery = e.target.value.trim();
-    el.btnClearSearch.style.display = state.searchQuery ? 'block' : 'none';
-    renderSeatGrid();
+  // Search & Direct Seat Navigation
+  let searchDebounceTimer = null;
+
+  function parseSearchTarget(query) {
+    if (!query) return null;
+    const raw = query.trim();
+    if (!raw) return null;
+
+    // 1. Car + Seat: "Car 2 05A", "2-5A", "02 05A", "C2 5A", "Gerbong 2 Kursi 5A"
+    const carSeatMatch = raw.match(/(?:car|gerbong|c|k)?\s*0?([1-8])\s*[-/_, ]+\s*(?:seat|kursi|no)?\s*0*([0-9]{1,2})\s*[-/ ]*([a-fA-F])/i);
+    if (carSeatMatch) {
+      const car = '0' + carSeatMatch[1];
+      const row = parseInt(carSeatMatch[2], 10);
+      const letter = carSeatMatch[3].toUpperCase();
+      return { car, row, letter, seatCode: formatSeatCode(row, letter) };
+    }
+
+    // 2. Seat only: "5A", "05A", "005A", "18F", "Seat 5A", "Kursi 5A", "5-A"
+    const seatMatch = raw.match(/^(?:seat|kursi|no)?\s*0*([0-9]{1,2})\s*[-/ ]*([a-fA-F])$/i);
+    if (seatMatch) {
+      const row = parseInt(seatMatch[1], 10);
+      const letter = seatMatch[2].toUpperCase();
+      const seatCode = formatSeatCode(row, letter);
+
+      // Check if current car has this seat
+      const currentConfig = CAR_CONFIGS[state.activeCar];
+      const hasInCurrent = currentConfig && currentConfig.rows.some(r => r.row === row && [...r.left, ...r.right].includes(letter));
+      if (hasInCurrent) {
+        return { car: state.activeCar, row, letter, seatCode };
+      }
+
+      // Check if another car has this seat
+      const foundCar = Object.keys(CAR_CONFIGS).find(c =>
+        CAR_CONFIGS[c].rows.some(r => r.row === row && [...r.left, ...r.right].includes(letter))
+      );
+      return { car: foundCar || state.activeCar, row, letter, seatCode };
+    }
+
+    // 3. Check Booking Code / Ticket Number in records
+    if (raw.length >= 3 && state.records && state.records.length > 0) {
+      const qUpper = raw.toUpperCase();
+      const rec = state.records.find(r =>
+        (r.booking_code && r.booking_code.toUpperCase().includes(qUpper)) ||
+        (r.ticket_number && r.ticket_number.includes(raw)) ||
+        (r.passenger_name && r.passenger_name.toUpperCase().includes(qUpper))
+      );
+      if (rec) {
+        let car = rec.car || '01';
+        if (car.length === 1) car = '0' + car;
+        return { car, seatCode: rec.seat, fromBooking: true };
+      }
+    }
+
+    return null;
+  }
+
+  function handleSearch(immediate = false, shouldOpenModal = false) {
+    clearTimeout(searchDebounceTimer);
+
+    const execute = () => {
+      state.searchQuery = el.searchInput.value.trim();
+      el.btnClearSearch.style.display = state.searchQuery ? 'block' : 'none';
+
+      if (!state.searchQuery) {
+        renderSeatGrid();
+        return;
+      }
+
+      const target = parseSearchTarget(state.searchQuery);
+      if (target && target.car && target.car !== state.activeCar) {
+        setActiveCar(target.car);
+      }
+
+      renderSeatGrid();
+
+      // Directly scroll and highlight the searched seat
+      requestAnimationFrame(() => {
+        let targetNode = null;
+        if (target && target.seatCode) {
+          const key = `${target.car || state.activeCar}_${target.seatCode}`;
+          targetNode = el.seatGridContainer.querySelector(`.seat-node[data-key="${key}"]`);
+        }
+        if (!targetNode) {
+          targetNode = el.seatGridContainer.querySelector('.seat-node.search-match');
+        }
+
+        if (targetNode) {
+          targetNode.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+          });
+          targetNode.classList.add('search-focus');
+          setTimeout(() => targetNode.classList.remove('search-focus'), 2800);
+
+          if (shouldOpenModal) {
+            const key = targetNode.dataset.key;
+            const seatObj = state.seatMap.get(key);
+            if (seatObj) {
+              const status = getSeatStatus(seatObj, state.selectedSegment);
+              openSeatDetailModal(seatObj, status);
+            }
+          }
+        }
+      });
+    };
+
+    if (immediate) {
+      execute();
+    } else {
+      const isExactSeat = /^(?:seat|kursi|no)?\s*0*([0-9]{1,2})\s*[-/ ]*([a-fA-F])$/i.test(el.searchInput.value.trim()) ||
+        /(?:car|gerbong|c|k)?\s*0?([1-8])\s*[-/_, ]+\s*(?:seat|kursi|no)?\s*0*([0-9]{1,2})\s*[-/ ]*([a-fA-F])/i.test(el.searchInput.value.trim());
+      searchDebounceTimer = setTimeout(execute, isExactSeat ? 80 : 180);
+    }
+  }
+
+  el.searchInput.addEventListener('input', () => {
+    handleSearch(false, false);
   });
+
+  el.searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSearch(true, true);
+    }
+  });
+
+  const searchIcon = document.querySelector('.search-input-wrapper .search-icon');
+  if (searchIcon) {
+    searchIcon.style.cursor = 'pointer';
+    searchIcon.addEventListener('click', () => handleSearch(true, false));
+  }
 
   el.btnClearSearch.addEventListener('click', () => {
     el.searchInput.value = '';
     state.searchQuery = '';
     el.btnClearSearch.style.display = 'none';
     renderSeatGrid();
+    el.searchInput.focus();
   });
 
   // Export Empty Seats
